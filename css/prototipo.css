@@ -10,7 +10,6 @@ html, body {
 .conteiner-principal {
     width: 100%;
     height: 100%;
-    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,17 +19,32 @@ html, body {
 }
 
 .conteiner-venta {
-    max-width: 700px; /* Limita el ancho máximo */
-    max-height: 400px; /* Limita la altura máxima */
+    max-width: 500px; /* Limita el ancho máximo */
+    max-height: 100px; /* Limita la altura máxima */
     width: 100%; /* Ajusta al 100% del ancho disponible pero no excede max-width */
-    height: auto; /* Ajusta la altura automáticamente, sin exceder max-height */
+    height: 100%; /* Ajusta la altura automáticamente, sin exceder max-height */
     background-color: #ffffff;
-    border: 2px solid #000000;
+    border: 1px solid #ededed;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 10px 0; /* Espacio entre contenedores */
+    margin: 80px 0; /* Espacio entre contenedores */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    text-align: center;
+    transition: .6s;
+}
+
+.conteiner-venta h3 {
+    letter-spacing: 10px;
+}
+
+.conteiner-venta h1 {
+    letter-spacing: 5px;
+}
+
+.conteiner-venta:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px);
 }
