@@ -10,11 +10,11 @@
 .conteiner-product img {
     width: 100%;
     height: auto;
-    transition: all .7s;
+    transition: all .5s;
 }
 
 .conteiner-product:hover img {
-    transform: scale(1.09);
+    transform: scale(1.10);
 }
 
 .conteiner-product .conteiner-description {
