@@ -1,52 +1,15 @@
-.conteiner-product {
-    width: 1000px;
-    margin: 10px auto;
-    right:400px;
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    overflow: hidden;
+* {
+    background-color: #ededed;
 }
 
-.conteiner-product img {
+html, body {
     width: 100%;
-    height: auto;
-    transition: all .5s;
-}
-
-.conteiner-product:hover img {
-    transform: scale(1.10);
-}
-
-.conteiner-product .conteiner-description {
-    background-color: rgba(0, 0, 0, .7);
-    position: absolute;
-    top: -100%;
-    left: 0;
-    text-align: justify;
     height: 100%;
-    color: #fff;
-    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
 }
 
-.conteiner-product h3 {
-    text-align: center;
-    font-size: 25px;
-    padding: 0 10px 20px 10px;
-}
-
-.conteiner-product p {
-    padding: 40px 20px 40px 20px;
-    border-top:1px solid #808080;
-    border-bottom: 1px solid #808080;
-}
-
-.conteiner-product:hover .conteiner-description {
-    top: 0;
-}
-.conteiner-price-sold {
-    display: flex;
-    text-align: center;  
-}
-.conteiner-price-sold h3{
-    margin-left: 20px;
+.conteiner-venta {
+    
 }
