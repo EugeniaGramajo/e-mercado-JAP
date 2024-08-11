@@ -1,15 +1,36 @@
-* {
-    background-color: #ededed;
-}
-
 html, body {
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
     font-family: "Raleway", sans-serif;
+    background-color: #ededed;
+}
+
+.conteiner-principal {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 300px;
 }
 
 .conteiner-venta {
-    
+    max-width: 700px; /* Limita el ancho máximo */
+    max-height: 400px; /* Limita la altura máxima */
+    width: 100%; /* Ajusta al 100% del ancho disponible pero no excede max-width */
+    height: auto; /* Ajusta la altura automáticamente, sin exceder max-height */
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px 0; /* Espacio entre contenedores */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
