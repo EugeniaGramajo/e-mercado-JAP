@@ -1,11 +1,11 @@
 html, body {
     width: 100%;
-    height: 100%;
+    height: auto;
     padding: 0;
     margin: 0;
-    font-family: "Raleway", sans-serif;
+    font-family: "Darker Grotesque", sans-serif;
     background-color: #ededed;
-    overflow-x: auto;
+    overflow: auto;
 }
 
 .conteiner-principal {
@@ -44,10 +44,12 @@ html, body {
 
 .conteiner-venta h3 {
     letter-spacing: 10px;
+    font-size: 21px;
 }
 
 .conteiner-venta h1 {
     letter-spacing: 5px;
+    font-size: 35px;
 }
 
 .conteiner-venta:hover {
@@ -61,14 +63,15 @@ html, body {
     justify-content: center; /* Centra los contenedores en la fila */
     gap: 20px; /* Espacio entre contenedores */
     width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
-    max-width: 1000px; /* Limita el ancho máximo para ajustar el diseño */
+    max-width: 1200px; /* Limita el ancho máximo para ajustar el diseño */
 }
 
 .conteiner-autos {
-    max-width: 300px; 
-    height: auto; 
+    max-width: 280px; 
+    height: 310px; 
     overflow: hidden;
     margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #ffffff;
     border: 1px solid #ededed;
     border-radius: 4%;
@@ -86,7 +89,7 @@ html, body {
 hr {
     border: none; /* Elimina los bordes predeterminados */
     border-top: 1px solid #ededed; /* Línea gris de 2px de grosor */
-    margin: 20px 3px; /* Espacio alrededor de la línea */
+    margin: 10px 3px; /* Espacio alrededor de la línea */
     
 }
 
@@ -94,3 +97,30 @@ hr {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     transform: translateY(-10px);
 }
+
+.conteiner-precio {
+    display: flex;
+    flex-direction: column;
+}
+
+.precio-conteiner {
+    display: flex;
+    align-items: baseline;
+}
+
+.conteiner-precio h3 {
+    margin-top: -6px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-left: 10px;
+}
+
+.conteiner-precio p {
+    margin-top: -18px;
+    font-size: 22px;
+    margin-left: 10px;
+    max-width: 250px;   
+    overflow: auto;   
+    display: block;
+}
+
