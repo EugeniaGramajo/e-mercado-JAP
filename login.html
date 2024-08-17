@@ -8,31 +8,49 @@
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
-  </style>
+  <link href="css/stylesLogin.css" rel="stylesheet">
 </head>
 
 <body>
   <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div class="login-container">
+      <h1>Bienvenido</h1>
+      <form onsubmit="showModal(event)">
+          <input type="text" placeholder="Usuario" required>
+          <input type="password" placeholder="Contraseña" required>
+          <button type="submit">LOG IN</button>
+      </form>
+      <p class="link">¿No recuerdas tu contraseña?</p>
+      <p class="link">Regístrate</p>
     </div>
   </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h1>¡Ingreso exitoso!</h1>
+      <button class="button" onclick="window.location.href='index.html';">VOLVER AL INICIO</button>
+    </div>
+  </div>
+
   <footer class="text-muted">
     <div class="container">
-      <p class="float-end">
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
   <script src="js/login.js"></script>
+  <script>
+    function showModal(event) {
+      event.preventDefault(); // Evita que el formulario se envíe
+      document.getElementById('modal').style.display = 'flex'; // Muestra el modal
+    }
+
+    function reloadPage() {
+      location.reload(); // Recarga la página
+    }
+  </script>
 </body>
 
 </html>
