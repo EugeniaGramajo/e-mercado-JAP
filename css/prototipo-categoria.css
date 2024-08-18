@@ -18,6 +18,9 @@ body {
     height: 300px;
     border-radius: 12px;
     object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: .4s;
+    cursor: pointer;
 }
 
 .container-categoria h3 {
@@ -27,9 +30,15 @@ body {
 
 .container-categoria p {
     opacity: 0;
+    visibility: hidden;
     transition: .4s;
 }
 
-.container-categoria:hover .description-categorias {
+.container-categoria img:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+}
+
+.img-categorias:hover + .description-categorias {
     opacity: 1;
+    visibility: visible;
 }
