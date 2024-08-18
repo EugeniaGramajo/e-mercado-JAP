@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Red Hat Mono", monospace;;
+}
+
+.container-inicial {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 80px;
+    align-items: center;
+    text-align: center;
+}
+
+.container-categoria img {
+    width: 75%; 
+    height: 300px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.container-categoria h3 {
+    letter-spacing: 8px;
+    font-size: 25px;
+}
+
+.container-categoria p {
+    opacity: 0;
+    transition: .4s;
+}
+
+.container-categoria:hover .description-categorias {
+    opacity: 1;
+}
