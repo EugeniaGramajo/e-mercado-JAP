@@ -5,11 +5,23 @@ body {
 }
 
 .container-inicial {
-    max-width: 1500px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 0 20px;
     margin-top: 80px;
     align-items: center;
+    text-align: center;
+}
+
+.container-categoria {
+    position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
+    
+}
+
+.img-overlay {
+    display: grid;
+    place-items: center; /* Centra los elementos tanto vertical como horizontalmente */
+    height: 300px; /* Ajusta la altura del contenedor al 100% de la altura de la ventana */
     text-align: center;
 }
 
@@ -21,6 +33,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: .4s;
     cursor: pointer;
+    z-index: 1;
 }
 
 .container-categoria h3 {
@@ -28,20 +41,38 @@ body {
     font-size: 25px;
 }
 
-.container-categoria p {
+.container-categoria .overlay  {
     opacity: 0;
+    color: white;
     visibility: hidden;
     transition: .4s;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.17);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 135px;
+    padding-bottom: 135px;
+    padding-left: 222px;
+    padding-right: 222px;
+    font-size: 24px;
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: none;
 }
+
 
 .container-categoria img:hover {
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
 }
 
-.img-categorias:hover + .description-categorias {
+.img-categorias:hover + .overlay {
     opacity: 1;
     visibility: visible;
 }
+
 
 /* aca comienza el diseño del producto */
 
@@ -139,3 +170,4 @@ body {
     align-items: center;
     max-width: 2050px;
 }
+
