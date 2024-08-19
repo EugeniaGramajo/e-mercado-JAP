@@ -1,3 +1,7 @@
+body{
+  background-color: #e6e6e6;
+}
+
 .jumbotron,
 .card-body,
 .container,
@@ -96,11 +100,7 @@ footer p {
 }
 
 .alert {
-  position: fixed;
   top: 80px;
-  width: 50%;
-  left: 50%;
-  transform: translate(-50%, 0);
 }
 
 .lds-ring {
@@ -187,4 +187,49 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+.tarjeta-producto {
+  background-color: white;
+}
+
+.tarjeta-producto img{
+  height: 200px;
+  border-radius: 3px;
+}
+
+.tarjeta-producto .precio{
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.tarjeta-producto .un{
+  font-size: .7em;
+  text-align: left;
+  padding-left: 10px;
+  background-color: rgb(224, 255, 245);
+  width: max-content;
+  font-weight: bold;
+  color: green;
+  border-radius: 3px;
+}
+
+.tarjeta-producto .descripcion{
+  text-align: left;
+  margin-left: 10px;
+}
+
+.tarjeta-producto .nombre{
+  text-align: left;
+  margin-left: 10px;
+}
+
+.producto {
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
