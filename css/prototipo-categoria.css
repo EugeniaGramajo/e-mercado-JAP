@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Red Hat Mono", monospace;;
+}
+
+.container-inicial {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 80px;
+    align-items: center;
+    text-align: center;
+}
+
+.container-categoria {
+    position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
+    
+}
+
+.img-overlay {
+    display: grid;
+    place-items: center; /* Centra los elementos tanto vertical como horizontalmente */
+    height: 300px; /* Ajusta la altura del contenedor al 100% de la altura de la ventana */
+    text-align: center;
+}
+
+.container-categoria img {
+    width: 75%; 
+    height: 300px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: .4s;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.container-categoria h3 {
+    letter-spacing: 8px;
+    font-size: 25px;
+}
+
+.container-categoria .overlay  {
+    opacity: 0;
+    color: white;
+    visibility: hidden;
+    transition: .4s;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.17);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 135px;
+    padding-bottom: 135px;
+    padding-left: 222px;
+    padding-right: 222px;
+    font-size: 24px;
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+
+.container-categoria img:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+}
+
+.img-categorias:hover + .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* aca comienza el diseño del producto */
+
+.container-first {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    max-width: 950px;
+    margin-top: 100px;
+    position: relative;
+}
+.image-container {  
+    position: relative;
+    display: inline-block;
+    width: 250px;
+}
+
+.img-shadow {
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); 
+    transition: box-shadow 0.5s;
+}
+
+.img-shadow img {
+    display: block;
+    width: 100%; 
+    height: auto;
+}
+
+.image-container:hover .img-shadow{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.hover-background {
+    position: absolute;
+    top: 134.1px;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    transition: opacity 0.4s ease; 
+    transition: background-color 0.4s ease;
+    cursor: pointer;
+}
+
+.image-container:hover .hover-background {
+    opacity: 1; 
+}
+
+.hover-background:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-button {
+    all: unset;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.hover-background img {
+    width: 24px; /* Ancho del SVG */
+    height: 24px; /* Alto del SVG */
+    fill: white;
+    
+}
+
+.container-categories h3, p {
+    margin: 0;
+}
+
+.container-categories h3 {
+    font-size: 14px;
+    margin-top: 16px;
+    margin-bottom: 5px;
+}
+
+.container-categories p {
+    font-size: 14px;
+    color: red;
+}
+
+.container-productos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 2050px;
+}
+
