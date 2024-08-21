@@ -1,106 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro de Usuario</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Fondo claro */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .modal {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            width: 300px;
-            display: none; /* Oculto por defecto */
-            text-align: center;
-        }
-        .modal h1 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .modal input {
-            width: 93%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .modal .button {
-            background-color: #919191; /* Color del botón */
-            color:  #ffffff; /* Texto del botón */
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-        }
-        .modal .button:hover {
-            background-color: #4e4e4e; /* Color al pasar el mouse */
-        }
-        .show {
-            display: block; /* Muestra el modal */
-        }
-        .error {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="modal show" id="registroModal">
-    <h1>Registro de usuario</h1>
-    <form id="registroForm">
-        <input type="text" placeholder="Nombre" required>
-        <input type="text" placeholder="Apellido" required>
-        <input type="email" placeholder="Correo electrónico" required>
-        <input type="password" id="password" placeholder="Contraseña" required>
-        <input type="password" id="confirmPassword" placeholder="Repetir contraseña" required>
+    <link rel="stylesheet" href="/css/register.css" />
+    <script type="module" src="/js/register.js"></script>
+  </head>
+  <body>
+    <div class="modal show" id="registroModal">
+      <h1>Registro de usuario</h1>
+      <form id="registroForm">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Nombre"
+          required
+        />
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Apellido"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Correo electrónico"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Contraseña"
+          required
+        />
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="Repetir contraseña"
+          required
+        />
         <div class="error" id="errorMessage"></div>
         <button type="submit" class="button">CREAR USUARIO</button>
-    </form>
-</div>
+      </form>
+    </div>
 
-<div class="modal" id="registroExitoso">
-    <h1>¡Registro exitoso!</h1>
-    <p>Revisa tu correo electrónico para activar tu cuenta</p>
-    <a href="index.html" class="button">Volver al inicio</a> <!-- Cambia "index.html" por la URL de tu página de inicio -->
-</div>
-
-<script>
-    const registroForm = document.getElementById('registroForm');
-    const registroModal = document.getElementById('registroModal');
-    const registroExitoso = document.getElementById('registroExitoso');
-    const errorMessage = document.getElementById('errorMessage');
-
-    registroForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita el envío del formulario
-
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-
-        if (password !== confirmPassword) {
-            errorMessage.textContent = "Las contraseñas no coinciden.";
-            return; // Detiene el proceso si las contraseñas no coinciden
-        }
-
-        errorMessage.textContent = ""; // Limpia el mensaje de error
-        registroModal.classList.remove('show'); // Oculta el modal de registro
-        registroExitoso.classList.add('show'); // Muestra el modal de registro exitoso
-    });
-</script>
-
-</body>
+    <div class="modal" id="registroExitoso">
+      <h1>¡Registro exitoso!</h1>
+      <p>Revisa tu correo electrónico para activar tu cuenta</p>
+      <a href="index.html" class="button">Volver al inicio</a>
+      <!-- Cambia "index.html" por la URL de tu página de inicio -->
+    </div>
+  </body>
 </html>
