@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
-  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/stylesLogin.css" rel="stylesheet">
@@ -16,9 +16,9 @@
     <div class="login-container">
       <h1>Bienvenido</h1>
       <form onsubmit="showModal(event)">
-          <input type="text" placeholder="Usuario" required>
-          <input type="password" placeholder="Contraseña" required>
-          <button type="submit">LOG IN</button>
+          <input type="text" id="email" placeholder="Usuario" required>
+          <input type="password" id="password" placeholder="Contraseña" required>
+          <button type="submit" id="submit">LOG IN</button>
       </form>
       <p class="link">¿No recuerdas tu contraseña?</p>
       <a class="link" href="register form.html">Regístrate</a>
@@ -41,16 +41,6 @@
     </div>
   </footer>
   <script src="js/login.js"></script>
-  <script>
-    function showModal(event) {
-      event.preventDefault(); // Evita que el formulario se envíe
-      document.getElementById('modal').style.display = 'flex'; // Muestra el modal
-    }
-
-    function reloadPage() {
-      location.reload(); // Recarga la página
-    }
-  </script>
 </body>
 
 </html>
