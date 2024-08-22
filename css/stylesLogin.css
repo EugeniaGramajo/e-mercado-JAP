@@ -1,0 +1,104 @@
+    /* Estilos generales */
+    body {
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente */
+        align-items: center; /* Centrar verticalmente */
+        height: 100vh; /* Altura completa de la ventana */
+        margin: 0; /* Sin márgenes */
+        background-color: #f8f9fa; /* Color de fondo */
+      }
+  
+      /* Estilos para el modal */
+      .modal {
+        display: none; /* Oculto por defecto */
+        position: fixed; /* Fijo en la pantalla */
+        z-index: 1; /* Por encima de otros elementos */
+        left: 0;
+        top: 0;
+        width: 100%; /* Ancho completo */
+        height: 100%; /* Alto completo */
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .modal-content {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        width: 300px; /* Ancho del modal */
+        position: relative; /* Para asegurar que esté centrado */
+        margin: auto; /* Centrar horizontalmente */
+      }
+  
+      .modal-content h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+  
+      .button {
+        background-color: #b1b1b1;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+  
+      .button:hover {
+        background-color: #666666;
+      }
+  
+      /* Estilos para el contenedor de login */
+      .login-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        width: 300px;
+        text-align: center;
+      }
+  
+      input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      button {
+        background-color: #b1b1b1; /* Color del botón */
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+  
+      button:hover {
+        background-color: #7e7e7e; /* Color al pasar el ratón */
+      }
+  
+      .link {
+        margin-top: 10px;
+        display: block;
+        color: #000000;
+        text-decoration: none;
+      }
+  
+      .link:hover {
+        text-decoration: underline;
+      }
+  
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        bottom: -50px; /* Ajustar la posición del pie de página */
+      }
