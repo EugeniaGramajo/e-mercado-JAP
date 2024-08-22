@@ -53,9 +53,9 @@ body {
     backdrop-filter: blur(6.1px);
     -webkit-backdrop-filter: blur(6.1px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding-top: 135px;
+    padding-top: 134px;
     padding-bottom: 135px;
-    padding-left: 222px;
+    padding-left: 15.3%;
     padding-right: 222px;
     font-size: 24px;
     z-index: 2;
@@ -168,6 +168,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 2050px;
+    max-width: 1800px;
 }
 
