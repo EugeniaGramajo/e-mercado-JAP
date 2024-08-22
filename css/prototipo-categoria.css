@@ -5,7 +5,7 @@ body {
 }
 
 .container-inicial {
-    max-width: 1800px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
     margin-top: 80px;
@@ -14,55 +14,67 @@ body {
 }
 
 .container-categoria {
-    position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
-    
+    position: relative;
+    width: 85%;
+    height: 260px; /* Altura del contenedor */
+    overflow: hidden; /* Asegura que nada se salga del contenedor */
+    margin-bottom: 50px;
+    margin-top: 80px;
+    margin-left: 100px;
 }
 
 .img-overlay {
-    display: grid;
+    display: contents;
     place-items: center; /* Centra los elementos tanto vertical como horizontalmente */
-    height: 300px; /* Ajusta la altura del contenedor al 100% de la altura de la ventana */
     text-align: center;
 }
 
 .container-categoria img {
-    width: 75%; 
-    height: 300px;
+    width: 85%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubrirá todo el contenedor */
+    object-position: center; /* Asegura que la imagen se centre tanto horizontal como verticalmente */
     border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: .4s;
     cursor: pointer;
     z-index: 1;
 }
+
 
 .container-categoria h3 {
     letter-spacing: 8px;
     font-size: 25px;
 }
 
-.container-categoria .overlay  {
+.container-categoria .overlay {
     opacity: 0;
-    color: white;
     visibility: hidden;
-    transition: .4s;
+    transition:all .4s ease;
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(255, 255, 255, 0.17);
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.1px);
     -webkit-backdrop-filter: blur(6.1px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding-top: 134px;
-    padding-bottom: 135px;
-    padding-left: 15.3%;
-    padding-right: 222px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-size: 24px;
     z-index: 2;
-    cursor: pointer;
     pointer-events: none;
 }
 
+.container-categoria p {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: 500;
+}
 
 .container-categoria img:hover {
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
@@ -81,13 +93,14 @@ body {
     flex-direction: column;
     margin-left: 100px;
     max-width: 950px;
-    margin-top: 100px;
+    top: 10px;
+    bottom: 50px;
     position: relative;
 }
 .image-container {  
     position: relative;
     display: inline-block;
-    width: 250px;
+    width: 230px;
 }
 
 .img-shadow {
@@ -146,7 +159,6 @@ body {
     width: 24px; /* Ancho del SVG */
     height: 24px; /* Alto del SVG */
     fill: white;
-    
 }
 
 .container-categories h3, p {
