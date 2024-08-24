@@ -32,6 +32,10 @@ submit.addEventListener("click", async (e) => {
       title: "Te has logueado correctamente!",
       text: "¡Bienvenido de nuevo!",
       icon: "success",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "index.html"; 
+      }
     });
   } catch (error) {
     Swal.fire({
