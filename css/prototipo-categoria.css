@@ -16,21 +16,32 @@ body {
 .container-categoria {
     position: relative;
     width: 85%;
-    height: 260px; /* Altura del contenedor */
-    overflow: hidden; /* Asegura que nada se salga del contenedor */
-    margin-bottom: 50px;
-    margin-top: 80px;
+    height: 230px; /* Altura del contenedor */
+    margin-bottom: 60px;
+    margin-top: 90px;
     margin-left: 100px;
+    object-fit: cover;
+    transition: all .5s ease;
+}
+
+.container-categoria:hover {
+    transform: scale(1.1) translateY(-10%);
+}
+
+.img-overlay:hover {
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, 0.253);
+    border-radius: 12px;
 }
 
 .img-overlay {
-    display: contents;
-    place-items: center; /* Centra los elementos tanto vertical como horizontalmente */
-    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all .5s ease;
 }
 
 .container-categoria img {
-    width: 85%;
+    width: 100%;
     height: 100%;
     object-fit: cover; /* La imagen cubrirá todo el contenedor */
     object-position: center; /* Asegura que la imagen se centre tanto horizontal como verticalmente */
@@ -38,51 +49,42 @@ body {
     transition: .4s;
     cursor: pointer;
     z-index: 1;
+    object-fit: cover;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    color: white;
+    opacity: 0;
+    box-shadow: 0 0 4px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    z-index: 2;
+}
+
+.container-categoria:hover .overlay {
+    opacity: 1;
+}
 
 .container-categoria h3 {
     letter-spacing: 8px;
     font-size: 25px;
 }
 
-.container-categoria .overlay {
-    opacity: 0;
-    visibility: hidden;
-    transition:all .4s ease;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.17);
-    border-radius: 12px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.1px);
-    -webkit-backdrop-filter: blur(6.1px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 24px;
-    z-index: 2;
-    pointer-events: none;
-}
-
 .container-categoria p {
-    color: rgb(0, 0, 0);
+    color: white; /* Asegúrate de que el texto sea visible en el overlay */
     font-size: 25px;
     font-weight: 500;
-}
-
-.container-categoria img:hover {
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
-}
-
-.img-categorias:hover + .overlay {
-    opacity: 1;
-    visibility: visible;
+    margin-bottom: 20px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
 
 
