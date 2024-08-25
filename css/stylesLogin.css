@@ -8,20 +8,6 @@
         background-color: #f8f9fa; /* Color de fondo */
       }
   
-      /* Estilos para el modal */
-      .modal {
-        display: none; /* Oculto por defecto */
-        position: fixed; /* Fijo en la pantalla */
-        z-index: 1; /* Por encima de otros elementos */
-        left: 0;
-        top: 0;
-        width: 100%; /* Ancho completo */
-        height: 100%; /* Alto completo */
-        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
-        justify-content: center;
-        align-items: center;
-      }
-  
       .modal-content {
         background-color: white;
         border-radius: 8px;

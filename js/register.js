@@ -1,4 +1,4 @@
-const registroForm = document.getElementById('registroForm');
+    const registroForm = document.getElementById('registroForm');
     const registroModal = document.getElementById('registroModal');
     const registroExitoso = document.getElementById('registroExitoso');
     const errorMessage = document.getElementById('errorMessage');

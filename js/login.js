@@ -50,8 +50,8 @@ submit.addEventListener("click", async (e) => {
 });
 
 function showModal(event) {
-  event.preventDefault(); // Evita que el formulario se envíe
-  document.getElementById("modal").style.display = "flex"; // Muestra el modal
+  event.preventDefault(); 
+  document.getElementById("modal").style.display = "flex"; 
 }
 
 function reloadPage() {
