@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const user = JSON.parse(localStorage.getItem("user"));
   const navBar = document.getElementById("navbar");
   const welcome = document.createElement("li");
-  
-  console.log(user)
-  console.log(user.name)
 
   const logOut = ()=>{
     localStorage.clear()
