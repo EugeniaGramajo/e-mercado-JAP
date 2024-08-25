@@ -38,9 +38,10 @@ submit.addEventListener("click", async (e) => {
       }
     });
   } catch (error) {
+    const errorData = JSON.parse(error.message);
     Swal.fire({
       title: "Ocurrió un error",
-      text: error.message, // Muestra el mensaje de error
+      text: errorData.message, // Muestra el mensaje de error
       icon: "error",
     });
   }
