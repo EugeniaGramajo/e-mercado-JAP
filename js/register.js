@@ -130,7 +130,7 @@ registroForm.addEventListener("submit", async function (event) {
         throw new Error(errorText);
       } else {
         Swal.fire({
-          title: "Bienvenidio!",
+          title: "Bienvenido!",
           text: "¡Te has registrado correctamente!",
           icon: "success",
         }).then(() => {
