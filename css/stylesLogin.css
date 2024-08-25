@@ -54,7 +54,7 @@
   
       /* Estilos para el contenedor de login */
       .login-container {
-        position: absolute;
+        margin: auto;
         background-color: white;
         padding: 20px;
         border-radius: 8px;
