@@ -6,8 +6,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-  }
-  .modal {
+}
+.modal {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
@@ -27,25 +27,50 @@ body {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  .modal .button {
-    background-color: #919191; /* Color del botón */
-    color: #ffffff; /* Texto del botón */
+    transition: all 0.5s ease;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid rgb(102, 102, 102);
+}
+
+#togglePassword, #toggleConfirmPassword {
+    flex-direction: row;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: -20px;
+    padding: 0;
+}
+
+#togglePassword img, #toggleConfirmPassword img {
+    margin-left: 4px;
+    width: 15px;
+    height: 10px;
+}
+
+.modal .button {
+    background-color: #919191;
+    color:  #ffffff;
     border: none;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
     font-weight: bold;
-  }
-  .modal .button:hover {
-    background-color: #4e4e4e; /* Color al pasar el mouse */
-  }
-  .show {
-    display: block; /* Muestra el modal */
-  }
-  .error {
+}
+.modal .button:hover {
+    background-color: #4e4e4e;
+}
+.show {
+    display: block;
+}
+.error {
     color: red;
-    text-align: center;
-    margin-top: 10px;
-  }
+    text-align: left;
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    display: none;
+}
