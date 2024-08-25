@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Fondo claro */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,16 +13,16 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     width: 300px;
-    display: none;
+    display: none; /* Oculto por defecto */
     text-align: center;
-}
-.modal h1 {
+  }
+  .modal h1 {
     font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
-}
-.modal input {
-    width: 83%;
+  }
+  .modal input {
+    width: 93%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -36,6 +36,7 @@ input:focus {
 }
 
 #togglePassword, #toggleConfirmPassword {
+    flex-direction: row;
     background: none;
     border: none;
     cursor: pointer;
@@ -44,6 +45,7 @@ input:focus {
 }
 
 #togglePassword img, #toggleConfirmPassword img {
+    margin-left: 4px;
     width: 15px;
     height: 10px;
 }

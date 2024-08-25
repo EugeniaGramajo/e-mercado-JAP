@@ -30,7 +30,12 @@ const registroForm = document.getElementById('registroForm');
         this.querySelector('img').src = type === 'password' ? 'img/mostrar.png' : 'img/ocultar.png';
     });
 
-    registroForm.addEventListener('submit', function(event) {
+    const validateEmail = (email)=> {
+        const regex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+        return regex.test(email)
+    } 
+
+    registroForm.addEventListener('submit', async function(event) {
         event.preventDefault();
 
         let formIsValid = true;
@@ -88,9 +93,43 @@ const registroForm = document.getElementById('registroForm');
             errorConfirmPassword.style.display = "none";
         }
 
+        console.log(JSON.stringify({
+            name:nombre.value,
+            lastName:apellido.value,
+            email:correo.value,
+            password,
+          }))
+
         if (formIsValid) {
             errorMessage.textContent = "";
-            registroModal.classList.remove('show');
-            registroExitoso.classList.add('show');
+            try {
+                const response = await fetch("https://jap-backend.onrender.com/users/register", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    name:nombre.value,
+                    lastName:apellido.value,
+                    email:correo.value,
+                    password:password.value,
+                  }),
+                });
+            
+                if (!response.ok) {
+                  const errorText = await response.text();
+                  throw new Error(errorText);
+                }
+            
+                const data = await response.json();
+                console.log(data);
+            
+                registroModal.classList.remove("show");
+                registroExitoso.classList.add("show");
+              } catch (error) {
+                console.error("Error al registrar el usuario:", error);
+                errorMessage.textContent = "Hubo un problema al registrar el usuario.";
+              }
         }
     });
+    
