@@ -211,7 +211,7 @@ a.custom-card:hover {
 }
 
 .tarjeta-producto img{
-  height: 200px;
+  width: 30em;
   border-radius: 3px;
 }
 
@@ -249,4 +249,24 @@ a.custom-card:hover {
   display: flex;
   align-items: center;
   justify-content: start;
+}
+
+.producto-detalles {
+  padding: 5%;
+}
+
+@media (max-width: 768px) {
+
+    .producto {
+      display: block;
+      padding: 4%;
+    }
+
+    .producto img {
+      width: 100%;
+    }
+
+    .producto-detalles {
+      margin-top: 5%;
+    }
 }
