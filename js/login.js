@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 const submit = document.getElementById("submit");
 
 submit.addEventListener("click", async (e) => {
@@ -12,7 +13,7 @@ submit.addEventListener("click", async (e) => {
     const response = await fetch("https://jap-backend.onrender.com/users/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Asegúrate de enviar el tipo de contenido correcto
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
@@ -21,12 +22,12 @@ submit.addEventListener("click", async (e) => {
     });
 
     if (!response.ok) {
-      const errorText = await response.text(); // Obtén el texto de error si existe
+      const errorText = await response.text();
       throw new Error(errorText);
     }
 
-    const data = await response.json(); // Convierte la respuesta a JSON
-    localStorage.setItem("user", JSON.stringify(data)); // Asegúrate de almacenar como JSON
+    const data = await response.json(); 
+    localStorage.setItem("user", JSON.stringify(data)); 
     
     console.log(JSON.parse(localStorage.getItem("user")))
 
@@ -49,11 +50,9 @@ submit.addEventListener("click", async (e) => {
   }
 });
 
-function showModal(event) {
-  event.preventDefault(); 
-  document.getElementById("modal").style.display = "flex"; 
-}
+
 
 function reloadPage() {
   location.reload(); // Recarga la página
 }
+});
