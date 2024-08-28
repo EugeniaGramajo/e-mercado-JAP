@@ -27,6 +27,8 @@ submit.addEventListener("click", async (e) => {
 
     const data = await response.json(); // Convierte la respuesta a JSON
     localStorage.setItem("user", JSON.stringify(data)); // Asegúrate de almacenar como JSON
+    
+    console.log(JSON.parse(localStorage.getItem("user")))
 
     Swal.fire({
       title: "Te has logueado correctamente!",

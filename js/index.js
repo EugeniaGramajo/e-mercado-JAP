@@ -3,11 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const navBar = document.getElementById("navbar");
   const welcome = document.createElement("li");
   
+  console.log(user)
+  console.log(user.name)
+
   const logOut = ()=>{
     localStorage.clear()
     window.location.href = "login.html";
   }
-
+  
   if (user?.name) {
     welcome.innerHTML = `
     <div class='d-flex flex-row'>
