@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const user = JSON.parse(localStorage.getItem("user"));
   const welcome = document.createElement("li");
-  const realNavBar = document.getElementById("navbar")
+  const realNavBar = document.getElementById("navbar");
 
   realNavBar.innerHTML = `<div class="container">
   <button
@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul id="navbar-ul" class="navbar-nav w-100 justify-content-between">
-      <li class="nav-item">
+      
+    <li class="nav-item">
         <a class="nav-link active" href="index.html">Inicio</a>
       </li>
       <li class="nav-item">
@@ -29,10 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <li class="nav-item"></li>
     </ul>
   </div>
-</div>`
+</div>`;
 
-
-const navBar = document.getElementById("navbar-ul");
+  const navBar = document.getElementById("navbar-ul");
 
   const logOut = () => {
     localStorage.clear();
@@ -48,11 +48,17 @@ const navBar = document.getElementById("navbar-ul");
   `;
     navBar.appendChild(welcome);
   } else {
-    window.location.href = "login.html";
+    Swal.fire({
+      title: "No iniciaste sesión",
+      text: "Te redireccionaremos al login", // Muestra el mensaje de error
+      icon: "error",
+    }).then(() => {
+      window.location.href = "login.html";
+    });
   }
 
   const buttonLogOut = document.getElementById("logOut");
-  buttonLogOut.addEventListener("click", () => {
+  buttonLogOut?.addEventListener("click", () => {
     logOut();
   });
 });
