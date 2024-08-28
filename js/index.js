@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (user?.name) {
     welcome.innerHTML = `
     <div class='d-flex flex-row'>
-    <a class="nav-link" href="my-profile.html">Bienvenid@, ${user.name}!</a>
+    <a class="nav-link" href="my-profile.html">Bienvenid@, ${user.email}!</a>
     <button class="btn btn-danger" id="logOut">Cerrar Sesión</button>
     <div>
     `;
