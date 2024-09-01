@@ -98,7 +98,7 @@
       }
 
       input[type="text"],
-      input[type="password"],
+      input[type="password"]
       button {
         padding: 6px; /* Reduce aún más el padding para smartphones pequeños */
       }
