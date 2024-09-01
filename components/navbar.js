@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       text: "Te redireccionaremos al login", // Muestra el mensaje de error
       icon: "error",
     }).then(() => {
-      window.location.href = "login.html";
+      window.location.href = "login.html";ñ
     });
   }
 
