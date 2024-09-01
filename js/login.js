@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 const submit = document.getElementById("submit");
 
 submit.addEventListener("click", async (e) => {
@@ -49,11 +50,9 @@ submit.addEventListener("click", async (e) => {
   }
 });
 
-function showModal(event) {
-  event.preventDefault(); // Evita que el formulario se envíe
-  document.getElementById("modal").style.display = "flex"; // Muestra el modal
-}
+
 
 function reloadPage() {
   location.reload(); // Recarga la página
 }
+});
