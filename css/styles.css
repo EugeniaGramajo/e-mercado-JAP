@@ -255,6 +255,22 @@ a.custom-card:hover {
   padding: 5%;
 }
 
+@media (max-width: 1024px) {
+
+  .producto {
+    display: block;
+    padding: 4%;
+  }
+
+  .producto img {
+    width: 100%;
+  }
+
+  .producto-detalles {
+    margin-top: 5%;
+  }
+}
+
 @media (max-width: 768px) {
 
     .producto {
