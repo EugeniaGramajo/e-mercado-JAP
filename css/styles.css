@@ -1,5 +1,5 @@
 body{
-  background-color: #e6e6e6;
+  background-color: #fafafa;
 }
 
 .jumbotron,
@@ -13,9 +13,6 @@ body{
   font-weight: bold;
 }
 
-nav a {
-  text-decoration: none;
-}
 
 .bd-placeholder-img {
   font-size: 1.125rem;
