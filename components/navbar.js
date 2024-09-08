@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="navbar-section" id="nav-links">
   
   <div id="links">
-    <a href="index.html" class="nav-link">Inicio</a>
-    <a href="categories.html" class="nav-link">Categorias</a>
-    <a href="sell.html" class="nav-link">Vender</a>
-    <a href="about.html" class="nav-link">About</a>
+    <a href="index.html" class="nav-Link">Inicio</a>
+    <a href="categories.html" class="nav-Link">Categorias</a>
+    <a href="sell.html" class="nav-Link">Vender</a>
+    <a href="about.html" class="nav-Link">About</a>
   </div>
   <div class="icons">
     <span class="icon">
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const userInfo = document.getElementById("user-info");
   const navLinks = document.getElementById("nav-links");
   const hamburger = document.querySelector(".hamburger");
-  const icons = document.querySelectorAll(".icon")
+  const icons = document.querySelectorAll(".icon");
 
   function toggleMenu() {
     navLinks?.classList.toggle("active");
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const currentPage = window.location.pathname.split("/").pop();
-  const navLink = document.querySelectorAll(".nav-link");
+  const navLink = document.querySelectorAll(".nav-Link");
   navLink.forEach((link) => {
     if (link.getAttribute("href") === currentPage) {
       link.classList.add("active");

@@ -5,7 +5,7 @@
   font-style: normal;
 }
 
-.navbar {
+.navBar {
   font-size: 15px;
   display: flex;
   max-width: 1024px;
@@ -29,8 +29,11 @@
   padding: 0px 15px;
   position: relative;
 }
+.navbar-section a:hover {
+  color: #585858;
+}
 
-.navbar-section .nav-link::after {
+.navbar-section .nav-Link::after {
   content: '';
   position: absolute;
   width: 0;
@@ -41,9 +44,10 @@
   transition: width 0.6s ease;
 }
 
-.navbar-section .nav-link:hover::after,
-.navbar-section .nav-link.active::after {
-  width: 90%;
+.navbar-section .nav-Link:hover::after,
+.navbar-section .nav-Link.active::after {
+  margin: auto;
+  width: 92%;
 }
 
 .navbar-section span {
@@ -103,7 +107,7 @@
 }
 
 #logOut:hover {
-  background-color: #ff4757;
+  background-color: #ff3c4c;
 }
 
 /* Botón de Inicio de Sesión */
