@@ -1,0 +1,219 @@
+.comfortaa-text {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.navBar {
+  font-size: 15px;
+  display: flex;
+  max-width: 1024px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+  height: 90px;
+  border-bottom: 2px solid black;
+  margin: auto;
+  position: relative;
+}
+
+.navbar-section {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-section a {
+  text-decoration: none;
+  color: black;
+  padding: 0px 15px;
+  position: relative;
+}
+.navbar-section a:hover {
+  color: #585858;
+}
+
+.navbar-section .nav-Link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #000;
+  transition: width 0.6s ease;
+}
+
+.navbar-section .nav-Link:hover::after,
+.navbar-section .nav-Link.active::after {
+  margin: auto;
+  width: 92%;
+}
+
+.navbar-section span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.navbar-section .logo img {
+  height: 80px;
+  width: 150px;
+}
+
+/* Non-responsive layout */
+#nav-links {
+  display: flex;
+  align-items: center;
+}
+
+#links {
+  display: flex;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+}
+
+#user-info {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+#user-info a {
+  margin-right: 10px;
+}
+
+/* Botón de Cerrar Sesión */
+#logOut {
+  border: none;
+  background-color: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#logOut:hover {
+  background-color: #ff3c4c;
+}
+
+/* Botón de Inicio de Sesión */
+#loginButton {
+  border: none;
+  background-color: #ffa502;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#loginButton:hover {
+  background-color: #ff891c;
+}
+
+/* Hamburguesa (hidden in non-responsive) */
+.hamburger {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 945px) {
+  .navbar {
+    font-size: 16px;
+  }
+  .navbar-section#nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    padding-top: 85px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-section#nav-links.active {
+    right: 0;
+  }
+
+  #links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-section#nav-links a {
+    margin: 10px 0;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+  }
+
+  .hamburger span {
+    width: 30px;
+    height: 3px;
+    background: black;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+
+  .hamburger[aria-expanded="true"] span:first-child {
+    transform: rotate(37deg);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] span:last-child {
+    transform: rotate(-37deg);
+  }
+
+  .icons {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  #user-info {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  #user-info a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
