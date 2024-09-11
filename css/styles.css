@@ -302,7 +302,12 @@ a.custom-card:hover {
     width: 100%;
   }
 
-  .producto-detalles {
-    margin-top: 5%;
-  }
+    .producto img {
+      width: 100%;
+    }
+
+    .producto-detalles {
+      margin-top: 5%;
+    }
 }
+
