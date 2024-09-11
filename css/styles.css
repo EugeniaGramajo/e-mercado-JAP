@@ -1,20 +1,43 @@
-
-body{
+body {
   background-color: #fafafa;
+  font-family: "Comfortaa", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
+.comfortaa-300 {
+  font-family: "Comfortaa", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.comfortaa-500 {
+  font-family: "Comfortaa", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.comfortaa-700 {
+  font-family: "Comfortaa", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 
 .jumbotron,
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: "Comfortaa", system-ui;
 }
 
 .jumbotron .display-4 {
   font-weight: bold;
 }
-
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -35,8 +58,8 @@ body{
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -76,12 +99,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -89,7 +112,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -200,7 +223,7 @@ a.custom-card:hover {
 
 /* Ajustar el tamaño del botón "Entrar" */
 .navbar button[type="submit"] {
-  height:25px; /* Altura del botón */
+  height: 25px; /* Altura del botón */
   font-size: 1rem; /* Tamaño de la fuente */
   padding: 0px 10px; /* Espaciado interno del botón */
   border-radius: 5px; /* Bordes redondeados */
@@ -209,20 +232,20 @@ a.custom-card:hover {
   background-color: white;
 }
 
-.tarjeta-producto img{
+.tarjeta-producto img {
   width: 30em;
   border-radius: 3px;
 }
 
-.tarjeta-producto .precio{
+.tarjeta-producto .precio {
   font-weight: bold;
   font-size: 1.2em;
   text-align: left;
   padding-left: 10px;
 }
 
-.tarjeta-producto .un{
-  font-size: .7em;
+.tarjeta-producto .un {
+  font-size: 0.7em;
   text-align: left;
   padding-left: 10px;
   background-color: rgb(224, 255, 245);
@@ -232,12 +255,12 @@ a.custom-card:hover {
   border-radius: 3px;
 }
 
-.tarjeta-producto .descripcion{
+.tarjeta-producto .descripcion {
   text-align: left;
   margin-left: 10px;
 }
 
-.tarjeta-producto .nombre{
+.tarjeta-producto .nombre {
   text-align: left;
   margin-left: 10px;
 }
@@ -255,7 +278,6 @@ a.custom-card:hover {
 }
 
 @media (max-width: 1024px) {
-
   .producto {
     display: block;
     padding: 4%;
@@ -271,11 +293,14 @@ a.custom-card:hover {
 }
 
 @media (max-width: 768px) {
+  .producto {
+    display: block;
+    padding: 4%;
+  }
 
-    .producto {
-      display: block;
-      padding: 4%;
-    }
+  .producto img {
+    width: 100%;
+  }
 
     .producto img {
       width: 100%;

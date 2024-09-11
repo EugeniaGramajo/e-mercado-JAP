@@ -10,6 +10,7 @@
   border-bottom: 2px solid black;
   margin: auto;
   position: relative;
+  z-index: 50 ;
 }
 
 .navbar-section {
