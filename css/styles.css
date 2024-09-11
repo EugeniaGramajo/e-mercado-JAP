@@ -1,6 +1,8 @@
+
 body{
-  background-color: #e6e6e6;
+  background-color: #fafafa;
 }
+
 
 .jumbotron,
 .card-body,
@@ -13,9 +15,6 @@ body{
   font-weight: bold;
 }
 
-nav a {
-  text-decoration: none;
-}
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -286,3 +285,4 @@ a.custom-card:hover {
       margin-top: 5%;
     }
 }
+
