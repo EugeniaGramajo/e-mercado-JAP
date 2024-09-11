@@ -99,10 +99,6 @@ footer p {
   max-height: 100%;
 }
 
-.alert {
-  top: 80px;
-}
-
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -285,4 +281,21 @@ a.custom-card:hover {
     .producto-detalles {
       margin-top: 5%;
     }
+}
+
+
+#filterButton {
+    margin-top: 32px;
+    max-width: 120px;
+}
+
+#resetFilters {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.row.mb-4 {
+    display: flex;
+    align-items: self-end;
+    width: 65%;
 }
