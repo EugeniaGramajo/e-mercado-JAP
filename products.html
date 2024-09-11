@@ -17,6 +17,35 @@
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
   </nav>
   <main class="pb-5 container">
+    <div class="container mt-4">
+      <!-- Filtro por Rango de Precio -->
+      <div class="row mb-4">
+          <div class="col-md-4">
+              <label for="minPrice" class="form-label"></label>
+              <input type="number" id="minPrice" class="form-control" placeholder="Precio Mínimo">
+          </div>
+          <div class="col-md-4">
+              <label for="maxPrice" class="form-label"></label>
+              <input type="number" id="maxPrice" class="form-control" placeholder="Precio Máximo">
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+              <button id="filterButton" class="btn btn-light w-100">Filtrar</button>
+          </div>
+      </div>
+  
+      <!-- Funcionalidad de Orden -->
+      <div class="row mb-4">
+          <div class="col-12">
+              <div class="btn-group" role="group" aria-label="Ordenar por">
+                  <button type="button" class="btn btn-light" id="orderPriceAsc">Precio ▼</button>
+                  <button type="button" class="btn btn-light" id="orderPriceDesc">Precio ▲</button>
+                  <button type="button" class="btn btn-light" id="orderRelevance">Más vendido</button>
+              </div>
+              <a href="#" id="resetFilters" class="btn btn-link">Limpiar</a>
+          </div>
+        </div>
+  </div>
+  
     <div class="container">
       <div class="alert text-center" role="alert">
         <div class="tarjeta-producto">
