@@ -230,6 +230,7 @@ a.custom-card:hover {
 }
 .tarjeta-producto {
   background-color: white;
+  cursor: pointer;
 }
 
 .tarjeta-producto img {
