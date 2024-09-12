@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("Category ID from localStorage:", categoryID);
 
   if (categoryID) {
+
+    fetch("https://japceibal.github.io/emercado-api/cats/cat.json")
+        .then(response => response.json())
+        .then(categories => {
+          const category = categories.find(cat => cat.id === parseInt(categoryID));
+          if (category) {
+            const categoryNameElement = document.createElement("h2");
+            categoryNameElement.textContent = category.name;
+            document.querySelector("#producto-n").textContent = categoryNameElement.textContent;
+          } else {
+            console.error("Categoría no encontrada.");
+          }
+        })
+        .catch(error => console.error("Error al cargar la categoría:", error));
     
     fetch(`https://japceibal.github.io/emercado-api/cats_products/${categoryID}.json`)
       .then(response => response.json())
