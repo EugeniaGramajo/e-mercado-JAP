@@ -113,7 +113,7 @@
   }
   
   .buy-now {
-    background-color: #DB4444;
+    background-color: #ff6b6b;
     color: white;
     border: none;
     padding: 10px 70px;
@@ -123,7 +123,7 @@
   }
   
   .buy-now:hover {
-    background-color: #b63a3a;
+    background-color: #ff3c4c;
   }
   
   .favorite {
