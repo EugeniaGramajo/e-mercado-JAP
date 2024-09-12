@@ -1,24 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Obtener el ID de categoría almacenado en localStorage
-  const categoryID = localStorage.getItem('selectedCategoryID');
+  
+  const categoryID = localStorage.getItem('catID');
 
-  // Verificar si el ID de la categoría está en localStorage
   console.log("Category ID from localStorage:", categoryID);
 
   if (categoryID) {
-    // Hacer la solicitud usando el ID de categoría almacenado
+    
     fetch(`https://japceibal.github.io/emercado-api/cats_products/${categoryID}.json`)
       .then(response => response.json())
       .then(data => {
         const productos = data.products;
         const contenedor = document.querySelector('.tarjeta-producto');
 
-        // Limpiar el contenedor antes de agregar nuevos productos
         contenedor.innerHTML = '';
 
         productos.forEach(producto => {
           const productoDiv = document.createElement('div');
           productoDiv.classList.add('producto');
+          productoDiv.dataset.id = producto.id;
 
           const imagenDiv = document.createElement('div');
           imagenDiv.classList.add('producto-imagen');
@@ -37,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
           productoDiv.appendChild(detallesDiv);
 
           contenedor.appendChild(productoDiv);
+
+          productoDiv.addEventListener('click', () => {
+            localStorage.setItem('selectedProductId', producto.id);  
+            window.location.href = 'product-info.html';  
+          });
+
         });
       })
       .catch(error => console.error('Error al obtener los productos:', error));
@@ -44,3 +49,4 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('No se encontró el ID de categoría en el localStorage');
   }
 });
+    
