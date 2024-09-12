@@ -31,23 +31,38 @@ function renderProducts(filteredProducts) {
         <p class="un">Unidades vendidas: ${product.soldCount}</p>
       `;
 
-      productoDiv.appendChild(imagenDiv);
-      productoDiv.appendChild(detallesDiv);
+    fetch("https://japceibal.github.io/emercado-api/cats/cat.json")
+      .then(response => response.json())
+      .then(categories => {
+        const category = categories.find(cat => cat.id === parseInt(categoryID));
+        if (category) {
+          document.querySelector("#producto-n").textContent = category.name;
+        } else {
+          console.error("Categoría no encontrada.");
+        }
+      })
+      .catch(error => console.error("Error al cargar la categoría:", error));
+    
+    fetch(`https://japceibal.github.io/emercado-api/cats_products/${categoryID}.json`)
+      .then(response => response.json())
+      .then(data => {
+        const productos = data.products;
+        const contenedor = document.querySelector('.tarjeta-producto');
 
       contenedor.appendChild(productoDiv);
     });
-}
 
 // Filtrar por rango de precios
 document.getElementById('filterButton').addEventListener('click', () => {
-    const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
-    const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+  const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+  const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
 
-    const filteredProducts = products.filter(product => product.cost >= minPrice && product.cost <= maxPrice);
+  const filteredProducts = products.filter(product => product.cost >= minPrice && product.cost <= maxPrice);
 
-    renderProducts(filteredProducts);
-    console.log(`Filtrar productos entre ${minPrice} y ${maxPrice}`);
+  renderProducts(filteredProducts);
+  console.log(`Filtrar productos entre ${minPrice} y ${maxPrice}`);
 });
+
 
 // Ordenar por precio ascendente
 document.getElementById('orderPriceAsc').addEventListener('click', () => {
@@ -79,5 +94,4 @@ document.getElementById('resetFilters').addEventListener('click', (e) => {
     // Mostrar todos los productos nuevamente
     renderProducts(products);
     console.log('Limpiar filtros');
-});
-
+})})};

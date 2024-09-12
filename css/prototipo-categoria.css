@@ -1,21 +1,21 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Red Hat Mono", monospace;
     color: black;
 }
 
 .contenedor-principal {
-    width: fit-content;
     margin: auto;
-    padding: 10px 170px;
+    padding: 10px;
+    max-width: 1200px;
 }
 
 .container-inicial {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
-    margin-top: 80px;
+    margin-top: 40px;
     align-items: center;
     text-align: center;
 }
@@ -23,15 +23,21 @@ body {
 .container-categoria {
     position: relative;
     width: 100%;
-    height: 230px; /* Altura del contenedor */
-    margin-bottom: 60px;
-    margin-top: 90px;
+    height: 230px;
+    margin-bottom: 30px;
+    margin-top: 45px;
     object-fit: cover;
     transition: all .5s ease;
 }
 
+@media (max-width: 768px) {
+    .container-categoria {
+        height: 180px;
+    }
+}
+
 .container-categoria:hover {
-    transform: scale(1.04) translateY(-10%);
+    transform: scale(1.02);
 }
 
 .img-overlay:hover {
@@ -49,13 +55,11 @@ body {
 .container-categoria img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* La imagen cubrirá todo el contenedor */
-    object-position: center; /* Asegura que la imagen se centre tanto horizontal como verticalmente */
+    object-fit: cover;
+    object-position: center;
     border-radius: 12px;
     transition: .4s;
     cursor: pointer;
-    z-index: 1;
-    object-fit: cover;
 }
 
 .overlay {
@@ -64,7 +68,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     opacity: 0;
     box-shadow: 0 0 4px black;
@@ -73,7 +77,7 @@ body {
     justify-content: center;
     transition: all 0.4s ease;
     border-radius: 12px;
-    z-index: 2;
+    cursor: pointer;
 }
 
 .container-categoria:hover .overlay {
@@ -81,35 +85,48 @@ body {
 }
 
 .container-categoria h3 {
-    letter-spacing: 8px;
-    font-size: 25px;
+    letter-spacing: 4px;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .container-categoria h3 {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
 }
 
 .container-categoria p {
-    color: white; /* Asegúrate de que el texto sea visible en el overlay */
-    font-size: 25px;
+    color: white;
+    font-size: 18px;
     font-weight: 500;
     margin-bottom: 20px;
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    padding: 10px;
 }
 
+@media (max-width: 768px) {
+    .container-categoria p {
+        font-size: 14px;
+    }
+}
 
-/* aca comienza el diseño del producto */
+/* Estilos para productos */
 
 .container-first {
     display: flex;
     flex-direction: column;
-    padding-left: 50px;
+    padding: 0 20px;
     max-width: 950px;
-    top: 10px;
-    right: 20px;
-    bottom: 50px;
-    position: relative;
+    margin: 0 auto;
 }
+
 .image-container {  
     position: relative;
     display: inline-block;
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
 }
 
 .img-shadow {
@@ -130,7 +147,7 @@ body {
 
 .hover-background {
     position: absolute;
-    top: 107px;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 20%;
@@ -164,8 +181,8 @@ body {
 }
 
 .hover-background img {
-    width: 24px; /* Ancho del SVG */
-    height: 24px; /* Alto del SVG */
+    width: 24px;
+    height: 24px;
     fill: white;
 }
 
@@ -186,8 +203,15 @@ body {
 
 .container-productos {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    max-width: 1800px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .container-productos {
+        justify-content: space-around;
+    }
+}
