@@ -17,61 +17,59 @@
 <body>
   <nav id="navbar" class="navBar"></nav>
 
-  <div class="div-redirect">
-   <div class="div-redirect2">
-     <p><a href="categories.html">Categorias</a> / <a href="products.html">Autos</a> /<p id="producto">Nombre del producto</p></p>
-   </div>
-  </div>
-
-  <div class="imagen-nombre">
-    <h3 id="nombre-producto">Nombre del producto</h3>
-    <img src="img/car1.jpg" class="imagen-1">
-    <div>
-      <div class="precio">
-        <h5>Precio:</h5> 
-        <h5 id="precio">$$</h5>
-      </div>
-    </div>
-
-    <div>
-      <div class="cantidad-vendido">
-        <h6>Cantidad vendido:</h6> 
-        <h6 id="Precio">$$</h6>
-      </div>
-    </div>
-
-    <div>
-      <div class="descripcion">
-      <p id="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam distinctio atque iusto placeat sequi, debitis quaerat mollitia impedit ut laborum accusantium ex totam animi optio. Illo sequi pariatur dolores? Molestias.</p>
-      </div>
-    </div>
-
-    <div class="hr">
-      <hr>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="categories.html">Categorias</a> / <a href="products.html">Autos</a> / <span>Nombre del producto</span>
     </div>
     
-    <div class="btn-corazon">
-      <div class="btn-buy">
-        <h6>Buy Now</h6>
+    <div class="product-container">
+      <div class="image-container">
+        <div class="thumbnail-container">
+          <img src="img/car2.jpg" class="thumbnail">
+          <img src="img/car3.jpg" class="thumbnail">
+          <img src="img/car4.jpg" class="thumbnail">
+          <img src="img/cat102_1.jpg" class="thumbnail">
+        </div>
+        <img src="img/car1.jpg" class="main-image">
       </div>
-      <div class="svg-corazon">
-        <img src="img/corazon.svg">
+      
+      <div class="product-details">
+        <h1 class="product-title">Nombre del producto</h1>
+        
+        <div class="price-container">
+          <h2>Precio:</h2>
+          <span class="price">$$234</span>
+        </div>
+        
+        <div class="sold-quantity">
+          <span>Cantidad vendido: $$</span>
+        </div>
+        
+        <p class="product-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam distinctio atque iusto placeat sequi, debitis quaerat mollitia impedit ut laborum accusantium ex totam animi optio. Illo sequi pariatur dolores? Molestias.
+        </p>
+        
+        <hr>
+        
+        <div class="action-buttons">
+          <button class="buy-now">Buy Now</button>
+          <button class="favorite"><img src="img/corazon.svg" alt="Favorite"></button>
+        </div>
+        
+        <div class="delivery-info">
+          <div class="delivery-item">
+            <img src="img/envio-rapido.svg" alt="Free Delivery">
+            <span>Free Delivery</span>
+          </div>
+          <div class="delivery-item">
+            <img src="img/actualizar.svg" alt="Return Delivery">
+            <span>Return Delivery</span>
+            <p>Free 30 Days Delivery Returns.</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="contenedor-delivery">
-      <div class="contenedor-img-delivery">
-        <img src="img/envio-rapido.svg" class="delivery">
-        <h6>Free Delivery</h6>
-      </div>
-      <div class="contenedor-img-return">
-        <img src="img/actualizar.svg" class="delivery">
-        <h6>Return Delivery</h6>
-      </div>
-      <p>Free 30 Days Delivery Returns. </p>
-    </div>
-
-</div>
+  </div>
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
