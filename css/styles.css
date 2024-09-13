@@ -26,8 +26,6 @@ body {
   font-style: normal;
 }
 
-
-
 .jumbotron,
 .card-body,
 .container,
@@ -121,10 +119,6 @@ footer p {
   max-height: 100%;
 }
 
-.alert {
-  top: 80px;
-}
-
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -211,22 +205,21 @@ a.custom-card:hover {
   color: orange;
 }
 
-/* Cambiar el tamaño de los campos de texto (Usuario y Contraseña) */
 .navbar input[type="text"],
 .navbar input[type="password"] {
-  width: 100px; /* Ancho del campo */
-  height: 20px; /* Altura del campo */
-  font-size: 8px; /* Tamaño de la fuente */
-  padding: 2px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
+  width: 100px; 
+  height: 20px; 
+  font-size: 8px; 
+  padding: 2px;
+  border-radius: 5px; 
 }
 
-/* Ajustar el tamaño del botón "Entrar" */
+
 .navbar button[type="submit"] {
-  height: 25px; /* Altura del botón */
-  font-size: 1rem; /* Tamaño de la fuente */
-  padding: 0px 10px; /* Espaciado interno del botón */
-  border-radius: 5px; /* Bordes redondeados */
+  height: 25px; 
+  font-size: 1rem; 
+  padding: 0px 10px; 
+  border-radius: 5px; 
 }
 .tarjeta-producto {
   background-color: white;
@@ -312,3 +305,19 @@ a.custom-card:hover {
     }
 }
 
+
+#filterButton {
+    margin-top: 32px;
+    max-width: 120px;
+}
+
+#resetFilters {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.row.mb-4 {
+    display: flex;
+    align-items: self-end;
+    width: 65%;
+}

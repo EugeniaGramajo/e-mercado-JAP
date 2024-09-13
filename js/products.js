@@ -70,9 +70,52 @@ document.addEventListener('DOMContentLoaded', () => {
           mostrarProductos(productosFiltrados); // Muestra productos filtrados
         });
 
+        // Filtrar por rango de precios
+        document.getElementById('filterButton').addEventListener('click', () => {
+          const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+          const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+          const filteredProducts = productos.filter(product => product.cost >= minPrice && product.cost <= maxPrice);
+          mostrarProductos(filteredProducts);
+          console.log(`Filtrar productos entre ${minPrice} y ${maxPrice}`);
+        });
+
+        // Ordenar por precio ascendente
+        document.getElementById('orderPriceAsc').addEventListener('click', () => {
+          const sortedProducts = [...productos].sort((a, b) => a.cost - b.cost);
+          mostrarProductos(sortedProducts);
+          console.log('Ordenar productos por precio ascendente');
+        });
+
+        // Ordenar por precio descendente
+        document.getElementById('orderPriceDesc').addEventListener('click', () => {
+          const sortedProducts = [...productos].sort((a, b) => b.cost - a.cost);
+          mostrarProductos(sortedProducts);
+          console.log('Ordenar productos por precio descendente');
+        });
+
+        // Ordenar por relevancia (cantidad de vendidos)
+        document.getElementById('orderRelevance').addEventListener('click', () => {
+          const sortedProducts = [...productos].sort((a, b) => b.soldCount - a.soldCount);
+          mostrarProductos(sortedProducts);
+          console.log('Ordenar productos por relevancia');
+        });
+
+        // Limpiar filtros
+        document.getElementById('resetFilters').addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('minPrice').value = '';
+          document.getElementById('maxPrice').value = '';
+
+          // Mostrar todos los productos nuevamente
+          mostrarProductos(productos);
+          console.log('Limpiar filtros');
+        });
+
       })
       .catch(error => console.error('Error al obtener los productos:', error));
   } else {
     console.error('No se encontró el ID de categoría en el localStorage');
   }
+
 });
