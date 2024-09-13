@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       contenedores.forEach((element) => {
-        element.addEventListener("click", () => {
+          element.addEventListener("click", () => {
           localStorage.setItem("catID", element.id);
           window.location = "products.html";
         });

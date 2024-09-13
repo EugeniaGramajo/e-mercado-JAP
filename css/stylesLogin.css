@@ -1,6 +1,7 @@
     /* Estilos generales */
     body {
         display: flex;
+        flex-direction: column;
         justify-content: center; /* Centrar horizontalmente */
         align-items: center; /* Centrar verticalmente */
         height: 100vh; /* Altura completa de la ventana */
@@ -8,60 +9,14 @@
         background-color: #f8f9fa; /* Color de fondo */
       }
   
-      /* Estilos para el modal */
-      .modal {
-        display: none; /* Oculto por defecto */
-        position: fixed; /* Fijo en la pantalla */
-        z-index: 1; /* Por encima de otros elementos */
-        left: 0;
-        top: 0;
-        width: 100%; /* Ancho completo */
-        height: 100%; /* Alto completo */
-        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
-        justify-content: center;
-        align-items: center;
-      }
-  
-      .modal-content {
-        background-color: white;
-        border-radius: 8px;
-        padding: 20px;
-        text-align: center;
-        width: 300px; /* Ancho del modal */
-        position: relative; /* Para asegurar que esté centrado */
-        margin: auto; /* Centrar horizontalmente */
-      }
-  
-      .modal-content h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-  
-      .button {
-        background-color: #b1b1b1;
-        border: none;
-        border-radius: 4px;
-        color: white;
-        cursor: pointer;
-        padding: 10px 20px;
-        font-size: 16px;
-        transition: background-color 0.3s;
-      }
-  
-      .button:hover {
-        background-color: #666666;
-      }
-  
       /* Estilos para el contenedor de login */
       .login-container {
-        margin: auto;
         background-color: white;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         width: 300px;
         text-align: center;
-        margin: auto;
       }
   
       input[type="text"], input[type="password"] {
@@ -107,6 +62,46 @@
         margin-top: 40px;
         text-align: center;
         width: 100%;
-        position: absolute;
-        bottom: -50px; /* Ajustar la posición del pie de página */
+        bottom: 0; /* Ajustar la posición del pie de página */
       }
+
+/* Media Queries */
+
+/* Resolucion estándar: 1366 x 768 px */
+@media (max-width: 1366px) {
+      .login-container {
+          width: 350px; /* Aumenta el ancho para pantallas mas grandes */
+      }
+}
+
+/* Tableta en modo vertical: 768px x 1024 px */
+@media (max-width: 768px) {
+      .login-container {
+      width: 280px; /* Reduce el ancho para ajustarse a tablets */
+        top: 200px; /* ajusta la posición vertical */
+      }
+
+      input[type="text"],
+      input[type="password"],
+      button {
+        padding: 8px; /* Reduce el padding en tabletas */
+      }
+}
+
+/* Smartphone pequeño: 320 x 568 px  */
+@media (max-width: 320px) {
+      .login-container {
+        width: 90%; /* Utilizar un ancho porcentual para pantallas pequeñas */
+        top: 150px; /* Ajusta la posicion vertical */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      input[type="text"],
+      input[type="password"]
+      button {
+        padding: 6px; /* Reduce aún más el padding para smartphones pequeños */
+      }
+
+}
+
