@@ -39,7 +39,7 @@
   
   .thumbnail {
     width: 130px;
-    height: 120px;
+    height: 100px;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -162,6 +162,11 @@
     font-size: 14px;
     color: #727272;
   }
+
+  #carouselExampleFade {
+    width: 700px;
+  }
+  
   
   @media (max-width: 768px) {
     .product-container {
@@ -185,7 +190,7 @@
     }
 
     .thumbnail {
-        width: 92px;
+        width: 98px;
         height: 60px;
         object-fit: cover;
         border-radius: 5px;
