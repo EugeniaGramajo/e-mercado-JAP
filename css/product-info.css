@@ -180,26 +180,32 @@
     .thumbnail-container {
       flex-direction: row;
       justify-content: center;
+      width: 386px;
     }
 
     
     .main-image {
       width: 100%;
-      max-width: 400px;
+      max-width: 398px;
       margin: 0 auto;
     }
 
     .thumbnail {
-        width: 98px;
+        width: 85px;
         height: 60px;
         object-fit: cover;
         border-radius: 5px;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
         cursor: pointer;
+        margin-right: 4px;
       }
 
     .breadcrumb{
         margin-bottom: 10px;
+    }
+
+    #carouselExampleFade {
+      width: 380px;
     }
   }
 
