@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
             </div>
           </div>
-          
         `;
 
         if (productContainer) {
