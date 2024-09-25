@@ -124,21 +124,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mostrar los comentarios existentes para el producto actual
     function displayComments() {
-        commentContainer.innerHTML = '';
-        comments.forEach(comment => {
-            const commentElement = document.createElement('div');
-            commentElement.className = 'comment';
-            commentElement.innerHTML = `
-                <h4>${comment.user}</h4>
-                <p>${comment.text}</p>
-                <div class="star-rating">
-                    ${'★'.repeat(comment.rating).split('').map(() => '<span class="filled">★</span>').join('')}
-                    ${'☆'.repeat(5 - comment.rating).split('').map(() => '<span>☆</span>').join('')}
-                </div>
-            `;
-            commentContainer.appendChild(commentElement);
-        });
-    }
+      commentContainer.innerHTML = '';
+      comments.forEach(comment => {
+          const commentElement = document.createElement('div');
+          commentElement.className = 'comment';
+          commentElement.innerHTML = `
+              <div class="comment-header" style="display: flex; justify-content: space-between; align-items: center;">
+                  <h4 class="comentario-user" style="margin: 0;">
+                      ${comment.user}
+                  </h4>
+                  <span class="comment-date" style="font-size: 0.9em; color: #888;">
+                      ${comment.date}
+                  </span>
+              </div>
+              <div class="star-rating">
+                  ${'★'.repeat(comment.rating).split('').map(() => '<span class="filled">★</span>').join('')}
+                  ${'☆'.repeat(5 - comment.rating).split('').map(() => '<span>☆</span>').join('')}
+              </div>
+              <p>${comment.text}</p>
+          `;
+          commentContainer.appendChild(commentElement);
+      });
+  }
 
     // Manejar la selección de estrellas
     starRatingContainer.addEventListener('click', (e) => {
@@ -157,11 +164,25 @@ document.addEventListener("DOMContentLoaded", function () {
     commentForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const newComment = {
-            user: "Anonymous", // Cambiar esto con el nombre de usuario del backend
-            text: commentInput.value,
-            rating: parseInt(commentForm.rating.value)
-        };
+        const user = JSON.parse(localStorage.getItem("user")); 
+        const userName = user.name;
+
+        const currentDate = new Date();
+    // Formatear la fecha como 'dd/mm/yyyy hh:mm'
+    const formattedDate = currentDate.toLocaleString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    const newComment = {
+        user: userName, // Cambiar esto con el nombre de usuario del backend
+        text: commentInput.value,
+        rating: parseInt(commentForm.rating.value),
+        date: formattedDate // Agregar la fecha formateada
+    };
         
         // Agregar el nuevo comentario al array de comentarios del producto actual
         comments.push(newComment);

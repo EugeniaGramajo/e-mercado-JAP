@@ -260,7 +260,7 @@
 
   /* Tamaño de las estrellas más grande */
 #star-rating .star {
-  font-size: 2rem; /* Aumentar el tamaño de las estrellas */
+  font-size: 45px; /* Aumentar el tamaño de las estrellas */
   cursor: pointer; /* Cursor de mano para indicar que se pueden seleccionar */
   color: lightgray; /* Color de las estrellas vacías */
 }
@@ -290,12 +290,22 @@
 
 /* Estrellas más grandes y amarillas para los comentarios existentes */
 .comment .star-rating span {
-  font-size: 2rem; /* Aumentar el tamaño de las estrellas en los comentarios */
+  font-size: 1.4rem; /* Aumentar el tamaño de las estrellas en los comentarios */
   color: lightgray; /* Color de las estrellas vacías */
+}
+
+.star-rating {
+  margin-bottom: 5px;
 }
 
 .comment .star-rating span.filled {
   color: gold; /* Estrellas llenas en los comentarios en amarillo */
 }
+
+.comentario-user {
+  padding: 0;
+  margin: 0;
+}
+
 
 
