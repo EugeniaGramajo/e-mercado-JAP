@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: white;
   }
   
   .breadcrumb {
@@ -39,7 +40,7 @@
   
   .thumbnail {
     width: 130px;
-    height: 120px;
+    height: 100px;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -162,6 +163,11 @@
     font-size: 14px;
     color: #727272;
   }
+
+  #carouselExampleFade {
+    width: 700px;
+  }
+  
   
   @media (max-width: 768px) {
     .product-container {
@@ -175,26 +181,32 @@
     .thumbnail-container {
       flex-direction: row;
       justify-content: center;
+      width: 386px;
     }
 
     
     .main-image {
       width: 100%;
-      max-width: 400px;
+      max-width: 398px;
       margin: 0 auto;
     }
 
     .thumbnail {
-        width: 92px;
+        width: 85px;
         height: 60px;
         object-fit: cover;
         border-radius: 5px;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
         cursor: pointer;
+        margin-right: 4px;
       }
 
     .breadcrumb{
         margin-bottom: 10px;
+    }
+
+    #carouselExampleFade {
+      width: 380px;
     }
   }
 

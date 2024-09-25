@@ -73,8 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
   
           if (productContainer) {
             productContainer.innerHTML = productDetails;
-          }
-        })
+
+            const thumbnails = document.querySelectorAll('.thumbnail');
+          const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleFade'));
+
+          thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+              carousel.to(index);
+          });
+        });
+      }
+    })
         .catch(error => console.error("Error al cargar el producto:", error));
     } else {
       console.error("No se encontró el ID del producto en el localStorage");
