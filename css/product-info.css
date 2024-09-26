@@ -298,4 +298,16 @@
   color: gold; /* Estrellas llenas en los comentarios en amarillo */
 }
 
+#productos-relacionados {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  gap: 20px;
+  min-height: 200px;
+}
 
+.title-productos-relacionados {
+  text-align: center;
+  margin: 15px;
+}

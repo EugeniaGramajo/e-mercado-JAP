@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const categoryID = localStorage.getItem("catID");
-  const selectedProductId = localStorage.getItem("selectedProductId");
+const categoryID = localStorage.getItem("catID");
 
+document.addEventListener("DOMContentLoaded", function () {
+  const selectedProductId = localStorage.getItem("selectedProductId");
   const productContainer = document.querySelector(".product-container");
 
   if (productContainer) {
@@ -176,5 +176,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Inicializar mostrando los comentarios
     displayComments();
-});
+  });
 
+  //productos relacionados
+  const apiUrl = `https://japceibal.github.io/emercado-api/cats_products/${categoryID}.json`;
+
+  async function getData() {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+  
+      const productContainer = document.querySelector('.productos-relacionados');
+      const selectedProductId = localStorage.getItem('selectedProductId'); 
+  
+      productContainer.innerHTML = '';
+  
+      const filteredProducts = data.products.filter(product => product.id !== parseInt(selectedProductId));
+  
+      filteredProducts.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('card', 'mb-3', 'col-md-4');
+        card.setAttribute('data-id', product.id);
+  
+        const cardImage = document.createElement('img');
+        cardImage.classList.add('card-img-top');
+        cardImage.src = product.image;
+        cardImage.alt = product.name;
+  
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+  
+        const cardTitle = document.createElement('h5');
+        cardTitle.classList.add('card-title');
+        cardTitle.textContent = product.name;
+  
+        const cardPrice = document.createElement('p');
+        cardPrice.classList.add('card-text');
+        cardPrice.textContent = `${product.currency} ${product.cost}`;
+  
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardPrice);
+  
+        card.appendChild(cardImage);
+        card.appendChild(cardBody);
+  
+        productContainer.appendChild(card);
+  
+        card.addEventListener('click', function () {
+          localStorage.setItem('selectedProductId', product.id);
+  
+          window.location.href = 'product-info.html';
+        });
+      });
+    } catch (error) {
+      console.error('Error al obtener los datos:', error);
+    }
+  }
+  
+  window.onload = getData;
+  
