@@ -25,10 +25,47 @@
     </div>
   </div>
 
+ 
+
+  <div class="container">
+    <!-- Contenedor para mostrar los comentarios de los usuarios -->
+    <div id="comment-container">
+      <!-- Los comentarios se generarán dinámicamente aquí -->
+    </div>
+  
+    <!-- Formulario para agregar un nuevo comentario -->
+    <div class="comment-form">
+      <h3>Agregar un comentario</h3>
+  
+      <!-- Calificación con estrellas -->
+      <div id="star-rating">
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+      </div>
+  
+      <!-- Formulario de comentario -->
+      <form id="comment-form">
+        <input type="hidden" name="rating" value="0"> <!-- Almacena la calificación seleccionada -->
+        <textarea id="comment-input" placeholder="Escribe tu comentario..." required></textarea>
+        <button type="submit" id="submit-comment" class="buy-now">Enviar comentario</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="titulo-poductos-relacionados">
+    </div>
+    <div class="row productos-relacionados">
+    <!-- Aquí se generaran los productos relacionados -->
+    </div>
+  </div>
+  
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="./components/navbar.js"></script>
 </body>
-
 </html>
