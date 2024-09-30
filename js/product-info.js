@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const productDetails = `
             <div class="image-container">
               <div class="thumbnail-container">
-                ${producto.images.map(imgSrc => `<img src="${imgSrc}" class="thumbnail">`).join('')}
+                ${producto.images.map((imgSrc, i) => `<img id="${i}" src="${imgSrc}" class="thumbnail">`).join('')}
               </div>
               <img src="${producto.images[0]}" class="main-image" />
             </div>
