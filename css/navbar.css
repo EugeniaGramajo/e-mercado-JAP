@@ -2,7 +2,7 @@
 .navBar {
   font-size: 15px;
   display: flex;
-  max-width: 1024px;
+  max-width: 1200px;
   justify-content: space-between;
   align-items: center;
   padding: 0px 15px;
@@ -11,6 +11,7 @@
   margin: auto;
   position: relative;
   z-index: 50 ;
+  background-color: rgb(250, 250, 250);
 }
 
 .navbar-section {

@@ -1,5 +1,5 @@
 body {
-  background-color: #fafafa;
+  background-color: #f4f4f4;
   font-family: "Comfortaa", system-ui;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -25,8 +25,6 @@ body {
   font-weight: 700;
   font-style: normal;
 }
-
-
 
 .jumbotron,
 .card-body,
@@ -207,22 +205,21 @@ a.custom-card:hover {
   color: orange;
 }
 
-/* Cambiar el tamaño de los campos de texto (Usuario y Contraseña) */
 .navbar input[type="text"],
 .navbar input[type="password"] {
-  width: 100px; /* Ancho del campo */
-  height: 20px; /* Altura del campo */
-  font-size: 8px; /* Tamaño de la fuente */
-  padding: 2px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
+  width: 100px; 
+  height: 20px; 
+  font-size: 8px; 
+  padding: 2px;
+  border-radius: 5px; 
 }
 
-/* Ajustar el tamaño del botón "Entrar" */
+
 .navbar button[type="submit"] {
-  height: 25px; /* Altura del botón */
-  font-size: 1rem; /* Tamaño de la fuente */
-  padding: 0px 10px; /* Espaciado interno del botón */
-  border-radius: 5px; /* Bordes redondeados */
+  height: 25px; 
+  font-size: 1rem; 
+  padding: 0px 10px; 
+  border-radius: 5px; 
 }
 .tarjeta-producto {
   background-color: white;

@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: white;
   }
   
   .breadcrumb {
@@ -39,7 +40,7 @@
   
   .thumbnail {
     width: 130px;
-    height: 120px;
+    height: 100px;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -162,6 +163,11 @@
     font-size: 14px;
     color: #727272;
   }
+
+  #carouselExampleFade {
+    width: 700px;
+  }
+  
   
   @media (max-width: 768px) {
     .product-container {
@@ -175,27 +181,162 @@
     .thumbnail-container {
       flex-direction: row;
       justify-content: center;
+      width: 386px;
     }
 
     
     .main-image {
       width: 100%;
-      max-width: 400px;
+      max-width: 398px;
       margin: 0 auto;
     }
 
     .thumbnail {
-        width: 92px;
+        width: 85px;
         height: 60px;
         object-fit: cover;
         border-radius: 5px;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
         cursor: pointer;
+        margin-right: 4px;
       }
 
     .breadcrumb{
         margin-bottom: 10px;
     }
+
+    #carouselExampleFade {
+      width: 380px;
+    }
   }
 
+  #ratings-section, #new-rating, #related-products {
+    margin-top: 20px;
+}
+
+#ratings-list {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.rating-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.rating-item:last-child {
+    border-bottom: none;
+}
+
+#new-rating textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#new-rating select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#related-products-list {
+    display: flex;
+    gap: 15px;
+}
+
+.related-product-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.related-product-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+  /* Tamaño de las estrellas más grande */
+#star-rating .star {
+  font-size: 45px; /* Aumentar el tamaño de las estrellas */
+  cursor: pointer; /* Cursor de mano para indicar que se pueden seleccionar */
+  color: lightgray; /* Color de las estrellas vacías */
+}
+
+/* Estrellas llenas en color amarillo */
+#star-rating .star.selected {
+  color: gold; /* Relleno amarillo para las estrellas seleccionadas */
+}
+
+/* Caja de comentarios más ancha */
+#comment-input {
+  width: 100%; /* Ancho completo */
+  min-height: 100px; /* Aumentar la altura del campo de texto */
+  margin-top: 10px; /* Espacio superior */
+}
+
+/* Comentarios */
+.comment {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.comment h4 {
+  font-weight: bold;
+}
+
+
+.comment .star-rating span {
+  font-size: 1.4rem; 
+  color: lightgray; 
+}
+
+.star-rating {
+  margin-bottom: 5px;
+}
+
+.comment .star-rating span.filled {
+  color: gold; 
+}
+
+/* .productos-relacionados {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  gap: 10px;
+  min-height: 200px;
+} */
+
+.productos-relacionados {
+  display: flex;
+  justify-content: center;
+}
+
+.comentario-user {
+  padding: 0;
+  margin: 0;
+}
+
+.title-productos-relacionados {
+  text-align: center;
+  margin: 15px;
+}
+
+.card {
+  padding: 0;
+  margin-right: 5px;
+  width: 380px;
+  cursor: pointer;
+  transition: all .2s ease;
+  transform-style: preserve-3d;
+  z-index: 0; 
+}
+
+.card:hover {
+  box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.158);
+  z-index: 10;
+}
 
