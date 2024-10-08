@@ -310,15 +310,6 @@
   color: gold; 
 }
 
-/* .productos-relacionados {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  gap: 10px;
-  min-height: 200px;
-} */
-
 .productos-relacionados {
   display: flex;
   justify-content: center;
@@ -349,3 +340,6 @@
   z-index: 10;
 }
 
+.comment-date {
+  justify-content: space-between;
+}
