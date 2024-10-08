@@ -22,21 +22,25 @@
   text-decoration: none;
   color: black;
   padding: 0px 15px;
+  font-weight: 700;
   position: relative;
+  margin-left: 6rem;
+  transition: all .4s ease;
 }
 .navbar-section a:hover {
-  color: #585858;
+  transform: scale(1.1);
 }
 
 .navbar-section .nav-Link::after {
   content: "";
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 1px;
   bottom: -5px;
-  left: 0;
+  left: 50%; 
+  transform: translateX(-50%); 
   background-color: #000;
-  transition: width 0.6s ease;
+  transition: width 0.4s ease;
 }
 
 .navbar-section .nav-Link:hover::after,
@@ -60,6 +64,7 @@
 #nav-links {
   display: flex;
   align-items: center;
+  margin-right: 14rem;
 }
 
 #links {
