@@ -271,6 +271,11 @@ a.custom-card:hover {
   padding: 5%;
 }
 
+.pb-5.container {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+}
+
 @media (max-width: 1024px) {
   .producto {
     display: block;

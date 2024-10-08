@@ -4,6 +4,11 @@
     padding: 20px;
     background-color: white;
   }
+
+  .container1 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+  }
   
   .breadcrumb {
     margin-bottom: 20px;
@@ -281,6 +286,10 @@
   margin-bottom: 15px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
+}
+
+.comentarios {
+  margin-top: 100px;
 }
 
 .comment h4 {

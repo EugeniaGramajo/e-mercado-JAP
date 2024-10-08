@@ -2,16 +2,15 @@
 .navBar {
   font-size: 15px;
   display: flex;
-  max-width: 1200px;
   justify-content: space-between;
   align-items: center;
   padding: 0px 15px;
   height: 90px;
-  border-bottom: 2px solid black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: auto;
   position: relative;
   z-index: 50 ;
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(255, 255, 255);
 }
 
 .navbar-section {
@@ -52,8 +51,9 @@
 }
 
 .navbar-section .logo img {
-  height: 80px;
-  width: 150px;
+  height: auto;
+  width: 9rem;
+  margin-left: 4rem;
 }
 
 /* Non-responsive layout */

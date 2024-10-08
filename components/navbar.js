@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   realNavBar.innerHTML = `      
     <div class="navbar-section">
   <span class="logo">
-    <img alt="logo" src="https://i0.wp.com/puppis.blog/wp-content/uploads/2020/02/Particularidades-de-los-felinos.jpg?resize=900%2C600&ssl=1">
+    <img alt="logo" src="img/NovaShop(white).png">
   </span>
 </div>
 
