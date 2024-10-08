@@ -265,6 +265,14 @@ a.custom-card:hover {
   display: flex;
   align-items: center;
   justify-content: start;
+  transition: all .4s ease;
+  background-color: #fff;
+}
+
+.producto:hover {
+  transform: translateY(-5px) translateX(-5px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.192);
+  z-index: 100;
 }
 
 .producto-detalles {
