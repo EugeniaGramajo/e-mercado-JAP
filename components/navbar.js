@@ -3,41 +3,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
   realNavBar.innerHTML = `      
     <div class="navbar-section">
-  <span class="logo">
-    <img alt="logo" src="img/NovaShop(white).png">
-  </span>
-</div>
+      <span class="logo">
+        <img alt="logo" src="img/NovaShop(white).png">
+      </span>
+    </div>
 
-<button id="hamburger" class="hamburger" aria-label="Menú" aria-expanded="false">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+    <button id="hamburger" class="hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-<div class="navbar-section" id="nav-links">
-  <div id="links">
-    <a href="index.html" class="nav-Link">Inicio</a>
-    <a href="categories.html" class="nav-Link">Categorias</a>
-    <a href="sell.html" class="nav-Link">Vender</a>
-    <a href="about.html" class="nav-Link">About</a>
-  </div>
-  <div id="cart-menu" class="cart-menu">
-  <h2>Carrito de Compras</h2>
-  <div id="cart-items"></div>
-  <div id="cart-total">Total: $0.00</div>
-  <button id="checkout-button">Ir a Pagar</button>
-</div>
-  <div id="user-info"></div>
-</div>`;
+    <div class="navbar-section" id="nav-links">
+      <div id="links">
+        <a href="index.html" class="nav-Link">Inicio</a>
+        <a href="categories.html" class="nav-Link">Categorias</a>
+        <a href="sell.html" class="nav-Link">Vender</a>
+        <a href="about.html" class="nav-Link">About</a>
+
+        <!-- menu desplegable -->
+        <div class="dropdown-container">
+          <a><ion-icon name="person-circle-outline" class="icono-login" id="userIcon"></ion-icon></a>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+              <li>
+                <div class="perfil-dropdown">
+                  <img src="img/cat-perfil.jpeg" id="imagen-perfil">
+                  <h3 id="welcomeMessage">Bienvenido</h3>
+                  <a href="my-profile.html">Mi perfil</a>
+                </div>
+              </li>
+              <li><a href="#">Configuración</a></li>
+              <li><a href="#" id="logoutLink">Cerrar sesión</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="cart-menu" class="cart-menu">
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total">Total: $0.00</div>
+        <button id="checkout-button">Ir a Pagar</button>
+      </div>
+      <div id="user-info"></div>
+    </div>`;
+
+  const userIcon = document.getElementById('userIcon');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const welcomeMessage = document.getElementById('welcomeMessage');
   const user = JSON.parse(localStorage.getItem("user"));
-  const userInfo = document.getElementById("user-info");
+
+  // Actualizar el mensaje de bienvenida si hay un usuario
+  if (user && user.name) {
+    welcomeMessage.textContent = `Bienvenido, ${user.name}`;
+  }
+
+  userIcon.addEventListener('click', function() {
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  window.addEventListener('click', function(e) {
+    if (!userIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.style.display = 'none';
+    }
+  });
+
   const navLinks = document.getElementById("nav-links");
   const hamburger = document.querySelector(".hamburger");
-  const favorites = document.getElementById("favorites.html")
-
-  favorites.addEventListener("click", ()=>{
-      window.location.href = "favorites.html"
-    })
 
   function toggleMenu() {
     navLinks?.classList.toggle("active");
@@ -54,81 +86,19 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "login.html";
   };
 
+  // Agregar evento de clic al enlace de cerrar sesión en el dropdown
+  document.getElementById("logoutLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Previene la acción por defecto del enlace
+    logOut(); // Llama a la función de cierre de sesión
+  });
+
+  const userInfo = document.getElementById("user-info");
   if (user?.name) {
-    userInfo.innerHTML = `
-      <a href="my-profile.html">Bienvenid@, ${user.name}!</a>
-      <button id="logOut">Cerrar Sesión</button>
-    `;
-    document.getElementById("logOut").addEventListener("click", logOut);
+    userInfo.innerHTML = `<a href="my-profile.html">Bienvenid@, ${user.name}!</a>`;
   } else {
-    userInfo.innerHTML = `
-      <button id="loginButton">Iniciar Sesión</button>
-    `;
+    userInfo.innerHTML = `<button id="loginButton">Iniciar Sesión</button>`;
     document.getElementById("loginButton").addEventListener("click", () => {
       window.location.href = "login.html";
     });
   }
-
-  //* Logica carrito de compras
-
-  const cartIcon = document.getElementById("cart-icon");
-  const cartMenu = document.getElementById("cart-menu");
-  const cartItems = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
-  const checkoutButton = document.getElementById("checkout-button");
-
-  let cart = [
-    { name: "Item 1", price: 10.99 },
-    { name: "Item 2", price: 15.99 },
-    { name: "Item 3", price: 7.99 }
-  ];
-
-  function toggleCartMenu() {
-    cartMenu.classList.toggle("active");
-    cartIcon.setAttribute(
-      "aria-expanded",
-      cartIcon.getAttribute("aria-expanded") === "false" ? "true" : "false"
-    );
-  }
-
-  function updateCartDisplay() {
-    cartItems.innerHTML = "";
-    let total = 0;
-
-    cart.forEach(item => {
-      const itemElement = document.createElement("div");
-      itemElement.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-      cartItems.appendChild(itemElement);
-      total += item.price;
-    });
-
-    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-  }
-
-  cartIcon.addEventListener("click", toggleCartMenu);
-
-  checkoutButton.addEventListener("click", () => {
-    alert("Redirigiendo al proceso de pago...");
-    // Implement your checkout logic here
-  });
-
-  // Close cart menu when clicking outside
-  document.addEventListener("click", (event) => {
-    if (!cartMenu.contains(event.target) && !cartIcon.contains(event.target)) {
-      cartMenu.classList.remove("active");
-      cartIcon.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  // Initial cart display update
-  updateCartDisplay();
-
-
-  const currentPage = window.location.pathname.split("/").pop();
-  const navLink = document.querySelectorAll(".nav-Link");
-  navLink.forEach((link) => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active");
-    }
-  });
 });
