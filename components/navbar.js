@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="my-profile.html" class="profile-link">
           <img src="img/cat-perfil.jpeg" alt="Imagen de perfil" class="profile-image" id="imagen-perfil">
           <div class="profile-info">
-            <h4 id="welcomeMessage">Bienvenido, ${user.name}!</h4>
+            <h4 id="welcomeMessage">Bienvenid@, ${user.name}!</h4>
             <h6 class="mi-perfil">Mi perfil</h6>
           </div>
         </a>
