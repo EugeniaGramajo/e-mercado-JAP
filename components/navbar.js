@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const realNavBar = document.getElementById("navbar");
+  const user = JSON.parse(localStorage.getItem("user")); // Verificamos si el usuario está iniciado
 
+  // Generar el contenido del navbar dependiendo si el usuario está logueado o no
   realNavBar.innerHTML = `      
     <div class="navbar-section">
       <span class="logo">
@@ -20,24 +22,69 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="categories.html" class="nav-Link">Categorias</a>
         <a href="sell.html" class="nav-Link">Vender</a>
         <a href="about.html" class="nav-Link">About</a>
-
+        ${user ? `
         <!-- menu desplegable -->
         <div class="dropdown-container">
-          <a><ion-icon name="person-circle-outline" class="icono-login" id="userIcon"></ion-icon></a>
-          <div class="dropdown-menu" id="dropdownMenu">
-            <ul>
-              <li>
-                <div class="perfil-dropdown">
-                  <img src="img/cat-perfil.jpeg" id="imagen-perfil">
-                  <h3 id="welcomeMessage">Bienvenido</h3>
-                  <a href="my-profile.html">Mi perfil</a>
-                </div>
-              </li>
-              <li><a href="#">Configuración</a></li>
-              <li><a href="#" id="logoutLink">Cerrar sesión</a></li>
-            </ul>
+  <a href="#" class="user-icon-link">
+    <ion-icon name="person-circle-outline" class="icono-login nav-Link" id="userIcon"></ion-icon>
+  </a>
+  <div class="dropdown-menu" id="dropdownMenu">
+    <ul>
+      <li class="profile-item">
+        <a href="my-profile.html" class="profile-link">
+          <img src="img/cat-perfil.jpeg" alt="Imagen de perfil" class="profile-image" id="imagen-perfil">
+          <div class="profile-info">
+            <h4 id="welcomeMessage">Bienvenido, ${user.name}!</h4>
+            <h6 class="mi-perfil">Mi perfil</h6>
           </div>
-        </div>
+        </a>
+      </li>
+      <hr>
+      <li class="mode-toggle hover-navbar">
+        <span class="mode-text">Modo Oscuro</span>
+        <label class="switch">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="slider round"></span>
+        </label>
+      </li>
+      <li class="menu-item hover-navbar">
+        <a href="#" id="carrito">
+          <ion-icon name="cart-outline"></ion-icon>
+          <span>Mi Carrito</span>
+        </a>
+      </li>
+      <li class="menu-item hover-navbar">
+        <a href="#">
+          <ion-icon name="star-outline"></ion-icon>
+          <span>Favoritos</span>
+        </a>
+      </li>
+      <li class="menu-item hover-navbar">
+        <a href="#">
+          <ion-icon name="time-outline"></ion-icon>
+          <span>Historial</span>
+        </a>
+      </li>
+      <li class="menu-item hover-navbar">
+        <a href="#">
+          <ion-icon name="settings-outline"></ion-icon>
+          <span>Configuración</span>
+        </a>
+      </li>
+      <hr>
+      <li class="menu-item logout-item hover-navbar">
+        <a href="#" id="logoutLink">
+          <ion-icon name="log-out-outline" class="icon-logout"></ion-icon>
+          <span>Cerrar sesión</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+        ` : `
+        <!-- Botón de Iniciar Sesión si el usuario no está logueado -->
+        <buttton><a href="login.html" class="login-button" style="color: #fff">Iniciar Sesión</a></buttton>
+        `}
       </div>
       <div id="cart-menu" class="cart-menu">
         <h2>Carrito de Compras</h2>
@@ -48,25 +95,30 @@ document.addEventListener("DOMContentLoaded", function () {
       <div id="user-info"></div>
     </div>`;
 
-  const userIcon = document.getElementById('userIcon');
-  const dropdownMenu = document.getElementById('dropdownMenu');
-  const welcomeMessage = document.getElementById('welcomeMessage');
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  // Actualizar el mensaje de bienvenida si hay un usuario
-  if (user && user.name) {
-    welcomeMessage.textContent = `Bienvenido, ${user.name}`;
-  }
-
-  userIcon.addEventListener('click', function() {
-    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-  });
-
-  window.addEventListener('click', function(e) {
-    if (!userIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
-      dropdownMenu.style.display = 'none';
+    if (user) {
+      // Agregar evento de clic al enlace de cerrar sesión en el dropdown
+      document.getElementById("logoutLink").addEventListener("click", function(event) {
+        event.preventDefault(); // Previene la acción por defecto del enlace
+        logOut(); // Llama a la función de cierre de sesión
+      });
+  
+      // Mostrar/ocultar el menú desplegable al hacer clic en el ícono de usuario
+      const userIcon = document.getElementById("userIcon");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+  
+      userIcon.addEventListener("click", function(event) {
+        event.preventDefault();
+        dropdownMenu.classList.toggle("show");
+      });
+  
+      // Cerrar el menú desplegable si se hace clic fuera de él
+      document.addEventListener("click", function(event) {
+        // Verifica si el clic fue fuera del contenedor del menú desplegable
+        if (!dropdownMenu.contains(event.target) && !userIcon.contains(event.target)) {
+          dropdownMenu.classList.remove("show");
+        }
+      });
     }
-  });
 
   const navLinks = document.getElementById("nav-links");
   const hamburger = document.querySelector(".hamburger");
@@ -85,20 +137,4 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.clear();
     window.location.href = "login.html";
   };
-
-  // Agregar evento de clic al enlace de cerrar sesión en el dropdown
-  document.getElementById("logoutLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Previene la acción por defecto del enlace
-    logOut(); // Llama a la función de cierre de sesión
-  });
-
-  const userInfo = document.getElementById("user-info");
-  if (user?.name) {
-    userInfo.innerHTML = `<a href="my-profile.html">Bienvenid@, ${user.name}!</a>`;
-  } else {
-    userInfo.innerHTML = `<button id="loginButton">Iniciar Sesión</button>`;
-    document.getElementById("loginButton").addEventListener("click", () => {
-      window.location.href = "login.html";
-    });
-  }
 });
