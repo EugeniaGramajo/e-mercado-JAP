@@ -349,19 +349,3 @@ h3 {
   background-color: #e63946;
   color: #fff;
 }
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.img-usuario {
-  height: 150px;
-}
-
-.profile-head {
-  text-align: center;
-}
