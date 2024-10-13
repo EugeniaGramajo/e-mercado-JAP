@@ -31,14 +31,16 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="dropdown-menu" id="dropdownMenu">
     <ul>
       <li class="profile-item">
-        <a href="my-profile.html" class="profile-link">
-          <img src="img/cat-perfil.jpeg" alt="Imagen de perfil" class="profile-image" id="imagen-perfil">
-          <div class="profile-info">
-            <h4 id="welcomeMessage">Bienvenid@, ${user.name}!</h4>
-            <h6 class="mi-perfil">Mi perfil</h6>
-          </div>
-        </a>
-      </li>
+  <div class="profile-content">
+    <a href="my-profile.html" class="profile-link">
+      <img src="img/cat-perfil.jpeg" alt="Imagen de perfil" class="profile-image" id="imagen-perfil">
+      <div class="profile-info">
+        <h4 id="welcomeMessage">Bienvenid@, ${user.name}!</h4>
+        <h6 class="mi-perfil">Mi perfil</h6>
+      </div>
+    </a>
+  </div>
+</li>
       <hr>
       <li class="mode-toggle hover-navbar">
         <span class="mode-text">Modo Oscuro</span>
@@ -86,13 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
         <buttton><a href="login.html" class="login-button" style="color: #fff">Iniciar Sesión</a></buttton>
         `}
       </div>
-      <div id="cart-menu" class="cart-menu">
-        <h2>Carrito de Compras</h2>
-        <div id="cart-items"></div>
-        <div id="cart-total">Total: $0.00</div>
-        <button id="checkout-button">Ir a Pagar</button>
-      </div>
-      <div id="user-info"></div>
     </div>`;
 
     if (user) {
