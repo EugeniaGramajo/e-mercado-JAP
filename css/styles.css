@@ -1,5 +1,7 @@
+@import url(variables.css);
+
 body {
-  background-color: #f4f4f4;
+  background-color: var(--background-color);
   font-family: "Comfortaa", system-ui;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -194,6 +196,7 @@ footer p {
 main {
   min-height: calc(100vh - 210px);
 }
+
 
 a.custom-card,
 a.custom-card:hover {
