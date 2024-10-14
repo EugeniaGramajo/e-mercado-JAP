@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const contenedor = document.getElementById("main-container");
-  fetch("https://japceibal.github.io/emercado-api/cats/cat.json")
+  fetch("https://jap-backend.onrender.com/categories")
     .then((response) => response.json())
     .then((data) => {
       data.forEach((categoria) => {

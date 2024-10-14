@@ -1,7 +1,35 @@
 @import url(variables.css);
 .footer {
-    background-color: var(--c1);
-    height: 30px;
-    max-width: 1200px;
+    background-color: var(--c4);
+    height: fit-content;
+    width: 100%;
+    margin: auto;
+    padding: 15px;
+    color: var(--text-color) ;
+    
+}
+.footer div {
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer img {
+    width: 150px;
+    height: 150px;
+}
+
+.info {
+    display:flex;
+}
+
+.info section {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media(max-width: 945px){
     
 }
