@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const footer = document.querySelector("footer");
   const footerComponent = `
+  <div class="container-footer">
           <div>
-          <!------------------------------>
           <section>
             <img
-              src="https://i0.wp.com/puppis.blog/wp-content/uploads/2020/02/Particularidades-de-los-felinos.jpg?resize=900%2C600&ssl=1"
+              src="img/NovaShop(white).png"
             />
           </section>
-  
-          <!-------------------------------->
           <section class="info">
             <section>
               <h3>Seguí explorando</h3>
@@ -17,16 +15,32 @@ document.addEventListener("DOMContentLoaded", function () {
               </p>
             </section>
             <section>
-              <h3>Conocenos!</h3><br/>
-              <a href="/about.html">Sobre nosotros</a>
-              <a href="https://github.com/EugeniaGramajo/e-mercado-JAP" target="_blank">Repo Frontend</a>
-              <a href="https://github.com/EugeniaGramajo/jap-backend" target="_blank">Repo Backend</a>
-              <a href="/register form.html">Registrate</a>
-            </section>
-
+              <h3>Conocenos!</h3>
+              <p>
+              <a   href="/about.html">Sobre nosotros</a>
+              <a   href="https://github.com/EugeniaGramajo/e-mercado-JAP" target="_blank">Repo Frontend</a>
+              <a   href="https://github.com/EugeniaGramajo/jap-backend" target="_blank">Repo Backend</a>
+              <a   href="/register form.html">Registrate</a>
+             </p>
+              </section>
+              <section>
+              <h3 >Síguenos</h3>
+            <div class="redes">
+              <a href="https://www.facebook.com" target="_blank" >
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+              <a href="https://www.instagram.com" target="_blank" >
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+              <a href="https://twitter.com" target="_blank" >
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a></section>
           </section>
-          <!------------------------------------>
-        </div>`;
+        </div>
+        <div class="legales">Copyright © 2024 - Jóvenes a programar</div>
+        </div>
+        
+        `;
   footer.innerHTML = footerComponent;
 
   const categoriesList = document.getElementById("categories-list");
@@ -36,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       data.forEach((category) => {
         const categoryLink = `
-            <a href="#" class="category-link" id="${category.id}">${category.name}</a><br/>
+            <a href="#" class="category-link" id="${category.id}">${category.name}</a>
           `;
         categoriesList.innerHTML += categoryLink;
       });

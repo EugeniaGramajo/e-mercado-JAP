@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-* {
-  font-family: 'Poppins', sans-serif;
-}
+@import url(variables.css);
 .navBar {
+  font-family: var(--font-family);
+  color: var(--text-color);
   font-size: 15px;
   display: flex;
   justify-content: space-between;
@@ -27,7 +26,6 @@
 
 .nav-Link {
   text-decoration: none;
-  color: black;
   padding: 0px 15px;
   font-weight: 400;
   letter-spacing: 2px;
@@ -39,7 +37,7 @@
 }
 
 .nav-Link:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .navbar-section .nav-Link::after {
@@ -50,7 +48,7 @@
   bottom: -5px;
   left: 50%; 
   transform: translateX(-50%); 
-  background-color: #000;
+  background-color: var(--text-color);
   transition: width 0.4s ease;
 }
 
@@ -61,7 +59,7 @@
 }
 
 .login-button {
-  background-color: #ff6b6b;
+  background-color: var(--c1);
   color: white;
   border: none;
   padding: 8px 20px;
@@ -73,7 +71,7 @@
 }
 
 .login-button:hover {
-  background-color: #ff3c4c;
+  background-color: var(--c1-hover);
 }
 
 .navbar-section span {

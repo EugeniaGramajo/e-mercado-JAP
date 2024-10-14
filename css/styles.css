@@ -1,38 +1,24 @@
 @import url(variables.css);
+@import url(footer.css);
+@import url(navbar.css);
 
 body {
   background-color: var(--background-color);
-  font-family: "Comfortaa", system-ui;
+  font-family: var(--font-family);
   font-optical-sizing: auto;
-  font-weight: 500;
   font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.comfortaa-300 {
-  font-family: "Comfortaa", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
+main{
+  height: 100%;
 }
-
-.comfortaa-500 {
-  font-family: "Comfortaa", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.comfortaa-700 {
-  font-family: "Comfortaa", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
-
 .jumbotron,
 .card-body,
 .container,
 .site-header {
-  font-family: "Comfortaa", system-ui;
+  font-family: var(--font-family)
 }
 
 .jumbotron .display-4 {
@@ -91,15 +77,6 @@ body {
 
 .jumbotron .lead {
   font-size: 38px;
-}
-
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: 0.25rem;
 }
 
 .site-header a {
@@ -192,148 +169,6 @@ footer p {
   z-index: 1021;
   display: none;
 }
-
-main {
-  min-height: calc(100vh - 210px);
-}
-
-
-a.custom-card,
-a.custom-card:hover {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-.checked {
-  color: orange;
-}
-
-.navbar input[type="text"],
-.navbar input[type="password"] {
-  width: 100px; 
-  height: 20px; 
-  font-size: 8px; 
-  padding: 2px;
-  border-radius: 5px; 
-}
-
-
-.navbar button[type="submit"] {
-  height: 25px; 
-  font-size: 1rem; 
-  padding: 0px 10px; 
-  border-radius: 5px; 
-}
-.tarjeta-producto {
-  background-color: white;
-  cursor: pointer;
-}
-
-.tarjeta-producto img {
-  width: 30em;
-  border-radius: 3px;
-}
-
-.tarjeta-producto .precio {
-  font-weight: bold;
-  font-size: 1.2em;
-  text-align: left;
-  padding-left: 10px;
-}
-
-.tarjeta-producto .un {
-  font-size: 0.7em;
-  text-align: left;
-  padding-left: 10px;
-  background-color: rgb(224, 255, 245);
-  width: max-content;
-  font-weight: bold;
-  color: green;
-  border-radius: 3px;
-}
-
-.tarjeta-producto .descripcion {
-  text-align: left;
-  margin-left: 10px;
-}
-
-.tarjeta-producto .nombre {
-  text-align: left;
-  margin-left: 10px;
-}
-
-.producto {
-  border: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  transition: all .4s ease;
-  background-color: #fff;
-}
-
-.producto:hover {
-  transform: translateY(-5px) translateX(-5px);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.192);
-  z-index: 100;
-}
-
-.producto-detalles {
-  padding: 5%;
-}
-
-.pb-5.container {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
-}
-
-@media (max-width: 1024px) {
-  .producto {
-    display: block;
-    padding: 4%;
-  }
-
-  .producto img {
-    width: 100%;
-  }
-
-  .producto-detalles {
-    margin-top: 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .producto {
-    display: block;
-    padding: 4%;
-  }
-
-  .producto img {
-    width: 100%;
-  }
-
-    .producto img {
-      width: 100%;
-    }
-
-    .producto-detalles {
-      margin-top: 5%;
-    }
-}
-
-
-#filterButton {
-    margin-top: 32px;
-    max-width: 120px;
-}
-
-#resetFilters {
-    margin-left: 10px;
-    text-decoration: none;
-}
-
-.row.mb-4 {
-    display: flex;
-    align-items: self-end;
-    width: 65%;
+main{
+  height: 100%;
 }

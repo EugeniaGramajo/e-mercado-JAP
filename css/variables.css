@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 :root {
   --c1: #fa5758;
@@ -6,9 +6,12 @@
   --c3: #e8d7f1;
   --c4: #4a306d;
   --c5: #59c3c3;
-  --text-color: rgb(26, 26, 26);
+  --text-color: rgb(71, 71, 71);
   --background-color: #f4f4f4;
-  --font-family: "Comfortaa", system-ui;
+  --font-family:'Poppins', sans-serif;
+
+  --c1-hover:#ff7070;
+  
 }
 [data-theme="dark"] {
   --c1: #ff8989;
@@ -23,4 +26,9 @@
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.swal2-popup {
+    font-family: 'Poppins', sans-serif; /* Cambia 'Poppins' por la fuente que desees */
+    color: var(--text-color); /* Color del texto */
 }
