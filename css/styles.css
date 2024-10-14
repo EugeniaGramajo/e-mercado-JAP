@@ -1,5 +1,24 @@
+:root {
+  --c1: #fa5758;
+  --c2: #0d263c;
+  --c3: #e8d7f1;
+  --c4: #4a306d;
+  --c5: #59c3c3;
+  --text-color: rgb(26, 26, 26);
+  --background-color:#f4f4f4;
+}
+[data-theme="dark"] {
+  --c1: #ff8989; 
+  --c2: #cddc39;
+  --c3: #a78bc4; 
+  --c4: #b89cd1; 
+  --c5: #77e1e1;
+  --text-color: rgb(224, 224, 224);
+  --background-color: var(--c2);
+}
+
 body {
-  background-color: #f4f4f4;
+  background-color: var(--background-color);
   font-family: "Comfortaa", system-ui;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -193,131 +212,4 @@ footer p {
 
 main {
   min-height: calc(100vh - 210px);
-}
-
-a.custom-card,
-a.custom-card:hover {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-.checked {
-  color: orange;
-}
-
-.navbar input[type="text"],
-.navbar input[type="password"] {
-  width: 100px; 
-  height: 20px; 
-  font-size: 8px; 
-  padding: 2px;
-  border-radius: 5px; 
-}
-
-
-.navbar button[type="submit"] {
-  height: 25px; 
-  font-size: 1rem; 
-  padding: 0px 10px; 
-  border-radius: 5px; 
-}
-.tarjeta-producto {
-  background-color: white;
-  cursor: pointer;
-}
-
-.tarjeta-producto img {
-  width: 30em;
-  border-radius: 3px;
-}
-
-.tarjeta-producto .precio {
-  font-weight: bold;
-  font-size: 1.2em;
-  text-align: left;
-  padding-left: 10px;
-}
-
-.tarjeta-producto .un {
-  font-size: 0.7em;
-  text-align: left;
-  padding-left: 10px;
-  background-color: rgb(224, 255, 245);
-  width: max-content;
-  font-weight: bold;
-  color: green;
-  border-radius: 3px;
-}
-
-.tarjeta-producto .descripcion {
-  text-align: left;
-  margin-left: 10px;
-}
-
-.tarjeta-producto .nombre {
-  text-align: left;
-  margin-left: 10px;
-}
-
-.producto {
-  border: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-}
-
-.producto-detalles {
-  padding: 5%;
-}
-
-@media (max-width: 1024px) {
-  .producto {
-    display: block;
-    padding: 4%;
-  }
-
-  .producto img {
-    width: 100%;
-  }
-
-  .producto-detalles {
-    margin-top: 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .producto {
-    display: block;
-    padding: 4%;
-  }
-
-  .producto img {
-    width: 100%;
-  }
-
-    .producto img {
-      width: 100%;
-    }
-
-    .producto-detalles {
-      margin-top: 5%;
-    }
-}
-
-
-#filterButton {
-    margin-top: 32px;
-    max-width: 120px;
-}
-
-#resetFilters {
-    margin-left: 10px;
-    text-decoration: none;
-}
-
-.row.mb-4 {
-    display: flex;
-    align-items: self-end;
-    width: 65%;
 }
