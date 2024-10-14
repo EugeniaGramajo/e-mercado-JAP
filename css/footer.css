@@ -1,0 +1,7 @@
+@import url(variables.css);
+.footer {
+    background-color: var(--c1);
+    height: 30px;
+    max-width: 1200px;
+    
+}
