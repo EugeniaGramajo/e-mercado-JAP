@@ -1,17 +1,18 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .navBar {
   font-size: 15px;
   display: flex;
-  max-width: 1200px;
   justify-content: space-between;
   align-items: center;
   padding: 0px 15px;
-  height: 90px;
-  border-bottom: 2px solid black;
-  margin: auto;
+  height: 70px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 50 ;
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(255, 255, 255);
 }
 
 .navbar-section {
@@ -21,23 +22,36 @@
 
 .navbar-section a {
   text-decoration: none;
+  color: inherit;
+}
+
+.nav-Link {
+  text-decoration: none;
   color: black;
   padding: 0px 15px;
+  font-weight: 400;
+  letter-spacing: 2px;
   position: relative;
+  margin-left: 2rem;
+  font-size: 15px;
+  display: inline-block;
+  transition: all .3s ease;
 }
-.navbar-section a:hover {
-  color: #585858;
+
+.nav-Link:hover {
+  transform: scale(1.2);
 }
 
 .navbar-section .nav-Link::after {
   content: "";
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 1px;
   bottom: -5px;
-  left: 0;
+  left: 50%; 
+  transform: translateX(-50%); 
   background-color: #000;
-  transition: width 0.6s ease;
+  transition: width 0.4s ease;
 }
 
 .navbar-section .nav-Link:hover::after,
@@ -46,20 +60,38 @@
   width: 92%;
 }
 
+.login-button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  margin-left: 2rem; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.login-button:hover {
+  background-color: #ff3c4c;
+}
+
 .navbar-section span {
   font-size: 16px;
   font-weight: 400;
 }
 
 .navbar-section .logo img {
-  height: 80px;
-  width: 150px;
+  height: auto;
+  width: 9rem;
+  padding-top: 1rem;
 }
 
 /* Non-responsive layout */
 #nav-links {
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* Asegúrate de que esto esté presente */
 }
 
 #links {
@@ -81,103 +113,193 @@
   cursor: pointer;
 }
 
-#user-info {
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-}
-
-#user-info a {
-  margin-right: 10px;
-}
-
-/* Botón de Cerrar Sesión */
-#logOut {
-  border: none;
-  background-color: #ff6b6b;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-#logOut:hover {
-  background-color: #ff3c4c;
-}
-
 /* Botón de Inicio de Sesión */
 #loginButton {
   border: none;
-  background-color: #ffa502;
+  background-color: #ff6b6b;
   color: white;
   cursor: pointer;
   font-size: 15px;
   padding: 8px 15px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 #loginButton:hover {
-  background-color: #ff891c;
+  background-color: #ff3c4c;
 }
 
 /* Hamburguesa (hidden in non-responsive) */
 .hamburger {
   display: none;
 }
-.cart-menu {
-  position: fixed;
-  top: 0;
-  right: -400px;
-  width: 400px;
-  height: 100vh;
-  background-color: white;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: right 0.3s ease-in-out;
-  z-index: 1000;
-  padding: 20px;
-  overflow-y: auto;
-}
 
-.cart-menu.active {
-  right: 0;
-}
-
-.cart-menu h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-#cart-items {
-  margin-bottom: 20px;
-}
-
-#cart-total {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-#checkout-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
+.icono-login {
+  font-size: 35px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-#checkout-button:hover {
-  background-color: #45a049;
+/* aca va lo del dropdown */
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
 }
-/* Responsive styles */
+
+.user-icon-link {
+  display: inline-block;
+  padding: 10px;
+  color: #333;
+  font-size: 24px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  transition: all .3s ease;
+}
+
+.hover-navbar:hover {
+  transform: scale(1.02);
+  background-color: #ff6b6b;
+  border-radius: 5px;
+  box-shadow: 0 0 12px #ff6b6b;
+  color: #ffffff;
+}
+
+.hover-navbar:hover a,
+.hover-navbar:hover {
+  color: white;
+}
+
+.profile-item {
+  padding: 15px;
+  cursor: inherit;
+}
+
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.profile-image {
+  width: 90px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.profile-info h6 {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.mode-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mode-text {
+  font-size: 14px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.menu-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.menu-item ion-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.logout-item a {
+  color: #ff6b6b;
+}
+
+.logout-item {
+  display: flex; /* Usar flexbox para controlar la alineación */
+  justify-content: center; 
+  align-items: center; 
+}
+
 @media (max-width: 945px) {
+
   .navbar {
     font-size: 16px;
   }
@@ -192,7 +314,7 @@
     height: 100vh;
     width: 300px;
     background-color: white;
-    padding-top: 85px;
+    padding-top: 50px;
     transition: right 0.3s ease-in-out;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   }
@@ -206,8 +328,8 @@
     align-items: center;
   }
 
-  .navbar-section#nav-links a {
-    margin: 10px 0;
+  .navbar-section#nav-links .nav-Link {
+    margin: 15px 0;
   }
 
   .hamburger {
@@ -250,19 +372,88 @@
     margin-left: 0;
   }
 
-  #user-info {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    margin-bottom: 20px;
+  .icono-login {
+    margin: 0;
+    padding: 0;
   }
 
-  #user-info a {
-    margin-right: 0;
-    margin-bottom: 10px;
+  .icono-login:hover {
+    transform: scale(1);
   }
-  .cart-menu {
-    width: 100%;
-    right: -100%;
+
+  .dropdown-container {
+    display: contents;
+    position: relative;
+    justify-content: center;
+  }
+
+  .user-icon-link {
+    font-size: 35px; 
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    padding: 10px; 
+  }
+  
+  .dropdown-menu {
+    position: static; 
+    width: 100%;      
+    box-shadow: none; 
+    border-radius: 0; 
+    border: 0;
+  }
+
+  .dropdown-menu ul {
+    padding: 0;
+  }
+
+  .dropdown-menu li {
+    padding: 10px;
+    text-align: center; 
+  }
+
+  .login-button {
+    position: relative;
+    top: 15px;
+  }
+
+  .logout-item {
+    border: 1px solid #ff6b6b;
+    border-radius: 6px;
+  }
+
+  .profile-item {
+    display: flex;
+    flex-direction: column; /* Asegúrate de que los elementos se alineen verticalmente */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Asegura que el texto esté centrado */
+    padding: 10px; 
+  }
+
+  .profile-content {
+    display: flex;
+    flex-direction: column; /* Alinea imagen y texto en columna */
+    align-items: center; /* Centra imagen y texto */
+    text-align: center; /* Centra el texto */
+  }
+
+  .profile-image {
+    width: 90px; 
+    height: auto; 
+    border-radius: 50%; 
+    margin-bottom: 10px; 
+  }
+
+  .profile-info h4, .profile-info h6 {
+    margin: 0; 
+  }
+
+  .profile-link {
+    text-decoration: none;
+    color: #333; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
   }
 }
