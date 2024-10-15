@@ -1,0 +1,11 @@
+.custom-card {
+    transition: all .4s ease;
+}
+
+.custom-card:hover {
+    transform: scale(1.04) ;
+    z-index: 10;
+}
+
+
+
