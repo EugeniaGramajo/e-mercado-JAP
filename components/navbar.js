@@ -115,6 +115,33 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
+
+    /* DarkMode */
+
+      // Lógica del Dark Mode
+  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  const savedMode = localStorage.getItem("theme");
+
+  // Si el modo oscuro estaba activado previamente, aplicarlo
+  if (savedMode === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    darkModeToggle.checked = true;
+  }
+
+  // Cambiar entre modos al hacer clic en el toggle
+  darkModeToggle.addEventListener("change", () => {
+    if (darkModeToggle.checked) {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+    /*  */
+
+
   const navLinks = document.getElementById("nav-links");
   const hamburger = document.querySelector(".hamburger");
 

@@ -9,9 +9,11 @@
   padding: 0px 15px;
   height: 70px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 50 ;
-  background-color: rgb(255, 255, 255);
+  width: 100%;
+  background-color: var(--navbar);
 }
 
 .navbar-section {
@@ -34,12 +36,12 @@
   font-size: 15px;
   display: inline-block;
   transition: all .3s ease;
-  color: var(--c5);
+  color: var(--navbar-icon)
 }
 
 .nav-Link:hover {
   transform: scale(1.1);
-  color: var(--c5);
+  color: var(--navbar-icon);
 }
 
 .navbar-section .nav-Link::after {
@@ -50,9 +52,9 @@
   bottom: -5px;
   left: 50%; 
   transform: translateX(-50%); 
-  background-color: var(--c5);
+  background-color: var(--navbar-icon);
   transition: width 0.4s ease;
-  color: var(--c5);
+  color: var(--navbar-icon);
 }
 
 .navbar-section .nav-Link:hover::after,
