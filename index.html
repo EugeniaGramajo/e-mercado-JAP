@@ -10,17 +10,108 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/card-index.css" />
     <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    
+    <link rel="stylesheet" href="css/index.css" />
   </head>
 
   <body>
     <nav id="navbar" class="navBar"></nav>
     <main>
+      <div class="banner">
+        <div>
+          <h1>Bienvenido a NovaShop Uruguay</h1>
+          <p>Tu tienda en línea para todo lo que necesitas</p>
+          <section>
+            <div class="input-container">
+              <input placeholder="Buscar productos..." />
+              <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            </div>
+            <button class="button">
+              Explorar categorías
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </section>
+        </div>
+      </div>
+      <div class="categories">
+        <h2>Explora Nuestras Categorías</h2>
+      </div>
+      <div class="second-banner">
+        <h1>¿Por qué elegir NovaShop?</h1>
 
+        <div class="icons">
+          <section>
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <h3>Amplia Selección</h3>
+            <p>Miles de productos de todas las categorías</p>
+          </section>
+          <section>
+            <ion-icon name="airplane-outline"></ion-icon>
+            <h3>Envío Rápido</h3>
+            <p>Entrega a todo Uruguay en tiempo récord</p>
+          </section>
+          <section>
+            <ion-icon name="card-outline"></ion-icon>
+            <h3>Pago Seguro</h3>
+            <p>Múltiples opciones de pago seguro</p>
+          </section>
+        </div>
+      </div>
+      <div class="ofertas">
+        <h2>Ofertas Destacadas</h2>
+        <section class="ofertas-list">
+          <div class="product-card">
+            <img
+              src="https://i1.sndcdn.com/avatars-8zXkV8ACe3yad2qj-OgAarw-t240x240.jpg"
+            />
+            <section>
+              <h3 class="product-title">${producto}</h3>
+              <span>${precio}</span>
+              <button class="button">Añadir al Carrito</button>
+            </section>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://i1.sndcdn.com/avatars-8zXkV8ACe3yad2qj-OgAarw-t240x240.jpg"
+            />
+            <section>
+              <h3 class="product-title">${producto}</h3>
+              <span>${precio}</span>
+              <button class="button">Añadir al Carrito</button>
+            </section>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://i1.sndcdn.com/avatars-8zXkV8ACe3yad2qj-OgAarw-t240x240.jpg"
+            />
+            <section>
+              <h3 class="product-title">${producto}</h3>
+              <span>${precio}</span>
+              <button class="button">Añadir al Carrito</button>
+            </section>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://i1.sndcdn.com/avatars-8zXkV8ACe3yad2qj-OgAarw-t240x240.jpg"
+            />
+            <section>
+              <h3 class="product-title">${producto}</h3>
+              <span>${precio}</span>
+              <button class="button">Añadir al Carrito</button>
+            </section>
+          </div>
+        </section>
+      </div>
+      <div class="vendedores">
+        <h2>¿Listo para Vender?</h2>
+        <p>
+          Únete a nuestra comunidad de vendedores y llega a millones de
+          compradores
+        </p>
+        <button class="button">Comienza a vender</button>
+      </div>
     </main>
     <footer class="footer"></footer>
     <script src="js/bootstrap.bundle.min.js"></script>

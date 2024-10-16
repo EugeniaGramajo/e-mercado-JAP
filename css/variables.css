@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 :root {
   --c1: #fa5758;
@@ -7,11 +7,11 @@
   --c4: #4a306d;
   --c5: #59c3c3;
   --text-color: rgb(71, 71, 71);
+  --text-color-light: white;
   --background-color: #f4f4f4;
-  --font-family:'Poppins', sans-serif;
+  --font-family: "Poppins", sans-serif;
 
-  --c1-hover:#ff7070;
-  
+  --c1-hover: #ff7070;
 }
 [data-theme="dark"] {
   --c1: #ff8989;
@@ -20,6 +20,7 @@
   --c4: #b89cd1;
   --c5: #77e1e1;
   --text-color: rgb(224, 224, 224);
+  --text-color-light: var(--c2);
   --background-color: var(--c2);
 }
 
@@ -29,6 +30,6 @@ a {
 }
 
 .swal2-popup {
-    font-family: 'Poppins', sans-serif; /* Cambia 'Poppins' por la fuente que desees */
-    color: var(--text-color); /* Color del texto */
+  font-family: "Poppins", sans-serif; /* Cambia 'Poppins' por la fuente que desees */
+  color: var(--text-color); /* Color del texto */
 }
