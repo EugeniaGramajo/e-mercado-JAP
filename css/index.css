@@ -1,0 +1,188 @@
+@import url(variables.css);
+@import url(product-card.css);
+@import url(categoryIndex.css);
+.banner {
+  background-color: var(--c3);
+  padding: 4rem 0rem;
+  height: fit-content;
+  margin: auto;
+  text-align: center;
+}
+
+.banner h1 {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 15px 50px;
+}
+.banner span {
+  width: 100%;
+  max-width: 36rem;
+}
+.banner input {
+  padding: 0.5rem 1rem;
+  border: 2px solid rgb(203, 203, 203);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 36rem;
+  margin-bottom: 2rem;
+  caret-color: var(--c5);
+}
+.banner input:focus {
+  border: 2px solid var(--c5);
+  outline: none;
+}
+
+.banner ion-icon {
+  padding-left: 20px;
+}
+.banner p {
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.banner section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+.input-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 36rem;
+}
+
+.input-container input {
+  padding: 0.5rem 1rem;
+  padding-right: 2.5rem;
+  border: 2px solid rgb(203, 203, 203);
+  border-radius: 20px;
+  width: 100%;
+  margin-bottom: 2rem;
+  caret-color: var(--c5);
+}
+
+.input-container input:focus {
+  border: 2px solid var(--c5);
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 1.5rem;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.search-icon:hover {
+  color: var(--c5);
+}
+
+.categories,
+.ofertas {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 4rem 0px;
+}
+
+.categories h2,
+.ofertas h2 {
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.second-banner {
+  padding: 4rem 1px;
+  color: var(--text-color-light);
+  background-color: var(--c2);
+  text-align: center;
+}
+.second-banner .icons {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.second-banner h1 {
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.second-banner ion-icon {
+  color: var(--c5);
+  height: 4rem;
+  width: 4rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.second-banner h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+  margin: 0;
+}
+
+.vendedores {
+  background-color: var(--c5);
+  color: white;
+  padding: 5rem 0px;
+  text-align: center;
+}
+.vendedores h2 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.vendedores p {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.ofertas-list,
+.categories-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  padding: 0px 1rem;
+}
+@media (max-width: 500px) {
+  .ofertas-list,
+  .categories-list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+@media (min-width: 800px) {
+  .banner h1 {
+    font-size: 3.75rem;
+  }
+  .second-banner .icons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 950px) {
+  .ofertas section {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

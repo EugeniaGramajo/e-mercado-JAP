@@ -32,8 +32,8 @@ submit.addEventListener("click", async (e) => {
     console.log(JSON.parse(localStorage.getItem("user")))
 
     Swal.fire({
-      title: "Te has logueado correctamente!",
-      text: "¡Bienvenido de nuevo!",
+      title: "¡Bienvenido de nuevo!",
+      text: "Te has logueado correctamente!",
       icon: "success",
     }).then((result) => {
       if (result.isConfirmed) {

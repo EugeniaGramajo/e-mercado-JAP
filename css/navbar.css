@@ -1,23 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-* {
-  font-family: 'Poppins', sans-serif;
-}
+@import url(variables.css);
 .navBar {
+  font-family: var(--font-family);
+  color: var(--text-color);
   font-size: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 15px;
+
   height: 70px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 50 ;
-  background-color: rgb(255, 255, 255);
+  width: 100%;
+  background-color: var(--navbar);
 }
 
 .navbar-section {
   display: flex;
   align-items: center;
+  padding: 0px 25px;
 }
 
 .navbar-section a {
@@ -27,7 +29,6 @@
 
 .nav-Link {
   text-decoration: none;
-  color: black;
   padding: 0px 15px;
   font-weight: 400;
   letter-spacing: 2px;
@@ -36,10 +37,12 @@
   font-size: 15px;
   display: inline-block;
   transition: all .3s ease;
+  color: var(--navbar-icon)
 }
 
 .nav-Link:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  color: var(--navbar-icon);
 }
 
 .navbar-section .nav-Link::after {
@@ -50,18 +53,20 @@
   bottom: -5px;
   left: 50%; 
   transform: translateX(-50%); 
-  background-color: #000;
+  background-color: var(--navbar-icon);
   transition: width 0.4s ease;
+  color: var(--navbar-icon);
 }
 
 .navbar-section .nav-Link:hover::after,
 .navbar-section .nav-Link.active::after {
   margin: auto;
   width: 92%;
+  color: var(--c5);
 }
 
 .login-button {
-  background-color: #ff6b6b;
+  background-color: var(--c1);
   color: white;
   border: none;
   padding: 8px 20px;
@@ -73,7 +78,7 @@
 }
 
 .login-button:hover {
-  background-color: #ff3c4c;
+  background-color: var(--c1-hover);
 }
 
 .navbar-section span {
@@ -116,7 +121,7 @@
 /* Botón de Inicio de Sesión */
 #loginButton {
   border: none;
-  background-color: #ff6b6b;
+  background-color: var(--c1);
   color: white;
   cursor: pointer;
   font-size: 15px;
@@ -177,11 +182,10 @@
 }
 
 .hover-navbar:hover {
-  transform: scale(1.02);
-  background-color: #ff6b6b;
+  background-color: var(--c1);
   border-radius: 5px;
-  box-shadow: 0 0 12px #ff6b6b;
-  color: #ffffff;
+  box-shadow: 0 0 10px var(--c1);
+  color: var(--c3);
 }
 
 .hover-navbar:hover a,
@@ -250,7 +254,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--c3);
   transition: .4s;
   border-radius: 34px;
 }
@@ -268,7 +272,7 @@
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: var(--c5);
 }
 
 input:checked + .slider:before {
@@ -289,7 +293,7 @@ input:checked + .slider:before {
 }
 
 .logout-item a {
-  color: #ff6b6b;
+  color: var(--c1);
 }
 
 .logout-item {
@@ -418,7 +422,7 @@ input:checked + .slider:before {
   }
 
   .logout-item {
-    border: 1px solid #ff6b6b;
+    border: 1px solid var(--c1);
     border-radius: 6px;
   }
 
