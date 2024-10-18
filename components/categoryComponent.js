@@ -15,7 +15,8 @@ export const categoryComponent = (categoria) => {
 };
 
 export const categoryIndex = (category) => {
-  return `  <div class="category">
+  return `  
+  <div class="category" id="${category.id}">
     <img src="${category.imgSrc}">
     <section>
       <h3>${category?.name}</h3>

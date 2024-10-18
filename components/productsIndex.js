@@ -1,6 +1,6 @@
 export const productsIndex = (product)=>{
     return `
-              <div class="product-card">
+              <div class="product-card" id="${product.id}">
             <img
               src="${product.image}"
             />

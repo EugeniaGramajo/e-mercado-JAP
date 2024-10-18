@@ -15,6 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
         .join("");
 
       ofertasList.innerHTML = products;
+      const productElements = document.querySelectorAll(".product-card")
+      productElements.forEach(element => {
+        element.addEventListener("click",()=>{
+          localStorage.setItem('selectedProductId', element.id);  
+          window.location.href = 'product-info.html';  
+        })
+      });
     })
     .catch((error) => console.error(error));
 
@@ -31,6 +38,22 @@ document.addEventListener("DOMContentLoaded", function () {
         .join("");
 
       categoriesList.innerHTML = categories;
+
+      const categoryElements = document.querySelectorAll(".category"); 
+      categoryElements.forEach(element => {
+        element.addEventListener("click",()=>{
+          localStorage.setItem("catID", element.id);
+          window.location = "products.html"; 
+        })
+      });
     })
     .catch((error) => console.error(error));
+
+    /* EXPLORAR CATEGORIAS */
+    const explore = document.getElementById("explore")
+    explore.addEventListener("click", ()=>{
+      window.location.href = "categories.html"
+    }) 
+
+    /* SEARCH */
 });

@@ -19,7 +19,7 @@
 
 .container {
   max-width: 800px;
-  margin-top: 50px;
+  margin: 4rem auto;
   background-color: var(--container-background);
   color: var(--container-text);
   padding: 20px;
@@ -68,4 +68,13 @@
 
 .edit {
   margin: 0px;
+}
+
+#settings{
+  width: fit-content;
+  margin-top: 2rem;
+}
+#settings span{
+  margin: 0px 5px;
+  padding: 5px 5px;
 }

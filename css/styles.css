@@ -54,23 +54,6 @@ main{
   background-color: var(--c5-hover);
 }
 
-.button-c4 {
-  padding: 0.5rem 1rem;
-  background-color: var(--c4);
-  border: 0px;
-  border-radius: 4px;
-  color: white;
-  width: fit-content;
-  transition: background-color 0.3s;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  align-items: center;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.263);
-}
-.button-c4:hover {
-  background-color: var(--c3);
-}
 
 .jumbotron,
 .card-body,

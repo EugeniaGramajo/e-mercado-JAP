@@ -9,6 +9,8 @@
         background-color: var(--background-color); /* Color de fondo */
         color: var(--text-color);
         font-family: var(--font-family);
+        margin: auto;
+        font-family: var(--font-family);
       }
   
       /* Estilos para el contenedor de login */

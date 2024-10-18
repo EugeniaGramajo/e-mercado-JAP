@@ -1,3 +1,5 @@
+import { darkModeToggle } from "../js/darkMode.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const realNavBar = document.getElementById("navbar");
   const user = JSON.parse(localStorage.getItem("user")); // Verificamos si el usuario está iniciado
@@ -22,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="categories.html" class="nav-Link">Categorias</a>
         <a href="sell.html" class="nav-Link">Vender</a>
         <a href="about.html" class="nav-Link">About</a>
-        ${user ? `
+        ${
+          user
+            ? `
         <!-- menu desplegable -->
         <div class="dropdown-container">
   <a href="#" class="user-icon-link">
@@ -83,67 +87,49 @@ document.addEventListener("DOMContentLoaded", function () {
     </ul>
   </div>
 </div>
-        ` : `
+        `
+            : `
         <!-- Botón de Iniciar Sesión si el usuario no está logueado -->
         <buttton><a href="login.html" class="login-button" style="color: #fff">Iniciar Sesión</a></buttton>
-        `}
+        `
+        }
       </div>
     </div>`;
 
-    if (user) {
-      // Agregar evento de clic al enlace de cerrar sesión en el dropdown
-      document.getElementById("logoutLink").addEventListener("click", function(event) {
+  if (user) {
+    // Agregar evento de clic al enlace de cerrar sesión en el dropdown
+    document
+      .getElementById("logoutLink")
+      .addEventListener("click", function (event) {
         event.preventDefault(); // Previene la acción por defecto del enlace
         logOut(); // Llama a la función de cierre de sesión
       });
-  
-      // Mostrar/ocultar el menú desplegable al hacer clic en el ícono de usuario
-      const userIcon = document.getElementById("userIcon");
-      const dropdownMenu = document.getElementById("dropdownMenu");
-  
-      userIcon.addEventListener("click", function(event) {
-        event.preventDefault();
-        dropdownMenu.classList.toggle("show");
-      });
-  
-      // Cerrar el menú desplegable si se hace clic fuera de él
-      document.addEventListener("click", function(event) {
-        // Verifica si el clic fue fuera del contenedor del menú desplegable
-        if (!dropdownMenu.contains(event.target) && !userIcon.contains(event.target)) {
-          dropdownMenu.classList.remove("show");
-        }
-      });
-    }
 
+    // Mostrar/ocultar el menú desplegable al hacer clic en el ícono de usuario
+    const userIcon = document.getElementById("userIcon");
+    const dropdownMenu = document.getElementById("dropdownMenu");
 
-    /* DarkMode */
+    userIcon.addEventListener("click", function (event) {
+      event.preventDefault();
+      dropdownMenu.classList.toggle("show");
+    });
 
-      // Lógica del Dark Mode
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
-  const savedMode = localStorage.getItem("theme");
-
-  // Si el modo oscuro estaba activado previamente, aplicarlo
-  if (savedMode === "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
-    darkModeToggle.checked = true;
-
+    // Cerrar el menú desplegable si se hace clic fuera de él
+    document.addEventListener("click", function (event) {
+      // Verifica si el clic fue fuera del contenedor del menú desplegable
+      if (
+        !dropdownMenu.contains(event.target) &&
+        !userIcon.contains(event.target)
+      ) {
+        dropdownMenu.classList.remove("show");
+      }
+    });
   }
 
-  // Cambiar entre modos al hacer clic en el toggle
-  darkModeToggle.addEventListener("change", () => {
-    if (darkModeToggle.checked) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-          document.getElementById("logo").src = "img/NovaShop.png"
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-          document.getElementById("logo").src = "img/NovaShop(white).png"
-    }
-  });
+  /* DarkMode */
+  darkModeToggle();
 
-    /*  */
-
+  /*  */
 
   const navLinks = document.getElementById("nav-links");
   const hamburger = document.querySelector(".hamburger");
