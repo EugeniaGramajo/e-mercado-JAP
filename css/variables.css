@@ -11,9 +11,12 @@
   --background-color: #f4f4f4;
   --font-family:'Poppins', sans-serif;
   --navbar: white;
+  --footer: #4a306d ;
   --navbar-icon: #68e0e0;
   --c1-hover:#ff7070;
-  
+  --c5-hover:#5ddede;
+  --container-background:#f8f9fa;
+  --container-text: rgb(71, 71, 71)
 }
 [data-theme="dark"] {
   --c1: #fa5758;
@@ -23,9 +26,11 @@
   --c5: #59c3c3;
   --text-color: #e0e0e0;
   --text-color-light: #e0e0e0;
-  --background-color: #505050;
+  --background-color: #4f4f4f;
   --navbar:#1e1e1e;
-
+  --footer:#1e1e1e;
+  --container-background:rgb(58, 58, 58);
+  --container-text:white;
 }
 
 a {

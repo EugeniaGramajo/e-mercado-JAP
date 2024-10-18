@@ -1,82 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>eMercado - Editar Perfil</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,700,900"
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/profile-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/navbar.css" />
+  </head>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Editar Perfil</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/profile-styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/navbar.css">
-</head>
+  <body>
+    <nav id="navbar" class="navBar"></nav>
+    <main>
+      <div class="container">
+        <div class="profile-head">
+          <div class="profile-head-principal">
+            <h4>Editar perfil</h5>
+            <button type="button" class="button-c5 edit" id="editButton">
+              Editar
+            </button>
+          </div>
+        </div>
 
-<body>
-  <nav id="navbar" class="navBar"></nav>
-  <main>
-    <div class="container">
-      <div class="profile-head">
-        <div class="profile-head-principal">
-        <h5>Editar perfil</h5>
-        <button type="button" class="btn btn-info" id="editButton">Editar</button>
-        </div>
-        <div class="mb-4">
-          <img id="imgPreview" src="./img/img_perfil.png" alt="Imagen de perfil" class="img-usuario img-fluid rounded-circle">
-          <input type="file" id="profileImage" accept="image/*" class="form-control mt-3">
-        </div>
+        <form id="profileForm">
+
+          <div class="upload-image">
+            <img
+              id="imgPreview"
+              src=""
+              alt="Imagen de perfil"
+              class="img-usuario img-fluid rounded-circle"
+            />
+            <span>
+            <label>Cargar foto de perfil</label>
+            <input
+              type="file"
+              id="profileImage"
+              accept="image/*"
+              class="form-control"
+              disabled
+            /></span>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="primerNombre" class="form-label"
+                >Primer nombre*</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="primerNombre"
+                placeholder="Nombre"
+                disabled
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="segundoNombre" class="form-label"
+                >Segundo nombre</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="segundoNombre"
+                placeholder="Segundo nombre"
+                disabled
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="primerApellido" class="form-label"
+                >Primer apellido*</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="primerApellido"
+                placeholder="Apellido"
+                disabled
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="segundoApellido" class="form-label"
+                >Segundo apellido</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="segundoApellido"
+                placeholder="Segundo apellido"
+                disabled
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="email" class="form-label">Email*</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="email@example.com"
+                disabled
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="telefono" class="form-label">Teléfono</label>
+              <input
+                type="text"
+                class="form-control"
+                id="telefono"
+                placeholder="+598 99999999"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" class="button-c5" id="cancelButton">
+              Cancelar
+            </button>
+            <button type="submit" class="button-c1" id="saveButton">
+              Guardar cambios
+            </button>
+          </div>
+        </form>
       </div>
-      <form id="profileForm">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="primerNombre" class="form-label">Primer nombre*</label>
-            <input type="text" class="form-control" id="primerNombre" placeholder="Nombre" disabled>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="segundoNombre" class="form-label">Segundo nombre</label>
-            <input type="text" class="form-control" id="segundoNombre" placeholder="Segundo nombre" disabled>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="primerApellido" class="form-label">Primer apellido*</label>
-            <input type="text" class="form-control" id="primerApellido" placeholder="Apellido" disabled>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="segundoApellido" class="form-label">Segundo apellido</label>
-            <input type="text" class="form-control" id="segundoApellido" placeholder="Segundo apellido" disabled>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="email" class="form-label">Email*</label>
-            <input type="email" class="form-control" id="email" placeholder="email90@gmail.com" disabled>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="telefono" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" id="telefono" placeholder="+598 99999999" disabled>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <button type="button" class="btn btn-cancelar" onclick="redirectToHome()">Cancelar</button>
-          <button type="submit" class="btn btn-guardar" id="saveButton" disabled>Guardar cambios</button>
-        </div>
-      </form>
-    </div>
-  </main>
+    </main>
 
-  <!-- Footer -->
-  <footer class="text-muted mt-5">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer"></footer>
 
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
-  <script src="./components/navbar.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/my-profile.js"></script>
+    <script src="./components/navbar.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
