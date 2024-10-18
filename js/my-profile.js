@@ -59,6 +59,28 @@ document.addEventListener('DOMContentLoaded', function () {
       // Aquí se eliminó la redirección
     });
   
+    // -------------------- NUEVA FUNCIÓN PARA CARGAR IMAGEN --------------------
+    document.getElementById('profileImage').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const base64Image = e.target.result;
+
+                // Actualizar la vista previa de la imagen
+                document.getElementById('imgPreview').src = base64Image;
+
+                // Guardar la imagen en el localStorage
+                localStorage.setItem('profileImage', base64Image);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+    // --------------------------------------------------------------------------
+
     // Función para verificar si el usuario está logueado
     function checkLogin() {
       const userLoggedIn = localStorage.getItem('user'); // Verifica si el objeto 'user' existe
@@ -67,9 +89,26 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'login.html'; // Redirigir a la página de inicio de sesión
       }
     }
-  
+
     // Función para cargar los datos del perfil al cargar la página
     function loadProfileData() {
+
+        const user = JSON.parse(localStorage.getItem('user')); // Obtiene el objeto 'user' y lo parsea
+        if (user) {
+            document.getElementById('email').value = user.email; // Cargar el email del usuario
+            document.getElementById('primerNombre').value = user.name; // Cargar el primer nombre
+            document.getElementById('segundoNombre').value = localStorage.getItem('segundoNombre') || ""; // Cargar el segundo nombre
+            document.getElementById('primerApellido').value = user.lastName; // Cargar el primer apellido
+            document.getElementById('segundoApellido').value = localStorage.getItem('segundoApellido') || ""; // Cargar el segundo apellido
+            document.getElementById('telefono').value = localStorage.getItem('telefono') || ""; // Cargar el teléfono
+
+            // -------------------- NUEVA FUNCIÓN PARA CARGAR IMAGEN DESDE LOCALSTORAGE --------------------
+            const profileImage = localStorage.getItem('profileImage'); // Cargar la imagen de perfil desde localStorage
+            if (profileImage) {
+                document.getElementById('imgPreview').src = profileImage; // Actualizar la imagen en la vista previa
+            }
+            // ---------------------------------------------------------------------------------------------
+        }
       const user = JSON.parse(localStorage.getItem('user')); // Obtiene el objeto 'user' y lo parsea
       if (user) {
         document.getElementById('email').value = user.email; // Cargar el email del usuario
