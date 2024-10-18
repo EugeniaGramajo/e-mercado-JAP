@@ -1,5 +1,6 @@
 @import url(variables.css);
 @import url(product-card.css);
+@import url(categoryIndex.css);
 .banner {
   background-color: var(--c3);
   padding: 4rem 0rem;
@@ -111,6 +112,14 @@
   padding: 4rem 0px;
 }
 
+.categories h2,
+.ofertas h2 {
+  font-weight: 700 ;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 2rem;
+}
+
 .second-banner {
   padding: 4rem 1px;
   color: var(--text-color-light);
@@ -140,7 +149,6 @@
   margin: auto;
   margin-bottom: 1rem;
   display: block;
-  vertical-align: middle;
 }
 
 .second-banner h3 {
@@ -170,11 +178,18 @@
   margin-bottom: 2rem;
 }
 
-.ofertas-list {
+.ofertas-list,
+.categories-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   padding: 0px 1rem;
+}
+@media (max-width: 500px) {
+  .ofertas-list,
+.categories-list {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
 }
 @media (min-width: 800px) {
   .banner h1 {
