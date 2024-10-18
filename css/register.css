@@ -1,5 +1,6 @@
 main{
     margin: auto;
+    font-size: 16px;
 }
 .modal {
   background-color: white;
@@ -8,6 +9,10 @@ main{
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   width: 300px;
   margin: auto;
+
+}
+.password {
+    display: flex;
 }
 .modal h1 {
   font-size: 20px;
@@ -45,22 +50,6 @@ input:focus {
   height: 10px;
 }
 
-.modal .button {
-  background-color: #919191;
-  color: #ffffff;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-  font-weight: bold;
-}
-.modal .button:hover {
-  background-color: #4e4e4e;
-}
-.show {
-  display: block;
-}
 .error {
   color: red;
   text-align: left;

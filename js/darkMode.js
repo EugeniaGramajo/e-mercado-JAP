@@ -7,6 +7,7 @@ export const darkModeToggle = () => {
   if (savedMode === "dark") {
     document.documentElement.setAttribute("data-theme", "dark");
     darkModeToggle.checked = true;
+    document.getElementById("logo").src = "img/NovaShop.png";
   }
 
   darkModeToggle.addEventListener("change", () => {

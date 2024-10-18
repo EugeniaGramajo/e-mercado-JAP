@@ -1,3 +1,6 @@
+import { alertComponent } from "../components/alertComponent.js";
+import { darkModeToggle } from "./darkMode.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const editButton = document.getElementById("editButton");
   const saveButton = document.getElementById("saveButton");
@@ -8,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   checkLogin();
   loadProfileData();
-
+  darkModeToggle()
   editButton.addEventListener("click", () => {
     toggleInputs(true);
     editButton.style.display = "none"; // Oculta el botón "Editar"
@@ -31,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (validateForm()) {
       saveProfileData();
       toggleInputs(false);
-      alert("Datos guardados con éxito.");
+      alertComponent({icon:"success",redirect:"my-profile.html",title:"Datos actualizados"})
       editButton.style.display = "inline"; // Muestra el botón "Editar" después de guardar
       saveButton.style.display = "none"; // Deshabilita el botón "Guardar cambios"
       cancelButton.style.display = "none"; // Asegura que el texto sea "Cancelar"
@@ -104,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
       reader.readAsDataURL(file);
     }
   }
+
+
 });
 
 
