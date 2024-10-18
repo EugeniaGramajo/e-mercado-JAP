@@ -17,42 +17,45 @@
   <main>
     <div class="container">
       <div class="profile-head">
-        <h3>Editar perfil</h3>
+        <div class="profile-head-principal">
+        <h5>Editar perfil</h5>
+        <button type="button" class="btn btn-info" id="editButton">Editar</button>
+        </div>
         <div class="mb-4">
           <img id="imgPreview" src="./img/img_perfil.png" alt="Imagen de perfil" class="img-usuario img-fluid rounded-circle">
           <input type="file" id="profileImage" accept="image/*" class="form-control mt-3">
         </div>
       </div>
-      <form id="profileForm"> 
+      <form id="profileForm">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="primerNombre" class="form-label">Primer nombre*</label>
-            <input type="text" class="form-control" id="primerNombre" placeholder="Nombre">
+            <input type="text" class="form-control" id="primerNombre" placeholder="Nombre" disabled>
           </div>
           <div class="col-md-6 mb-3">
             <label for="segundoNombre" class="form-label">Segundo nombre</label>
-            <input type="text" class="form-control" id="segundoNombre" placeholder="Segundo nombre">
+            <input type="text" class="form-control" id="segundoNombre" placeholder="Segundo nombre" disabled>
           </div>
           <div class="col-md-6 mb-3">
             <label for="primerApellido" class="form-label">Primer apellido*</label>
-            <input type="text" class="form-control" id="primerApellido" placeholder="Apellido">
+            <input type="text" class="form-control" id="primerApellido" placeholder="Apellido" disabled>
           </div>
           <div class="col-md-6 mb-3">
             <label for="segundoApellido" class="form-label">Segundo apellido</label>
-            <input type="text" class="form-control" id="segundoApellido" placeholder="Segundo apellido">
+            <input type="text" class="form-control" id="segundoApellido" placeholder="Segundo apellido" disabled>
           </div>
           <div class="col-md-6 mb-3">
             <label for="email" class="form-label">Email*</label>
-            <input type="email" class="form-control" id="email" placeholder="email90@gmail.com">
+            <input type="email" class="form-control" id="email" placeholder="email90@gmail.com" disabled>
           </div>
           <div class="col-md-6 mb-3">
             <label for="telefono" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" id="telefono" placeholder="+598 99999999">
+            <input type="text" class="form-control" id="telefono" placeholder="+598 99999999" disabled>
           </div>
         </div>
         <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-cancelar" onclick="redirectToHome()">Cancelar</button>
-          <button type="submit" class="btn btn-guardar">Guardar cambios</button>
+          <button type="submit" class="btn btn-guardar" id="saveButton" disabled>Guardar cambios</button>
         </div>
       </form>
     </div>
