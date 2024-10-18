@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   realNavBar.innerHTML = `      
     <div class="navbar-section">
       <span class="logo">
-        <img alt="logo" src="img/NovaShop(white).png">
+        <img id="logo" alt="logo" src="img/NovaShop(white).png">
       </span>
     </div>
 
@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedMode === "dark") {
     document.documentElement.setAttribute("data-theme", "dark");
     darkModeToggle.checked = true;
+
   }
 
   // Cambiar entre modos al hacer clic en el toggle
@@ -133,9 +134,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (darkModeToggle.checked) {
       document.documentElement.setAttribute("data-theme", "dark");
       localStorage.setItem("theme", "dark");
+          document.getElementById("logo").src = "img/NovaShop.png"
     } else {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
+          document.getElementById("logo").src = "img/NovaShop(white).png"
     }
   });
 
