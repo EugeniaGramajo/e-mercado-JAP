@@ -12,7 +12,9 @@
         margin: auto;
         font-family: var(--font-family);
       }
-  
+      #resetPassword{
+        cursor: pointer;
+      }
       /* Estilos para el contenedor de login */
       .login-container {
         background-color: white;

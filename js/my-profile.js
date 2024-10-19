@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   checkLogin();
   loadProfileData();
-  darkModeToggle()
+  darkModeToggle();
   editButton.addEventListener("click", () => {
     toggleInputs(true);
     editButton.style.display = "none"; // Oculta el botón "Editar"
-    saveButton.style.display= "inline" // Habilita el botón "Guardar cambios"
-    cancelButton.style.display= "inline" ; // Cambia el texto de "Cancelar"
+    saveButton.style.display = "inline"; // Habilita el botón "Guardar cambios"
+    cancelButton.style.display = "inline"; // Cambia el texto de "Cancelar"
   });
 
   // Cancelar edición
@@ -29,19 +29,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Guardar cambios
-  document.getElementById("profileForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (validateForm()) {
-      saveProfileData();
-      toggleInputs(false);
-      alertComponent({icon:"success",redirect:"my-profile.html",title:"Datos actualizados"})
-      editButton.style.display = "inline"; // Muestra el botón "Editar" después de guardar
-      saveButton.style.display = "none"; // Deshabilita el botón "Guardar cambios"
-      cancelButton.style.display = "none"; // Asegura que el texto sea "Cancelar"
-    } else {
-      alert("Por favor, completa todos los campos obligatorios.");
-    }
-  });
+  document
+    .getElementById("profileForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (validateForm()) {
+        saveProfileData();
+        toggleInputs(false);
+        alertComponent({
+          icon: "success",
+          redirect: "my-profile.html",
+          title: "Datos actualizados",
+        });
+        editButton.style.display = "inline"; // Muestra el botón "Editar" después de guardar
+        saveButton.style.display = "none"; // Deshabilita el botón "Guardar cambios"
+        cancelButton.style.display = "none"; // Asegura que el texto sea "Cancelar"
+      } else {
+        alert("Por favor, completa todos los campos obligatorios.");
+      }
+    });
 
   // Cargar imagen de perfil
   profileImageInput.addEventListener("change", handleProfileImageChange);
@@ -53,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validateForm() {
     const primerNombre = document.getElementById("primerNombre").value.trim();
-    const primerApellido = document.getElementById("primerApellido").value.trim();
+    const primerApellido = document
+      .getElementById("primerApellido")
+      .value.trim();
     return primerNombre && primerApellido;
   }
 
@@ -61,8 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const user = JSON.parse(localStorage.getItem("user")) || {};
     const updatedUser = {
       ...user,
-      name: document.getElementById("primerNombre").value.trim()+" "+document.getElementById("segundoNombre").value.trim(),
-      lastName: document.getElementById("primerApellido").value.trim()+" "+document.getElementById("segundoApellido").value.trim(),
+      name:
+        document.getElementById("primerNombre").value.trim() +
+        " " +
+        document.getElementById("segundoNombre").value.trim(),
+      lastName:
+        document.getElementById("primerApellido").value.trim() +
+        " " +
+        document.getElementById("segundoApellido").value.trim(),
       phone: document.getElementById("telefono").value.trim(),
       email: user.email,
     };
@@ -107,8 +121,4 @@ document.addEventListener("DOMContentLoaded", function () {
       reader.readAsDataURL(file);
     }
   }
-
-
 });
-
-
