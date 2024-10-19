@@ -15,7 +15,7 @@
   --navbar-icon: #68e0e0;
   --c1-hover:#ff7070;
   --c5-hover:#5ddede;
-  --container-background:#f8f9fa;
+  --container-background:white;
   --container-text: rgb(71, 71, 71)
 }
 [data-theme="dark"] {

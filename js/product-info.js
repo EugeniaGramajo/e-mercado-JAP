@@ -32,11 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (selectedProductId) {
+    console.log(selectedProductId)
     fetch(
-      `https://japceibal.github.io/emercado-api/products/${selectedProductId}.json`
+      `https://jap-backend.onrender.com/products/info/${selectedProductId}`
     )
       .then((response) => response.json())
       .then((producto) => {
+        console.log(producto)
         document.getElementById("producto-n").textContent = producto.name;
 
         const productDetails = productDetailsCard({ producto });
@@ -55,7 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           });
         }
+        getData({relatedProducts: producto.relatedProducts})
       })
+
       .catch((error) => console.error("Error al cargar el producto:", error));
   } else {
     console.error("No se encontró el ID del producto en el localStorage");
@@ -63,5 +67,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 showComments();
-
-getData({ categoryID });
