@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div>
           <section>
             <img
-              src="img/NovaShop.png"
+              src="https://res.cloudinary.com/dvdiiqe8e/image/upload/v1729365148/JAP-API/NovaShop_cfccd9.png"
             />
           </section>
           <section class="info">

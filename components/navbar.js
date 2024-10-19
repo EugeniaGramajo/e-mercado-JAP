@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   realNavBar.innerHTML = `      
     <div class="navbar-section">
       <span class="logo">
-        <img id="logo" alt="logo" src="img/NovaShop(white).png">
+        <img id="logo" alt="logo" src="https://res.cloudinary.com/dvdiiqe8e/image/upload/v1729365151/JAP-API/NovaShop_white_bni6jm.png">
       </span>
     </div>
 
