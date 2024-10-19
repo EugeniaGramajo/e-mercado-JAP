@@ -1,79 +1,124 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Verificar si el usuario está logueado
-    checkLogin();
-  
-    // Manejar el evento de envío del formulario
-    document.getElementById('profileForm').addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-  
-        // Validar que los campos obligatorios estén llenos
-        const primerNombre = document.getElementById('primerNombre').value.trim();
-        const primerApellido = document.getElementById('primerApellido').value.trim();
-  
-        if (!primerNombre || !primerApellido) {
-            alert("Por favor, completa todos los campos obligatorios.");
-            return;
-        }
-  
-        // Obtener el objeto 'user' existente y actualizarlo
-        const user = JSON.parse(localStorage.getItem('user'));
-  
-        // Si el objeto 'user' no existe, se crea uno nuevo
-        const updatedUser = {
-            ...user,
-            primerNombre: primerNombre,
-            segundoNombre: document.getElementById('segundoNombre').value.trim(),
-            primerApellido: primerApellido,
-            segundoApellido: document.getElementById('segundoApellido').value.trim(),
-            telefono: document.getElementById('telefono').value.trim(),
-            email: user.email // Mantener el email original
-        };
-  
-        // Guardar el objeto 'user' actualizado en localStorage
-        localStorage.setItem('user', JSON.stringify(updatedUser));
-  
-        // Guardar los datos de perfil en localStorage si no existen
-        if (!localStorage.getItem('primerNombre')) {
-            localStorage.setItem('primerNombre', updatedUser.primerNombre);
-            localStorage.setItem('segundoNombre', updatedUser.segundoNombre || "");
-            localStorage.setItem('primerApellido', updatedUser.primerApellido);
-            localStorage.setItem('segundoApellido', updatedUser.segundoApellido || "");
-            localStorage.setItem('telefono', updatedUser.telefono || "");
-        }
-  
-        alert("Datos guardados con éxito.");
-        
-        // Redirigir a la página de inicio
-        redirectToHome();
+import { alertComponent } from "../components/alertComponent.js";
+import { darkModeToggle } from "./darkMode.js";
+
+document.addEventListener("DOMContentLoaded", function () {
+  const editButton = document.getElementById("editButton");
+  const saveButton = document.getElementById("saveButton");
+  const cancelButton = document.getElementById("cancelButton");
+  const inputs = document.querySelectorAll("#profileForm input");
+  const profileImageInput = document.getElementById("profileImage");
+  const imgPreview = document.getElementById("imgPreview");
+
+  checkLogin();
+  loadProfileData();
+  darkModeToggle();
+  editButton.addEventListener("click", () => {
+    toggleInputs(true);
+    editButton.style.display = "none"; // Oculta el botón "Editar"
+    saveButton.style.display = "inline"; // Habilita el botón "Guardar cambios"
+    cancelButton.style.display = "inline"; // Cambia el texto de "Cancelar"
+  });
+
+  // Cancelar edición
+  cancelButton.addEventListener("click", () => {
+    toggleInputs(false);
+    loadProfileData(); // Recargar datos originales
+    editButton.style.display = "inline"; // Muestra el botón "Editar"
+    saveButton.style.display = "none"; // Deshabilita el botón "Guardar cambios"
+    cancelButton.style.display = "none"; // Cambia el texto a "Cancelar"
+  });
+
+  // Guardar cambios
+  document
+    .getElementById("profileForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (validateForm()) {
+        saveProfileData();
+        toggleInputs(false);
+        alertComponent({
+          icon: "success",
+          redirect: "my-profile.html",
+          title: "Datos actualizados",
+        });
+        editButton.style.display = "inline"; // Muestra el botón "Editar" después de guardar
+        saveButton.style.display = "none"; // Deshabilita el botón "Guardar cambios"
+        cancelButton.style.display = "none"; // Asegura que el texto sea "Cancelar"
+      } else {
+        alert("Por favor, completa todos los campos obligatorios.");
+      }
     });
-  
-    // Función para verificar si el usuario está logueado
-    function checkLogin() {
-        const userLoggedIn = localStorage.getItem('user'); // Verifica si el objeto 'user' existe
-        if (!userLoggedIn) {
-            alert("Debes iniciar sesión para acceder al perfil.");
-            window.location.href = 'login.html'; // Redirigir a la página de inicio de sesión
-        }
+
+  // Cargar imagen de perfil
+  profileImageInput.addEventListener("change", handleProfileImageChange);
+
+  function toggleInputs(enable) {
+    inputs.forEach((input) => (input.disabled = !enable));
+    profileImageInput.disabled = !enable; // También habilita/deshabilita el input de imagen
+  }
+
+  function validateForm() {
+    const primerNombre = document.getElementById("primerNombre").value.trim();
+    const primerApellido = document
+      .getElementById("primerApellido")
+      .value.trim();
+    return primerNombre && primerApellido;
+  }
+
+  function saveProfileData() {
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+    const updatedUser = {
+      ...user,
+      name:
+        document.getElementById("primerNombre").value.trim() +
+        " " +
+        document.getElementById("segundoNombre").value.trim(),
+      lastName:
+        document.getElementById("primerApellido").value.trim() +
+        " " +
+        document.getElementById("segundoApellido").value.trim(),
+      phone: document.getElementById("telefono").value.trim(),
+      email: user.email,
+    };
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+  }
+
+  function loadProfileData() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const names = user.name ? user.name.split(" ") : ["", ""];
+    const lastnames = user.lastName ? user.lastName.split(" ") : ["", ""];
+    if (user) {
+      document.getElementById("primerNombre").value = names[0] || "";
+      document.getElementById("segundoNombre").value = names[1] || "";
+      document.getElementById("primerApellido").value = lastnames[0] || "";
+      document.getElementById("segundoApellido").value = lastnames[1] || "";
+      document.getElementById("telefono").value = user.phone || "";
+      document.getElementById("email").value = user.email || "";
+      document.getElementById("imgPreview").src = user.image || ""; // Imagen por defecto si no hay imagen
     }
-  
-    // Función para cargar los datos del perfil al cargar la página
-    function loadProfileData() {
-        const user = JSON.parse(localStorage.getItem('user')); // Obtiene el objeto 'user' y lo parsea
-        if (user) {
-            document.getElementById('email').value = user.email; // Cargar el email del usuario
-            document.getElementById('primerNombre').value = user.name; // Cargar el primer nombre
-            document.getElementById('segundoNombre').value = localStorage.getItem('segundoNombre') || ""; // Cargar el segundo nombre
-            document.getElementById('primerApellido').value = user.lastName; // Cargar el primer apellido
-            document.getElementById('segundoApellido').value = localStorage.getItem('segundoApellido') || ""; // Cargar el segundo apellido
-            document.getElementById('telefono').value = localStorage.getItem('telefono') || ""; // Cargar el teléfono
-        }
+  }
+
+  function checkLogin() {
+    if (!localStorage.getItem("user")) {
+      alert("Debes iniciar sesión para acceder al perfil.");
+      window.location.href = "login.html";
     }
-  
-    // Ejecutar las funciones al cargar la página
-    loadProfileData(); // Cargar los datos del perfil
+  }
+
+  function handleProfileImageChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const base64Image = e.target.result;
+        imgPreview.src = base64Image;
+
+        // Actualiza el objeto user con la imagen
+        const user = JSON.parse(localStorage.getItem("user")) || {};
+        user.image = base64Image; // Agrega la imagen al objeto user
+        localStorage.setItem("user", JSON.stringify(user)); // Guarda el objeto actualizado
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 });
-  
-// Función para redirigir a la página de inicio
-function redirectToHome() {
-    window.location.href = 'index.html'; // Redirige a index.html
-}

@@ -8,15 +8,12 @@
     />
     <title>eMercado - Todo lo que busques está aquí</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
-      rel="stylesheet"
-    />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/stylesLogin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
   </head>
 
   <body>
+    <nav id="navbar" class="navBar"></nav>
     <main class="mt-5">
       <div class="login-container">
         <h1>Bienvenido</h1>
@@ -30,24 +27,24 @@
           />
           <button type="submit" id="submit">LOG IN</button>
         </form>
-        <p class="link">¿No recuerdas tu contraseña?</p>
+        <p class="link" id="resetPassword">¿No recuerdas tu contraseña?</p>
         <a class="link" href="register form.html">Regístrate</a>
       </div>
     </main>
 
-    <footer class="text-muted">
-      <div class="container">
-        <p>
-          Este sitio forma parte de
-          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
-          >
-        </p>
-        <p>
-          <a href="#">Volver arriba</a>
-        </p>
-      </div>
-    </footer>
-    <script src="js/login.js"></script>
+    <footer class="footer"></footer>
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="./components/navbar.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

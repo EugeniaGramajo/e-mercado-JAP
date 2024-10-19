@@ -1,14 +1,20 @@
+@import url(variables.css);
     /* Estilos generales */
-    body {
+    main {
         display: flex;
         flex-direction: column;
         justify-content: center; /* Centrar horizontalmente */
         align-items: center; /* Centrar verticalmente */
-        height: 100vh; /* Altura completa de la ventana */
-        margin: 0; /* Sin márgenes */
-        background-color: #f8f9fa; /* Color de fondo */
+        height: calc(100vh - 200px); /* Altura completa de la ventana */
+        background-color: var(--background-color); /* Color de fondo */
+        color: var(--text-color);
+        font-family: var(--font-family);
+        margin: auto;
+        font-family: var(--font-family);
       }
-  
+      #resetPassword{
+        cursor: pointer;
+      }
       /* Estilos para el contenedor de login */
       .login-container {
         background-color: white;
@@ -20,7 +26,7 @@
       }
   
       input[type="text"], input[type="password"] {
-        width: 100%;
+        width: 80%;
         padding: 10px;
         margin: 10px 0;
         border: 1px solid #ccc;
@@ -34,28 +40,29 @@
     }
   
       button {
-        background-color: #b1b1b1; /* Color del botón */
+        background-color: var(--c1); /* Color del botón */
         color: white;
         padding: 10px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        width: 100%;
+        width: 80%;
       }
   
       button:hover {
-        background-color: #7e7e7e; /* Color al pasar el ratón */
+        background-color: var(--c1-hover); /* Color al pasar el ratón */
       }
   
       .link {
         margin-top: 10px;
         display: block;
-        color: #000000;
         text-decoration: none;
+        transition: color 0.2s ease, text-decoration 0.2s ease;
       }
   
       .link:hover {
         text-decoration: underline;
+        color: var(--c5);
       }
   
       footer {

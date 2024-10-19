@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+  --c1: #fa5758;
+  --c2: #0d263c;
+  --c3: #e8d7f1;
+  --c4: #4a306d;
+  --c5: #59c3c3;
+  --text-color: rgb(71, 71, 71);
+  --text-color-light: white;
+  --background-color: #f4f4f4;
+  --font-family:'Poppins', sans-serif;
+  --navbar: white;
+  --footer: #4a306d ;
+  --navbar-icon: #68e0e0;
+  --c1-hover:#ff7070;
+  --c5-hover:#5ddede;
+  --container-background:white;
+  --container-text: rgb(71, 71, 71)
+}
+[data-theme="dark"] {
+  --c1: #fa5758;
+  --c2: #1e1e1e;
+  --c3: #2d2d2d;
+  --c4: #505050;
+  --c5: #59c3c3;
+  --text-color: #e0e0e0;
+  --text-color-light: #e0e0e0;
+  --background-color: #4f4f4f;
+  --navbar:#1e1e1e;
+  --footer:#1e1e1e;
+  --container-background:rgb(58, 58, 58);
+  --container-text:white;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.swal2-popup {
+    font-family: 'Poppins', sans-serif; /* Cambia 'Poppins' por la fuente que desees */
+    color: var(--text-color); /* Color del texto */
+}

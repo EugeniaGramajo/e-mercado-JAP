@@ -1,4 +1,5 @@
-.profile-pic {
+@import url(variables.css);
+#imgPreview {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -7,7 +8,9 @@
 }
 
 .img-usuario {
-  height: 150px;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .profile-head {
@@ -16,28 +19,62 @@
 
 .container {
   max-width: 800px;
-  margin-top: 50px;
-  background-color: #f8f9fa;
+  margin: 4rem auto;
+  background-color: var(--container-background);
+  color: var(--container-text);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h3 {
-  color: #e63946;
+.profile-head-principal h4 {
+  color: var(--c1);
 }
 
 .form-control {
-  background-color: #f0f0f0;
+  background-color: #f2f2f2;
+}
+.form-control:disabled {
+  background-color: #c4c4c4;
 }
 
-.btn-cancelar {
-  background-color: transparent;
-  border: none;
-  color: #000;
+#cancelButton{
+  display: none;
+}
+#saveButton{
+  display: none;
 }
 
 .btn-guardar {
-  background-color: #e63946;
+  background-color: var(--c1);
   color: #fff;
+}
+
+.profile-head-principal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upload-image {
+  margin: 8px 0px;
+  display: flex;
+  flex-direction: row;
+}
+.upload-image span {
+  padding: 15px;
+}
+
+.edit {
+  margin: 0px;
+}
+
+#settings{
+  width: fit-content;
+  margin-top: 2rem;
+}
+#settings span{
+  margin: 0px 5px;
+  padding: 5px 5px;
 }
