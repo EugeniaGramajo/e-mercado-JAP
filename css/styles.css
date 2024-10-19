@@ -12,6 +12,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding-top: 70px;
+  height: calc(100vh - 70px);
+  margin: 0;
 }
 main{
   height: 100%;
