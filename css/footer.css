@@ -1,0 +1,121 @@
+@import url(variables.css);
+.container-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer {
+  background-color: var(--footer);
+  height: fit-content;
+  width: 100%;
+  padding: 0px;
+  color: white;
+  box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.363);
+  display: flex;
+  font-size: 14px;
+}
+.footer h3 {
+  padding: 1px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.17em;
+  font-weight: 400;
+  line-height: 3;
+}
+.footer div {
+  width: 100%;
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer img {
+  width: 200px;
+  height: 200px;
+}
+
+.info {
+  display: flex;
+}
+
+.info section {
+  padding: 15px;
+  margin: 20px;
+}
+.footer a {
+  position: relative;
+  text-decoration: none;
+  width: fit-content;
+}
+.footer a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--c1);
+  transition: width 0.4s ease;
+}
+.footer a:hover {
+  color: var(--c1);
+}
+.footer a:hover::after {
+  margin: auto;
+  width: 100%;
+}
+section p {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#categories-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+.legales {
+  background-color: var(--c3);
+  color: var(--text-color);
+  width: 100vw;
+}
+.redes{
+    font-size: 28px;
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+}
+
+@media (max-width: 770px) {
+.footer{
+    font-size: 12px;
+
+}
+.footer img {
+    display: none;
+}
+.footer div {
+    justify-content: center;
+    
+}
+
+.info section {
+    justify-content: center;
+}
+section p {
+    justify-content: center;
+    align-items: center;
+}
+
+
+}
+@media (max-width:550px)  {
+    .info{
+        flex-direction: column;
+    }
+}
