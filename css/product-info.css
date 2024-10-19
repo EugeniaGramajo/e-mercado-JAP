@@ -1,8 +1,10 @@
+@import url(variables.css);
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: white;
+    background-color: var(--container-background);
   }
 
   .container1 {
@@ -97,7 +99,7 @@
   
   .sold-quantity {
     display: inline-block;
-    background-color: #3BB779;
+    background-color: var(--c5);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -121,7 +123,7 @@
   }
   
   .buy-now {
-    background-color: #ff6b6b;
+    background-color: var(--c1);
     color: white;
     border: none;
     padding: 10px 70px;
@@ -131,7 +133,7 @@
   }
   
   .buy-now:hover {
-    background-color: #ff3c4c;
+    background-color: var(--c1-hover);
   }
   
   .favorite {
@@ -154,7 +156,7 @@
   .delivery-item {
     align-items: center;
     gap: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--container-text);
     padding: 8px;
   }
   
@@ -328,10 +330,12 @@
 .card {
   padding: 0;
   margin-right: 5px;
+  margin-top: 15px;
   width: 380px;
   cursor: pointer;
   transition: all .2s ease;
   transform-style: preserve-3d;
+  background-color: var(--background-color);
   z-index: 0; 
 }
 

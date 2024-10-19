@@ -1,8 +1,9 @@
 export const productDetailsCard = ({ producto }) => {
+
   return `
           <div class="image-container">
             <div class="thumbnail-container">
-              ${producto.images
+              ${producto?.image
                 .map(
                   (imgSrc, index) => `
                 <img src="${imgSrc}" class="thumbnail" data-index="${index}">
@@ -13,7 +14,7 @@ export const productDetailsCard = ({ producto }) => {
             
             <div id="carouselExampleFade" class="carousel slide carousel-fade">
               <div class="carousel-inner">
-                ${producto.images
+                ${producto?.image
                   .map(
                     (imgSrc, index) => `
                   <div class="carousel-item ${index === 0 ? "active" : ""}">
