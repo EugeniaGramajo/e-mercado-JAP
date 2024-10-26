@@ -32,13 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (selectedProductId) {
-    console.log(selectedProductId)
-    fetch(
-      `https://jap-backend.onrender.com/products/info/${selectedProductId}`
-    )
+    fetch(`https://jap-backend.onrender.com/products/info/${selectedProductId}`)
       .then((response) => response.json())
       .then((producto) => {
-        console.log(producto)
         document.getElementById("producto-n").textContent = producto.name;
 
         const productDetails = productDetailsCard({ producto });
@@ -57,9 +53,31 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           });
         }
-        getData({relatedProducts: producto.relatedProducts})
-      })
 
+        // botón de compra - guardar info en localStorage
+        const buyButton = document.getElementById("buy-now");
+        if (buyButton) {
+          buyButton.addEventListener("click", () => {
+            const product = {
+              id: producto.id,
+              name: producto.name,
+              description: producto.description,
+              price: producto.price,
+              image: producto.image,
+              quantity: 1,
+            };
+
+            // Guardar el producto en localStorage
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+
+            // Redirigir a cart.html
+            window.location.href = "cart.html";
+          });
+        }
+
+        // Mostrar productos relacionados
+        getData({ relatedProducts: producto.relatedProducts });
+      })
       .catch((error) => console.error("Error al cargar el producto:", error));
   } else {
     console.error("No se encontró el ID del producto en el localStorage");

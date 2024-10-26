@@ -48,7 +48,7 @@ export const productDetailsCard = ({ producto }) => {
             <p class="product-description">${producto.description}</p>
             <hr>
             <div class="action-buttons">
-              <button class="buy-now">Buy Now</button>
+              <button class="buy-now" id="buy-now">Buy Now</button>
               <button class="favorite"><img src="img/corazon.svg" alt="Favorite"></button>
             </div>
             <div class="delivery-info">
