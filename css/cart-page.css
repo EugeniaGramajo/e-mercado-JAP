@@ -59,4 +59,27 @@ main {
   .cuerpo-venta {
     margin-top: 8rem;
   }
+  
+  .cart-total {
+    border: 1px solid var(--border-content);
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.082);
+  }
 
+  .productos-style {
+    background-color: var(--navbar);
+    border-radius: 5px;
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.021);
+  }
+
+  .productos-style img {
+    border-radius: 3px;
+  }
+
+  .custom-border { 
+    border-radius: 5px;       
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+}
+.custom-border:focus {
+    border-color: var(--c5);     
+    box-shadow: 0 0 8px rgba(89, 195, 195, 0.5); 
+}
