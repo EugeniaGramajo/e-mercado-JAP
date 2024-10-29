@@ -9,63 +9,83 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart-page.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav id="navbar" class="navBar"></nav>
+
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="raiz"></div>
+
+  <div class="cuerpo-principal">
+      <div class="container text-center mt-5 mb-5 p-3 cuerpo-editable1">
+          <div class="row align-items-center">
+              <div class="col-sm-3">
+                  Producto
+              </div>
+              <div class="col-sm-3">
+                  Precio
+              </div>
+              <div class="col-sm-3">
+                  Cantidad
+              </div>
+              <div class="col-sm-3">
+                  Subtotal
+              </div>
+          </div>
+          <!-- Aquí puedes agregar tus productos -->
       </div>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+
+      <div class="container">
+        <div class="row cuerpo-venta">
+          <!-- Columna izquierda para el cupón -->
+          <div class="col-md-6 mb-2">
+            <div class="cupon gap-2">
+              <input type="text" placeholder="Código del cupón" class="input-cupon">
+              <button class="button-cupon">Aplicar cupón</button>
+            </div>
+          </div>
+          
+          <!-- Columna derecha para el total del carrito -->
+          <div class="col-md-6 mb-2">
+            <div class="cart-total border rounded p-3">
+              <h5 class="mb-3">Carrito Total</h5>
+              <div class="d-flex justify-content-between mb-2">
+                <span>Subtotal:</span>
+                <span>$1750</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span>Descuento:</span>
+                <span>0%</span>
+              </div>
+              <hr>
+              <div class="d-flex justify-content-between mb-3">
+                <span>Total:</span>
+                <span>$1750</span>
+              </div>
+              <div class="text-center">
+                <button class="button-cupon">Finalizar compra</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </div>
+
+
+  </main>
+
+  <footer class="footer"></footer>
+  <script src="js/cart-page.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script type="module" src="./components/navbar.js"></script>
   <script type="module" src="./components/footer.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
-
 </html>

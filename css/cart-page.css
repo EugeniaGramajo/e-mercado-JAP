@@ -1,0 +1,62 @@
+@import url(variables.css);
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: var(--font-family);
+}
+
+main {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+    color: white;
+}
+
+.raiz a {
+    text-decoration: inherit;
+}
+.raiz a:hover {
+    color: var(--c5);
+}
+
+.raiz span {
+    color:var();
+}
+
+.cuerpo-editable1 {
+    background-color: var(--navbar);
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.021);
+    border-radius: 5px;
+}
+
+.button-cupon {
+    background-color: var(--c1);
+    color: white;
+    border: none;
+    padding: .6rem 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button-cupon:hover {
+    background-color: var(--c1-hover);
+  }
+
+  .input-cupon {
+    outline: none;
+    padding: .6rem;
+    border-radius: 5px;
+    border: 1px solid rgba(99, 99, 99, 0.678);
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.021);
+  }
+
+  .cuerpo-venta {
+    margin-top: 8rem;
+  }
+
