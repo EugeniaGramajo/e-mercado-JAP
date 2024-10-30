@@ -1,3 +1,4 @@
+import { alertComponent } from "../components/alertComponent.js";
 import cartListComponent from "../components/cartListComponent.js";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -7,8 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalUsdElement = document.getElementById("total-usd");
   const totalUyuElement = document.getElementById("total-uyu");
   const discountElement = document.getElementById("descuento");
+  const applyDiscountButton = document.querySelector(".button-cupon");
+  const couponInput = document.querySelector(".input-cupon");
 
-  // Encabezado de la tabla de productos
+  let discount = 0; // Variable de descuento global
+
   containerProductos.innerHTML = `
         <div class="container text-center mt-5 mb-5 p-3 cuerpo-editable1">
             <div class="row align-items-center">
@@ -48,22 +52,46 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    const discount = 0; // Aquí podrías cambiarlo por la lógica de tu descuento
-    const totalUsd = subtotalUsd - discount;
-    const totalUyu = subtotalUyu - discount;
+    const totalUsd = subtotalUsd * (1 - discount);
+    const totalUyu = subtotalUyu * (1 - discount);
 
-    // Actualiza el DOM con los subtotales y totales por moneda
-    subtotalUsdElement.innerText = `USD ${subtotalUsd.toFixed(2)} `;
-    subtotalUyuElement.innerText = `UYU ${subtotalUyu.toFixed(2)} `;
-    totalUsdElement.innerText = `USD ${totalUsd.toFixed(2)} `;
-    totalUyuElement.innerText = ` UYU ${totalUyu.toFixed(2)} `;
+    subtotalUsdElement.innerText = `$${subtotalUsd.toFixed(2)} USD`;
+    subtotalUyuElement.innerText = `$${subtotalUyu.toFixed(2)} UYU`;
+    totalUsdElement.innerText = `$${totalUsd.toFixed(2)} USD`;
+    totalUyuElement.innerText = `$${totalUyu.toFixed(2)} UYU`;
     discountElement.innerText = `${(discount * 100).toFixed(0)}%`;
   };
 
-  const applyDiscountButton = document.querySelector(".button-cupon");
-  applyDiscountButton.addEventListener("click", () => {
-    updateTotals();
-  });
+  const applyDiscount = () => {
+    const couponCode = couponInput.value.trim().toUpperCase();
+
+    if (couponCode === "DISCOUNT10") {
+      discount = 0.1; // 10% de descuento
+      alertComponent({
+        title: "Cupón aplicado con éxito!",
+        icon: "success",
+        text: "Cupón de 10% aplicado",
+      });
+    } else if (couponCode === "DISCOUNT20") {
+      discount = 0.2; // 20% de descuento
+      alertComponent({
+        title: "Cupón aplicado con éxito!",
+        icon: "success",
+        text: "Cupón de 20% aplicado",
+      });
+    } else {
+      discount = 0; // Sin descuento
+      alertComponent({
+        title: "Cupón no aplicado",
+        icon: "error",
+        text: "Cupón no válido.",
+      });
+    }
+
+    updateTotals(); // Actualizar totales con el descuento aplicado
+  };
+
+  applyDiscountButton.addEventListener("click", applyDiscount);
 
   renderCart(selectedProducts);
   containerProductos.appendChild(productoRow);
