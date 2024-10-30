@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </label>
       </li>
       <li class="menu-item hover-navbar">
-        <a href="#" id="carrito">
+        <a href="cart.html" id="carrito">
           <ion-icon name="cart-outline"></ion-icon>
           <span>Mi Carrito</span>
         </a>

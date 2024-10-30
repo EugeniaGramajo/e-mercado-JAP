@@ -16,7 +16,8 @@
   --c1-hover:#ff7070;
   --c5-hover:#5ddede;
   --container-background:white;
-  --container-text: rgb(71, 71, 71)
+  --container-text: rgb(71, 71, 71);
+  --border-content: rgba(99, 99, 99, 0.678);
 }
 [data-theme="dark"] {
   --c1: #fa5758;
@@ -31,6 +32,7 @@
   --footer:#1e1e1e;
   --container-background:rgb(58, 58, 58);
   --container-text:white;
+  --border-content:rgb(212, 212, 212);
 }
 
 a {
