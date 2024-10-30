@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
               id: producto.id,
               name: producto.name,
               description: producto.description,
-              price: producto.price,
+              cost: producto.cost,
               image: producto.image,
               quantity: 1,
             };
