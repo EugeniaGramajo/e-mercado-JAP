@@ -2,7 +2,6 @@ import { commentCard } from "./commentCard.js";
 
 const currentDate = new Date();
 // Formatear la fecha como 'dd/mm/yyyy hh:mm'
-
 const formattedDate = currentDate.toLocaleString("es-ES", {
   day: "2-digit",
   month: "2-digit",
@@ -38,8 +37,10 @@ export const showComments = () => {
       commentContainer.appendChild(commentElement);
     });
   }
+  
+  // Cargar comentarios iniciales del JSON remoto
   fetch(
-    `https://japceibal.github.io/emercado-api/products_comments/${selectedProductId}.json`
+    `https://jap-backend.onrender.com/products-comments/${selectedProductId}.json`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -55,8 +56,6 @@ export const showComments = () => {
       });
     })
     .catch((error) => console.error(error));
-
-  // Mostrar los comentarios existentes para el producto actual
 
   // Manejar la selección de estrellas
   starRatingContainer.addEventListener("click", (e) => {
@@ -77,26 +76,41 @@ export const showComments = () => {
 
     const user = JSON.parse(localStorage.getItem("user"));
     const userName = user.name;
-
+    const userId = user.id; // Supone que el objeto usuario en localStorage tiene una propiedad `id`
+    
     const newComment = {
-      user: userName, // Cambiar esto con el nombre de usuario del backend
       description: commentInput.value,
       score: parseInt(commentForm.rating.value),
-      dateTime: formattedDate, // Agregar la fecha formateada
+      dateTime: new Date().toISOString(),
+      userId: userId,
+      productId: parseInt(selectedProductId),
     };
 
-    // Agregar el nuevo comentario al array de comentarios del producto actual
-    comments.push(newComment);
+    // Enviar el comentario al backend usando POST
+    fetch("https://jap-backend.onrender.com/products-comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComment),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          comments.push(newComment);
+          commentsByProduct[selectedProductId] = comments;
+          localStorage.setItem(
+            "commentsByProduct",
+            JSON.stringify(commentsByProduct)
+          );
 
-    // Guardar los comentarios actualizados en localStorage para el producto actual
-    commentsByProduct[selectedProductId] = comments;
-    localStorage.setItem(
-      "commentsByProduct",
-      JSON.stringify(commentsByProduct)
-    );
-
-    displayComments(); // Mostrar los comentarios actualizados
-    commentForm.reset(); // Reiniciar el formulario
+          displayComments(); // Mostrar los comentarios actualizados
+          commentForm.reset(); // Reiniciar el formulario
+        } else {
+          console.error("Error al enviar el comentario:", data.message);
+        }
+      })
+      .catch((error) => console.error("Error en la solicitud:", error));
   });
 
   // Inicializar mostrando los comentarios
