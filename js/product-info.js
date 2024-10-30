@@ -1,6 +1,7 @@
 import { showComments } from "../components/comments.js";
 import { productDetailsCard } from "../components/productDetailsCard.js";
 import { getData } from "../components/relatedProducts.js";
+import { alertComponent } from "../components/alertComponent.js"; // Importa el alertComponent
 
 const categoryID = localStorage.getItem("catID");
 
@@ -67,11 +68,20 @@ document.addEventListener("DOMContentLoaded", function () {
               quantity: 1,
             };
 
-            // Guardar el producto en localStorage
-            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            // Obtener el array de productos del carrito desde localStorage
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-            // Redirigir a cart.html
-            window.location.href = "cart.html";
+            // Agregar el nuevo producto al array de cartItems
+            cartItems.push(product);
+
+            // Guardar el array actualizado en localStorage
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+            alertComponent({
+              title: "Producto agregado",
+              text: "El producto se ha añadido al carrito.",
+              icon: "success"
+            });
           });
         }
 
