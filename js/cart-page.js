@@ -2,6 +2,11 @@ import cartListComponent from "../components/cartListComponent.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const containerProductos = document.querySelector(".productos");
+  const subtotalUsdElement = document.getElementById("subtotal-usd");
+  const subtotalUyuElement = document.getElementById("subtotal-uyu");
+  const totalUsdElement = document.getElementById("total-usd");
+  const totalUyuElement = document.getElementById("total-uyu");
+  const discountElement = document.getElementById("descuento");
 
   // Encabezado de la tabla de productos
   containerProductos.innerHTML = `
@@ -15,25 +20,51 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
 
-  // Función para agregar un nuevo producto
-  function agregarProducto(imagenUrl, nombre, precio, cantidadInicial) {
-    const subtotal = precio * cantidadInicial;
+  const productoRow = document.createElement("div");
+  productoRow.className = "container text-center mb-4 p-4 productos-style";
 
-    // Crear un nuevo elemento de producto con la misma estructura de "container" y "row"
-    const productoRow = document.createElement("div");
-    productoRow.className = "container text-center mb-4 p-4 productos-style"; // Clases para alinear y espaciado similar al encabezado
+  const selectedProducts = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    const selectedProducts = [localStorage.getItem("selectedProduct")];
+  const renderCart = (selectedProducts) => {
+    productoRow.innerHTML = "";
 
-    productoRow.innerHTML = selectedProducts.forEach((e) => {
-      return cartListComponent(e);
+    selectedProducts.forEach((product) => {
+      const productElement = cartListComponent(product, updateTotals);
+      productoRow.appendChild(productElement);
     });
 
-    // Agregar el producto como hijo de containerProductos
-    containerProductos.appendChild(productoRow);
-  }
+    updateTotals();
+  };
 
-  // Ejemplo de cómo usar la función agregarProducto
-  agregarProducto("https://via.placeholder.com/60", "Producto A", 10.0, 2);
-  agregarProducto("https://via.placeholder.com/60", "Producto B", 20.5, 1);
+  const updateTotals = () => {
+    let subtotalUsd = 0;
+    let subtotalUyu = 0;
+
+    selectedProducts.forEach((product) => {
+      if (product.currency === "USD") {
+        subtotalUsd += product.cost * product.quantity;
+      } else if (product.currency === "UYU") {
+        subtotalUyu += product.cost * product.quantity;
+      }
+    });
+
+    const discount = 0; // Aquí podrías cambiarlo por la lógica de tu descuento
+    const totalUsd = subtotalUsd - discount;
+    const totalUyu = subtotalUyu - discount;
+
+    // Actualiza el DOM con los subtotales y totales por moneda
+    subtotalUsdElement.innerText = `USD ${subtotalUsd.toFixed(2)} `;
+    subtotalUyuElement.innerText = `UYU ${subtotalUyu.toFixed(2)} `;
+    totalUsdElement.innerText = `USD ${totalUsd.toFixed(2)} `;
+    totalUyuElement.innerText = ` UYU ${totalUyu.toFixed(2)} `;
+    discountElement.innerText = `${(discount * 100).toFixed(0)}%`;
+  };
+
+  const applyDiscountButton = document.querySelector(".button-cupon");
+  applyDiscountButton.addEventListener("click", () => {
+    updateTotals();
+  });
+
+  renderCart(selectedProducts);
+  containerProductos.appendChild(productoRow);
 });
