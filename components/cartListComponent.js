@@ -2,7 +2,7 @@ const cartListComponent = (product, updateTotals) => {
   const subtotal = product.cost * product.quantity;
 
   const componentHTML = `
-    <div class="row align-items-center" data-product-id="${product.id}">
+    <div class="row align-items-center pt-4 pb-4" data-product-id="${product.id}">
         <div class="col-sm-3 d-flex align-items-center justify-content-center">
             <img src="${product.image[0]}" alt="${product.name}" class="img-fluid me-2" style="max-width: 60px; height: auto;">
             <span>${product.name}</span>
