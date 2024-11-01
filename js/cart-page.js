@@ -28,6 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const renderCart = (selectedProducts) => {
     productoRow.innerHTML = "";
 
+     // Verificación de carrito vacío
+     if (selectedProducts.length === 0) {
+      productoRow.innerHTML = `
+          <h1 class="text-center mt-5">El carrito está vacío</h1>
+      `;
+      containerProductos.appendChild(productoRow);
+      updateTotals(); // Actualiza los totales a cero
+      return;
+  }
+
     selectedProducts.forEach((product) => {
       const productElement = cartListComponent(product, updateTotals);
       productoRow.appendChild(productElement);
