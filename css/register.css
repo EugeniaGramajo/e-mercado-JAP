@@ -1,6 +1,7 @@
 main{
     margin: auto;
     font-size: 24px;
+    display: flex;
 }
 .submit{
   margin-top: 10px;

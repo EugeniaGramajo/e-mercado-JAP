@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   realNavBar.innerHTML = `      
     <div class="navbar-section">
       <span class="logo">
-        <img id="logo" alt="logo" src="img/NovaShop(white).png">
+        <img id="logo" alt="logo" src="https://res.cloudinary.com/dvdiiqe8e/image/upload/v1729365151/JAP-API/NovaShop_white_bni6jm.png">
       </span>
     </div>
 
@@ -54,9 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
         </label>
       </li>
       <li class="menu-item hover-navbar">
-        <a href="cart.html" id="carrito">
+        <a href="cart.html" id="carrito" class="d-flex align-items-center justify-content-between">
+        <span>
           <ion-icon name="cart-outline"></ion-icon>
-          <span>Mi Carrito</span>
+          Mi Carrito
+          </span>
+          <span id="cart-count" class="cart-count" ms-2>0</span>
         </a>
       </li>
       <li class="menu-item hover-navbar">
@@ -95,6 +98,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       </div>
     </div>`;
+
+    // Función para obtener y mostrar el conteo de productos en el carrito
+  const updateCartCount = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+    const cartCountElement = document.getElementById("cart-count");
+    
+    // Verifica que el elemento exista antes de intentar actualizarlo
+    if (cartCountElement) {
+      cartCountElement.innerText = totalItems;
+    }
+  };
+
+  // Llama a la función para actualizar el conteo cuando la página se carga
+  updateCartCount();
 
   if (user) {
     // Agregar evento de clic al enlace de cerrar sesión en el dropdown
