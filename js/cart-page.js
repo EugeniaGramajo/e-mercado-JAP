@@ -100,7 +100,10 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteButton.addEventListener("click", () => {
         // Filtrar el producto a eliminar y actualizar selectedProducts
         selectedProducts = selectedProducts.filter((item) => item.id !== product.id);
-        
+      
+        // Eliminar la cantidad del producto en localStorage
+        localStorage.removeItem(`product_${product.id}_quantity`);
+      
         // Actualizar localStorage y volver a renderizar el carrito
         localStorage.setItem("cartItems", JSON.stringify(selectedProducts));
         renderCart(); // Vuelve a renderizar para reflejar los cambios
