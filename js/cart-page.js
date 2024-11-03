@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="row align-items-center"> 
             <div class="col-4">Producto</div>
             <div class="col-2 ms-1">Precio</div>
-            <div class="col-3 ms-4">Cantidad</div>
-            <div class="col-1 ms-2">Subtotal</div>
+            <div class="col-3 ms-3">Cantidad</div>
+            <div class="col-1 ms-3">Subtotal</div>
             <div class="col-1">
                 <div class="dropdown">
                     <button class="button-cupon button-edit dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
