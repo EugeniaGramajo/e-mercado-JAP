@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="col-1">
                 <div class="dropdown">
                     <button class="button-cupon button-edit dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        UYU
+                        ${selectedCurrency}
                     </button>
                     <ul class="dropdown-menu edit-dropdown" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="#" data-value="UYU">UYU</a></li>
@@ -73,11 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const productoRow = document.createElement("div");
       productoRow.className = "row align-items-center productos-style mb-4 p-3";
 
-      // Crear un contenedor para el botón y el contenido del producto
       const productContainer = document.createElement("div");
       productContainer.className = "row w-100 align-items-center";
 
-      // Añadir botón de eliminación en su propia columna
       const deleteButtonCol = document.createElement("div");
       deleteButtonCol.className = "col-1";
       const deleteButton = document.createElement("button");
@@ -85,35 +83,27 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteButton.textContent = "X";
       deleteButtonCol.appendChild(deleteButton);
 
-      // Contenedor para el resto del contenido del producto
       const contentCol = document.createElement("div");
       contentCol.className = "col-11";
       const productElement = cartListComponent(product, updateTotals, selectedCurrency, exchangeRate);
       contentCol.appendChild(productElement);
 
-      // Ensamblar la estructura
       productContainer.appendChild(deleteButtonCol);
       productContainer.appendChild(contentCol);
       productoRow.appendChild(productContainer);
 
-      // Añadir evento de eliminación
       deleteButton.addEventListener("click", () => {
-        // Filtrar el producto a eliminar y actualizar selectedProducts
         selectedProducts = selectedProducts.filter((item) => item.id !== product.id);
-      
-        // Eliminar la cantidad del producto en localStorage
         localStorage.removeItem(`product_${product.id}_quantity`);
-      
-        // Actualizar localStorage y volver a renderizar el carrito
         localStorage.setItem("cartItems", JSON.stringify(selectedProducts));
-        renderCart(); // Vuelve a renderizar para reflejar los cambios
-        updateTotals(); // Actualiza los totales
+        renderCart(); 
+        updateTotals(); 
       });
 
       productoContent.appendChild(productoRow);
     });
 
-    updateTotals(); // Actualiza los totales después de añadir productos
+    updateTotals(); 
   };
 
   const updateTotals = () => {
@@ -123,9 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (product.currency === selectedCurrency) {
         subtotal += product.cost * product.quantity;
       } else if (product.currency === "UYU" && selectedCurrency === "USD") {
-        subtotal += (product.cost * product.quantity) * exchangeRate; // Convertir UYU a USD
+        subtotal += (product.cost * product.quantity) * exchangeRate;
       } else if (product.currency === "USD" && selectedCurrency === "UYU") {
-        subtotal += (product.cost * product.quantity) / exchangeRate; // Convertir USD a UYU
+        subtotal += (product.cost * product.quantity) / exchangeRate;
       }
     });
 

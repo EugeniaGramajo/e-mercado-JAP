@@ -19,6 +19,10 @@ const cartListComponent = (product, updateTotals) => {
       maximumFractionDigits: 2,
     });
 
+    // Modifica la visualización de UYU para que muestre UYU$
+    if (currency === "UYU") {
+      return `${formatter.format(amount).replace("UYU", "").trim()} UYU$`; // Cambia UYU a UYU$
+    }
     return formatter.format(amount);
   };
 
@@ -47,7 +51,7 @@ const cartListComponent = (product, updateTotals) => {
   // Crear un elemento para el componente
   const componentHTML = `
     <div class="row align-items-center pt-4 pb-4" data-product-id="${product.id}">
-        <div class="col-sm-3 d-flex align-items-center justify-content-center">
+        <div class="col-sm-3 d-flex align-items-center justify-content-start">
             <img src="${product.image[0]}" alt="${product.name}" class="img-fluid me-2" style="max-width: 60px; height: auto;">
             <span class="ms-3">${product.name}</span>
         </div>

@@ -85,10 +85,10 @@ main {
 }
 
 .eliminar-producto {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
   box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.021);
   background-color: var(--c1);
   transition: all .4s ease;
