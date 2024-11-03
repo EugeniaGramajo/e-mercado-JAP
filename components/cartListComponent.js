@@ -12,10 +12,14 @@ const cartListComponent = (product, updateTotals) => {
 
   // Función para formatear la moneda
   const formatCurrency = (amount, currency) => {
-    if (currency === "UYU") {
-      return `${currencyFormatter.format(amount).replace("UYU", "").trim()} UYU$`;
-    }
-    return currencyFormatter.format(amount);
+    const formatter = new Intl.NumberFormat("es-ES", {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
+    return formatter.format(amount);
   };
 
   // Calcular el subtotal en la moneda seleccionada
@@ -37,6 +41,9 @@ const cartListComponent = (product, updateTotals) => {
   const subtotalInSelectedCurrency = calculateSubtotal(initialQuantity);
   const formattedSubtotal = formatCurrency(subtotalInSelectedCurrency, selectedCurrency);
 
+  // Formatear el precio original del producto manteniendo su tipo de moneda
+  const formattedPrice = formatCurrency(product.cost, product.currency);
+
   // Crear un elemento para el componente
   const componentHTML = `
     <div class="row align-items-center pt-4 pb-4" data-product-id="${product.id}">
@@ -44,7 +51,7 @@ const cartListComponent = (product, updateTotals) => {
             <img src="${product.image[0]}" alt="${product.name}" class="img-fluid me-2" style="max-width: 60px; height: auto;">
             <span class="ms-3">${product.name}</span>
         </div>
-        <div class="col-sm-3 text-center">${product.currency} ${product.cost}</div> <!-- Precio original sin cambios -->
+        <div class="col-sm-3 text-center">${formattedPrice}</div> <!-- Precio original formateado manteniendo su moneda original -->
         <div class="col-sm-3 d-flex justify-content-center">
             <input type="number" class="form-control text-center p-1 custom-border" value="${initialQuantity}" min="1" style="width: 70px; height: 30px;">
         </div>
