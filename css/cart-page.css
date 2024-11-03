@@ -83,3 +83,33 @@ main {
     border-color: var(--c5);     
     box-shadow: 0 0 8px rgba(89, 195, 195, 0.5); 
 }
+
+.eliminar-producto {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.021);
+  background-color: var(--c1);
+  transition: all .4s ease;
+}
+
+.eliminar-producto:hover {
+  background-color: var(--c1-hover);
+  border: none;
+  scale: 1.1;
+  box-shadow: 0 0 6px 4px #fa575733;
+}
+
+.button-edit {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+}
+
+.edit-dropdown {
+  width: 5rem;
+  padding: 5px 0; 
+  font-size: 0.85rem; 
+}
