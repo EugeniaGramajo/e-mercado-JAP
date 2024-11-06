@@ -87,7 +87,7 @@
                   <!-- Aquí se mostrará el total con descuento aplicado -->
                 </div>
                 <div class="text-center mt-3">
-                  <button class="button-cupon mt-3" id="finalizar">
+                  <button class="button-cupon mt-3" id="finalizar" data-toggle="modal" data-target="#exampleModal">
                     Proceder al pago
                   </button>
                 </div>
@@ -96,15 +96,22 @@
           </div>
         </div>
       </div>
+      <div id="modal-container">
+        <!-- Aquí va el modal -->
+      </div>
     </main>
 
     <footer class="footer"></footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="module" src="js/cart-page.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/cart.js"></script>
     <script type="module" src="./components/navbar.js"></script>
     <script type="module" src="./components/footer.js"></script>
+    <script src="components/modal1carrito.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
