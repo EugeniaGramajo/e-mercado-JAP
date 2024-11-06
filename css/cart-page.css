@@ -113,3 +113,51 @@ main {
   padding: 5px 0; 
   font-size: 0.85rem; 
 }
+
+.cart-total {
+  background-color: var(--navbar);
+}
+
+.radio-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.radio-circle input[type="radio"] {
+  display: none; 
+}
+
+.radio-circle label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.radio-circle label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--navbar-icon);
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+}
+
+.radio-circle input[type="radio"]:checked + label::before {
+  background-color: transparent;
+}
+
+.radio-circle input[type="radio"]:checked + label::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: var(--navbar-icon);
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     let totalHtml = `
       <div class="d-flex justify-content-between mt-4 mb-3">
-        <span>Total con descuento:</span>
+        <span>Total:</span>
         <span>${formattedTotal}</span>
       </div>
     `;
