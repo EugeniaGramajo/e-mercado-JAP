@@ -9,11 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const applyDiscountButton = document.querySelector(".button-cupon");
   const couponInput = document.querySelector(".input-cupon");
 
-  let discount = 0; // Variable de descuento global
-  let selectedCurrency = "UYU"; // Moneda seleccionada por defecto
-
-  // Tasa de cambio (ajusta esto según la tasa real)
-  const exchangeRate = 0.025; // 1 UYU = 0.025 USD
+  let discount = 0;
+  let selectedCurrency = "UYU";
+  const exchangeRate = 0.025;
 
   containerProductos.innerHTML = `
     <div class="container text-center mt-5 mb-5 p-3 cuerpo-editable1">
@@ -45,10 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault(); 
       selectedCurrency = event.target.getAttribute("data-value"); 
       dropdownButton.innerText = selectedCurrency; 
-
       localStorage.setItem("selectedCurrency", selectedCurrency);
-      
-      renderCart(); // Volver a renderizar el carrito con la nueva moneda
+      renderCart();
     });
   });
 
@@ -154,6 +150,12 @@ document.addEventListener("DOMContentLoaded", function () {
     carritoTotalElement.innerHTML = subtotalHtml;
     totalConDescuentoElement.innerHTML = totalHtml;
     discountElement.innerText = `${(discount * 100).toFixed(0)}%`;
+
+    // Trigger an event to update the modal content
+    const event = new CustomEvent('updateCartTotals', { 
+      detail: { subtotal, total, selectedCurrency, discount } 
+    });
+    document.dispatchEvent(event);
   };
 
   const applyDiscount = () => {
@@ -188,4 +190,27 @@ document.addEventListener("DOMContentLoaded", function () {
   applyDiscountButton.addEventListener("click", applyDiscount);
 
   renderCart();
+
+  document.querySelectorAll('input[name="options"]').forEach(radio => {
+    radio.addEventListener('change', updateTotals);
+  });
+
+  // Event listener for opening the modal
+  const finalizarButton = document.getElementById("finalizar");
+  if (finalizarButton) {
+    finalizarButton.addEventListener("click", function() {
+      if (selectedProducts.length === 0) {
+        alertComponent({
+          title: "Carrito vacío",
+          icon: "error",
+          text: "No hay productos en el carrito.",
+        });
+        return;
+      }
+      // Dispatch event to open modal
+      document.dispatchEvent(new Event('openCheckoutModal'));
+    });
+  } else {
+    console.error("El botón 'finalizar' no se encontró en el DOM");
+  }
 });
