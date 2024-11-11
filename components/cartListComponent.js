@@ -91,3 +91,4 @@ const cartListComponent = (product, updateTotals) => {
 };
 
 export default cartListComponent;
+

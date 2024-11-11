@@ -13,6 +13,7 @@
   --navbar: white;
   --footer: #4a306d ;
   --navbar-icon: #68e0e0;
+  --close: black;
   --c1-hover:#ff7070;
   --c5-hover:#5ddede;
   --container-background:white;
@@ -30,6 +31,7 @@
   --background-color: #4f4f4f;
   --navbar:#1e1e1e;
   --footer:#1e1e1e;
+  --close: white;
   --container-background:rgb(58, 58, 58);
   --container-text:white;
   --border-content:rgb(212, 212, 212);
