@@ -1,5 +1,3 @@
-import { darkModeToggle } from "../js/darkMode.js";
-
 document.addEventListener("DOMContentLoaded", function () {
   const realNavBar = document.getElementById("navbar");
   const user = JSON.parse(localStorage.getItem("user")); // Verificamos si el usuario está iniciado
@@ -26,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="about.html" class="nav-Link">About</a>
         ${
           user
-            ? `
+            ? `        
         <!-- menu desplegable -->
         <div class="dropdown-container">
   <a href="#" class="user-icon-link">
@@ -91,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
         `
-            : `
+            : `        
         <!-- Botón de Iniciar Sesión si el usuario no está logueado -->
         <buttton><a href="login.html" class="login-button" style="color: #fff">Iniciar Sesión</a></buttton>
         `
@@ -99,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </div>`;
 
-    // Función para obtener y mostrar el conteo de productos en el carrito
+  // Función para obtener y mostrar el conteo de productos en el carrito
   const updateCartCount = () => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
@@ -127,9 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const userIcon = document.getElementById("userIcon");
     const dropdownMenu = document.getElementById("dropdownMenu");
 
+    // Aquí se ejecuta updateCartCount() al hacer clic en el icono del usuario
     userIcon.addEventListener("click", function (event) {
       event.preventDefault();
       dropdownMenu.classList.toggle("show");
+      updateCartCount(); // Llamada a la función cuando se abre el dropdown
     });
 
     // Cerrar el menú desplegable si se hace clic fuera de él
