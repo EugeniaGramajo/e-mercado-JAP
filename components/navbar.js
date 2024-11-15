@@ -1,3 +1,5 @@
+import { darkModeToggle } from "../js/darkMode.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const realNavBar = document.getElementById("navbar");
   const user = JSON.parse(localStorage.getItem("user")); // Verificamos si el usuario está iniciado
