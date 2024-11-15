@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
       productsHTML += `
         <div class="d-flex justify-content-between align-items-center mb-2">
           <div class="d-flex align-items-center">
-            <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+            <img src="${product.image[0]}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
             <span>${product.name} (x${product.quantity})</span>
           </div>
           <span>${formatCurrency(productSubtotal, selectedCurrency)}</span>

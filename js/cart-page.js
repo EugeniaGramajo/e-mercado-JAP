@@ -104,7 +104,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const updateTotals = () => {
     let subtotal = 0;
-
+    let shippingPercentage = 0;
+    const shippingOption = document.querySelector('input[name="options"]:checked');
+    if (shippingOption) {
+      switch (shippingOption.id) {
+        case 'standard':
+          shippingPercentage = 0.05; // 5%
+          break;
+        case 'express':
+          shippingPercentage = 0.07; // 7%
+          break;
+        case 'premium':
+          shippingPercentage = 0.15; // 15%
+          break;
+      }
+    }
     selectedProducts.forEach((product) => {
       if (product.currency === selectedCurrency) {
         subtotal += product.cost * product.quantity;
@@ -115,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    const total = subtotal * (1 - discount);
+    const total = subtotal * (1 - discount) * (1 + shippingPercentage);
 
     const currencyFormatter = new Intl.NumberFormat("es-ES", {
       style: "currency",
@@ -153,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Trigger an event to update the modal content
     const event = new CustomEvent('updateCartTotals', { 
-      detail: { subtotal, total, selectedCurrency, discount } 
+      detail: { subtotal, total:subtotal, selectedCurrency, discount } 
     });
     document.dispatchEvent(event);
   };
