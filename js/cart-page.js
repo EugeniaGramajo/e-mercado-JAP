@@ -195,10 +195,22 @@ document.addEventListener("DOMContentLoaded", function () {
     radio.addEventListener('change', updateTotals);
   });
 
-  // Event listener for opening the modal
+  // Evento para abrir el modal.
   const finalizarButton = document.getElementById("finalizar");
   if (finalizarButton) {
-    finalizarButton.addEventListener("click", function() {
+    finalizarButton.addEventListener("click", function (event) {
+      const formaEnvio = document.querySelector('input[name="options"]:checked');
+      
+      if (!formaEnvio) {
+        alertComponent({
+          title: "Falta seleccionar el tipo de envío",
+          icon: "error",
+          text: "Debes seleccionar una opción de envío antes de continuar.",
+        });
+        event.preventDefault(); // Evita que se abra el modal si no hay selección
+        return;
+      }
+
       if (selectedProducts.length === 0) {
         alertComponent({
           title: "Carrito vacío",
@@ -207,10 +219,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         return;
       }
-      // Dispatch event to open modal
+      // Disparar evento para abrir el modal.
       document.dispatchEvent(new Event('openCheckoutModal'));
+      
     });
   } else {
     console.error("El botón 'finalizar' no se encontró en el DOM");
   }
+
 });
+
+
+
+

@@ -98,21 +98,16 @@ document.addEventListener('DOMContentLoaded', function() {
               <strong>Total:</strong>
               <strong>${formatCurrency(finalTotal, selectedCurrency)}</strong>
             </div>
-            <div class="payment-methods mb-3">
-              <h6 class="mb-2">Método de pago</h6>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="paymentMethod" id="cardPayment" checked>
-                <label class="form-check-label" for="cardPayment">
-                  Tarjeta de crédito/débito
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="paymentMethod" id="bankPayment">
-                <label class="form-check-label" for="bankPayment">
-                  Cuenta bancaria
-                </label>
-              </div>
-            </div>
+            <h6 class="mb-2">Seleccione un método de pago</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="cardPayment" value="card">
+            <label class="form-check-label" for="cardPayment">Tarjeta de crédito/débito</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="bankPayment" value="bank">
+            <label class="form-check-label" for="bankPayment">Cuenta bancaria</label>
+          </div>
+            <button class="btn btn-secondary w-100 mb-3" id="addPaymentMethod">Ingresar Método de Pago</button>
             <button class="btn btn-primary w-100" id="finalizarCompra">Finalizar compra</button>
           </div>
         </div>
@@ -121,19 +116,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     modalBody.innerHTML = modalContent;
 
-    // Add event listener to the "Finalizar compra" button
+     // Configura botón para seleccionar método de pago
+    document.getElementById('addPaymentMethod').addEventListener('click', function(e) {
+      e.preventDefault();
+      const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+      if (!selectedPayment) {
+        alert('Seleccione un método de pago antes de continuar.');
+        return;
+      }
+      document.dispatchEvent(new Event('setupFinalizePurchase')); // Dispara el evento
+    });
+
+    // Configura el botón Finalizar Compra para validar los campos de facturación
     document.getElementById('finalizarCompra').addEventListener('click', function(e) {
       e.preventDefault();
-      if (validateForm()) {
-        // Process the purchase
-        alert('¡Compra finalizada con éxito!');
-        // Here you would typically send the data to your server
-        // Clear the cart and close the modal
-        localStorage.removeItem('cartItems');
-        bootstrap.Modal.getInstance(document.getElementById('dynamicModal')).hide();
-        // Refresh the cart display
-        document.dispatchEvent(new Event('cartUpdated'));
+
+      // Validar campos de facturación
+      const form = document.getElementById('shippingForm');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return; // Detener si algún campo es inválido
       }
+
+      if (!localStorage.getItem('paymentMethod')) {
+        alert('Por favor, ingrese un método de pago antes de finalizar la compra.');
+        return;
+      }
+
+      alert('¡Compra finalizada con éxito!');
+      
+      // Limpiar el carrito en tiempo real
+      localStorage.removeItem('cartItems');  // Elimina los productos del carrito
+      localStorage.removeItem('paymentMethod');  // Elimina el método de pago seleccionado
+
+      // Actualizar la vista del carrito en tiempo real
+      document.dispatchEvent(new Event('cartUpdated'));
+
+      // Cerrar el modal de detalles de facturación
+      bootstrap.Modal.getInstance(document.getElementById('dynamicModal')).hide();
     });
   }
 
@@ -164,16 +184,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }).format(amount);
   }
 
-  // Create the modal when the script loads
   createModal();
 
-  // Event listener for opening the modal
   document.addEventListener('openCheckoutModal', function() {
     const modal = new bootstrap.Modal(document.getElementById('dynamicModal'));
     modal.show();
   });
 
-  // Event listener for updating the modal content
   document.addEventListener('updateCartTotals', function(event) {
     const { subtotal, total, selectedCurrency: currency, discount: newDiscount } = event.detail;
     selectedCurrency = currency;
