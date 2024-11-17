@@ -9,11 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const applyDiscountButton = document.querySelector(".button-cupon");
   const couponInput = document.querySelector(".input-cupon");
 
-  let discount = 0; // Variable de descuento global
-  let selectedCurrency = "UYU"; // Moneda seleccionada por defecto
-
-  // Tasa de cambio (ajusta esto según la tasa real)
-  const exchangeRate = 0.025; // 1 UYU = 0.025 USD
+  let discount = 0;
+  let selectedCurrency = "UYU";
+  const exchangeRate = 0.025;
 
   containerProductos.innerHTML = `
     <div class="container text-center mt-5 mb-5 p-3 cuerpo-editable1">
@@ -45,10 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault(); 
       selectedCurrency = event.target.getAttribute("data-value"); 
       dropdownButton.innerText = selectedCurrency; 
-
       localStorage.setItem("selectedCurrency", selectedCurrency);
-      
-      renderCart(); // Volver a renderizar el carrito con la nueva moneda
+      renderCart();
     });
   });
 
@@ -108,7 +104,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const updateTotals = () => {
     let subtotal = 0;
-
+    let shippingPercentage = 0;
+    const shippingOption = document.querySelector('input[name="options"]:checked');
+    if (shippingOption) {
+      switch (shippingOption.id) {
+        case 'standard':
+          shippingPercentage = 0.05; // 5%
+          break;
+        case 'express':
+          shippingPercentage = 0.07; // 7%
+          break;
+        case 'premium':
+          shippingPercentage = 0.15; // 15%
+          break;
+      }
+    }
     selectedProducts.forEach((product) => {
       if (product.currency === selectedCurrency) {
         subtotal += product.cost * product.quantity;
@@ -119,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    const total = subtotal * (1 - discount);
+    const total = subtotal * (1 - discount) * (1 + shippingPercentage);
 
     const currencyFormatter = new Intl.NumberFormat("es-ES", {
       style: "currency",
@@ -146,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     let totalHtml = `
       <div class="d-flex justify-content-between mt-4 mb-3">
-        <span>Total con descuento:</span>
+        <span>Total:</span>
         <span>${formattedTotal}</span>
       </div>
     `;
@@ -154,6 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
     carritoTotalElement.innerHTML = subtotalHtml;
     totalConDescuentoElement.innerHTML = totalHtml;
     discountElement.innerText = `${(discount * 100).toFixed(0)}%`;
+
+    // Trigger an event to update the modal content
+    const event = new CustomEvent('updateCartTotals', { 
+      detail: { subtotal, total:subtotal, selectedCurrency, discount } 
+    });
+    document.dispatchEvent(event);
   };
 
   const applyDiscount = () => {
@@ -188,4 +204,45 @@ document.addEventListener("DOMContentLoaded", function () {
   applyDiscountButton.addEventListener("click", applyDiscount);
 
   renderCart();
+
+  document.querySelectorAll('input[name="options"]').forEach(radio => {
+    radio.addEventListener('change', updateTotals);
+  });
+
+  // Evento para abrir el modal.
+  const finalizarButton = document.getElementById("finalizar");
+  if (finalizarButton) {
+    finalizarButton.addEventListener("click", function (event) {
+      const formaEnvio = document.querySelector('input[name="options"]:checked');
+      
+      if (!formaEnvio) {
+        alertComponent({
+          title: "Falta seleccionar el tipo de envío",
+          icon: "error",
+          text: "Debes seleccionar una opción de envío antes de continuar.",
+        });
+        event.preventDefault(); // Evita que se abra el modal si no hay selección
+        return;
+      }
+
+      if (selectedProducts.length === 0) {
+        alertComponent({
+          title: "Carrito vacío",
+          icon: "error",
+          text: "No hay productos en el carrito.",
+        });
+        return;
+      }
+      // Disparar evento para abrir el modal.
+      document.dispatchEvent(new Event('openCheckoutModal'));
+      
+    });
+  } else {
+    console.error("El botón 'finalizar' no se encontró en el DOM");
+  }
+
 });
+
+
+
+

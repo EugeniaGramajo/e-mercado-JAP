@@ -74,10 +74,13 @@ const cartListComponent = (product, updateTotals) => {
 
   input.addEventListener("input", (event) => {
     const newQuantity = parseInt(event.target.value) || 1;
-    product.quantity = newQuantity;
 
-    // Guardar la nueva cantidad en localStorage
-    localStorage.setItem(`product_${product.id}_quantity`, newQuantity);
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const index = cartItems.findIndex((item) => item.id === product.id);
+    if (index >= 0) {
+      cartItems[index].quantity = newQuantity;
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
 
     // Recalcular subtotal en la moneda seleccionada
     const newSubtotalInSelectedCurrency = calculateSubtotal(newQuantity);
@@ -91,3 +94,4 @@ const cartListComponent = (product, updateTotals) => {
 };
 
 export default cartListComponent;
+
